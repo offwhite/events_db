@@ -23,7 +23,13 @@ ActiveRecord::Schema.define(version: 20190306131747) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "event", force: :cascade do |t|
+  create_table "event_types", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
     t.text "name"
     t.date "date"
     t.bigint "event_type_id"
@@ -32,59 +38,53 @@ ActiveRecord::Schema.define(version: 20190306131747) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_type_id"], name: "index_event_on_event_type_id"
-    t.index ["tour_id"], name: "index_event_on_tour_id"
-    t.index ["user_id"], name: "index_event_on_user_id"
-    t.index ["venue_id"], name: "index_event_on_venue_id"
+    t.index ["event_type_id"], name: "index_events_on_event_type_id"
+    t.index ["tour_id"], name: "index_events_on_tour_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+    t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 
-  create_table "event_type", force: :cascade do |t|
-    t.text "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "profile", force: :cascade do |t|
+  create_table "profiles", force: :cascade do |t|
     t.text "name"
     t.text "biography"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_profile_on_user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
-  create_table "role", force: :cascade do |t|
-    t.bigint "profile_id"
-    t.bigint "event_id"
-    t.bigint "role_type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_role_on_event_id"
-    t.index ["profile_id"], name: "index_role_on_profile_id"
-    t.index ["role_type_id"], name: "index_role_on_role_type_id"
-  end
-
-  create_table "role_type", force: :cascade do |t|
+  create_table "role_types", force: :cascade do |t|
     t.text "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tour", force: :cascade do |t|
+  create_table "roles", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.bigint "event_id"
+    t.bigint "role_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_roles_on_event_id"
+    t.index ["profile_id"], name: "index_roles_on_profile_id"
+    t.index ["role_type_id"], name: "index_roles_on_role_type_id"
+  end
+
+  create_table "tour_types", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tours", force: :cascade do |t|
     t.text "name"
     t.bigint "tour_type_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tour_type_id"], name: "index_tour_on_tour_type_id"
-    t.index ["user_id"], name: "index_tour_on_user_id"
-  end
-
-  create_table "tour_type", force: :cascade do |t|
-    t.text "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["tour_type_id"], name: "index_tours_on_tour_type_id"
+    t.index ["user_id"], name: "index_tours_on_user_id"
   end
 
   create_table "towns", force: :cascade do |t|

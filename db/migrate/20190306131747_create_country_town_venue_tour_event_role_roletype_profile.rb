@@ -49,19 +49,19 @@ class CreateCountryTownVenueTourEventRoleRoletypeProfile < ActiveRecord::Migrati
       t.timestamps
     end
 
-    create_table :tour do |t|
+    create_table :tours do |t|
       t.text :name
       t.belongs_to :tour_type
       t.belongs_to :user
       t.timestamps
     end
 
-    create_table :tour_type do |t|
+    create_table :tour_types do |t|
       t.text :name
       t.timestamps
     end
 
-    create_table :event do |t|
+    create_table :events do |t|
       t.text :name
       t.date :date
       t.belongs_to :event_type
@@ -71,25 +71,25 @@ class CreateCountryTownVenueTourEventRoleRoletypeProfile < ActiveRecord::Migrati
       t.timestamps
     end
 
-    create_table :event_type do |t|
+    create_table :event_types do |t|
       t.text :name
       t.timestamps
     end
 
-    create_table :role do |t|
+    create_table :roles do |t|
       t.belongs_to :profile
       t.belongs_to :event
       t.belongs_to :role_type
       t.timestamps
     end
 
-    create_table :role_type do |t|
+    create_table :role_types do |t|
       t.text :name
       t.text :description
       t.timestamps
     end
 
-    create_table :profile do |t|
+    create_table :profiles do |t|
       t.text :name
       t.text :biography
       t.belongs_to :user, null: true
