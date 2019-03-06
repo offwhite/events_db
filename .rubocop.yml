@@ -1,0 +1,45 @@
+AllCops:
+  TargetRubyVersion: 2.4
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'config/initializers/**/*'
+    - 'config/application.rb'
+    - 'config/puma.rb'
+    - 'Gemfile'
+    - 'config/environments/**/*'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
+    - 'spec/test_helper.rb'
+
+Style/Documentation:
+  Enabled: false
+  # Will re-enable for models and use_cases when the other warnings are fixed
+  #
+  # Include:
+  #   - 'app/models/**/*'
+  #   - 'app/use_cases/**/*'
+
+Style/SpaceBeforeFirstArg:
+  Exclude:
+    - 'spec/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/VariableNumber:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 80
+
+Style/PredicateName:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
