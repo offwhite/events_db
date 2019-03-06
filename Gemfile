@@ -42,6 +42,8 @@ gem 'sidekiq-cron'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'annotate', '~> 2.7.1'
+
   gem 'pry-rails'
 
   gem 'dotenv-rails', '~> 2.2.1'
