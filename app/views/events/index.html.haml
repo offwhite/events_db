@@ -1,6 +1,8 @@
-%h1
-  Events Index
+- content_for :page_title do
+  Events DB
 
 - @events.each do |event|
   .div
     = event.title
+  .div
+    = event.venue.title

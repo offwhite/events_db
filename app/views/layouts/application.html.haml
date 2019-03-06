@@ -10,11 +10,11 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body{class: Rails.env.development? ? 'development' : 'production'}
-    = render partial: 'layouts/title_bar'
-    %p.notice{title: 'Dismiss'}
-      = notice
-    %p.alert{title: 'Dismiss'}
-      = alert
-    .scroll-to-top
-    .page-content
-      = yield
+    .spring
+      = render partial: 'layouts/title_bar'
+      %p.notice{title: 'Dismiss'}
+        = notice
+      %p.alert{title: 'Dismiss'}
+        = alert
+      .page-content
+        = yield

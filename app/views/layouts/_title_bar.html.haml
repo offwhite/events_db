@@ -1,1 +1,3 @@
-Title bar
+.title-bar
+  %h1
+    = link_to yield(:page_title).presence || "Events DB", root_path
