@@ -33,6 +33,8 @@ gem 'devise'
 gem 'sidekiq'
 
 gem 'sidekiq-cron'
+
+gem 'simple_form', '~> 3.5.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

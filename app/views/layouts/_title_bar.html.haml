@@ -1,3 +1,10 @@
 .title-bar
-  %h1
-    = link_to yield(:page_title).presence || "Events DB", root_path
+  .title
+    %h1
+      = link_to "Events Db", root_path
+    %h2
+      Music, theatre, festivals and events artists and crew
+  .search-form
+    = simple_form_for(:search, url: search_results_path, method: :post) do |f|
+      = f.input :event_query, as: :string, label: false, placeholder: 'Search events, tours or venues'
+      = f.submit 'Go', label: false, class: 'button green-btn'
