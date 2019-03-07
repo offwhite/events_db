@@ -8,3 +8,11 @@
     = simple_form_for(:search, url: search_results_path, method: :post) do |f|
       = f.input :event_query, as: :string, label: false, placeholder: 'Search events, tours or venues'
       = f.submit 'Go', label: false, class: 'button green-btn'
+  .sub-menu
+    %ul
+      - if current_user.nil?
+        %li
+          = link_to "Sign in", new_user_session_path
+      - else
+        %li
+          = link_to "Sign out", destroy_user_session_path, method: :delete

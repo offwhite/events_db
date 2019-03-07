@@ -5,8 +5,14 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :roles
 
-  def title
-    name.titleize
+  delegate :town, to: :venue
+
+  def venue_title
+    venue.title
+  end
+
+  def town_title
+    town.title
   end
 end
 

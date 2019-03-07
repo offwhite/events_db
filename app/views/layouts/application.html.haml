@@ -12,9 +12,11 @@
   %body{class: Rails.env.development? ? 'development' : 'production'}
     .spring
       = render partial: 'layouts/title_bar'
-      %p.notice{title: 'Dismiss'}
-        = notice
-      %p.alert{title: 'Dismiss'}
-        = alert
+      - if notice.present?
+        %p.notice{title: 'Dismiss'}
+          = notice
+      - if alert.present?
+        %p.alert{title: 'Dismiss'}
+          = alert
       .page-content
         = yield

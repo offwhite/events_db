@@ -1,13 +1,13 @@
 @import '_mixins';
 
 .title-bar{
+  float: left;
   width: 100%;
-  height: 100px;
   background: $title-bar-bg;
   position: relative;
   box-shadow: 0 0 10px 2px rgba(0,0,0,0.2);
   box-sizing: border-box;
-  padding: 30px;
+  padding: 40px 20px 0 20px;
 
   .title{
     float: left;
@@ -66,44 +66,33 @@
       background: $lime-cta;
       color: $text-color;
     }
+  }
 
-    ::-webkit-input-placeholder {
-      opacity: 0.5;
-      font-size: 18px;
-      font-weight: 100;
-      color: #000000;
-      -webkit-transition: all 0.35s ease-in-out;
-      transition: all 0.35s ease-in-out;
-    }
-    :-moz-placeholder {
-      opacity: 0.5;
-      font-size: 18px;
-      font-weight: 100;
-      color: #000000;
-      -moz-transition: all 0.35s ease-in-out;
-      transition: all 0.35s ease-in-out;
-    }
-    :-ms-input-placeholder {
-      opacity: 0.5;
-      font-size: 18px;
-      font-weight: 100;
-      color: #000000;
-      -ms-transition: all 0.35s ease-in-out;
-      transition: all 0.35s ease-in-out;
-    }
+  .sub-menu {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    border-top: solid 1px $lime-cta;
 
-    /* Place Holder CSS for Focus */
-    :focus::-webkit-input-placeholder {
-      transform: translate(0, -40px);
-      opacity: 0;
-    }
-    :focus:-moz-placeholder {
-      transform: translate(0, -40px);
-      opacity: 0;
-    }
-    :focus:-ms-input-placeholder {
-      transform: translate(0, -40px);
-      opacity: 0;
+    ul{
+      float: left;
+      width: 100%;
+      box-sizing: border-box;
+      list-style: none;
+      margin: 0;
+
+      li{
+        float: right;
+
+        a{
+          float: left;
+          padding: 8px 10px;
+          text-decoration: none;
+          color: $spring-bg;
+          font-size: 12px;
+        }
+      }
     }
   }
 }

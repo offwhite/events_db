@@ -1,0 +1,31 @@
+@import '_mixins';
+
+.message{
+  padding: 20px 5px;
+}
+.panel{
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 7px;
+  border: solid 1px $panel-border-color;
+  background: white;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+
+  .panel-head{
+    border-bottom: solid 1px $panel-border-color;
+    box-sizing: border-box;
+    padding: 10px;
+    font-weight: bold;
+    h1, h2, h3{
+      margin: 0;
+    }
+  }
+
+  .panel-body{
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+}

@@ -10,6 +10,19 @@ body{
   padding: 0;
   color: $text-color;
 
+  .alert, .notice{
+    float: left;
+    width: 100%;
+    background-color: $lime-cta;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  a{
+    color: $text-color;
+  }
+
   .spring{
     max-width: 1000px;
     margin: auto;
@@ -20,6 +33,58 @@ body{
 
     .page-content{
       padding: 30px;
+      float: left;
+      width: 100%;
+      box-sizing: border-box;
+
+      .main{
+        float: left;
+        width: 66%;
+      }
+
+      .side-bar{
+        float: left;
+        width: 33%;
+      }
     }
+  }
+
+  ::-webkit-input-placeholder {
+    opacity: 0.5;
+    font-size: 18px;
+    font-weight: 100;
+    color: #000000;
+    -webkit-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+  }
+  :-moz-placeholder {
+    opacity: 0.5;
+    font-size: 18px;
+    font-weight: 100;
+    color: #000000;
+    -moz-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+  }
+  :-ms-input-placeholder {
+    opacity: 0.5;
+    font-size: 18px;
+    font-weight: 100;
+    color: #000000;
+    -ms-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+  }
+
+  /* Place Holder CSS for Focus */
+  :focus::-webkit-input-placeholder {
+    transform: translate(0, -40px);
+    opacity: 0;
+  }
+  :focus:-moz-placeholder {
+    transform: translate(0, -40px);
+    opacity: 0;
+  }
+  :focus:-ms-input-placeholder {
+    transform: translate(0, -40px);
+    opacity: 0;
   }
 }

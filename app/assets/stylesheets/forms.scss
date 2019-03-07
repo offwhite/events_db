@@ -1,0 +1,56 @@
+@import '_mixins';
+
+input{
+  font-family: $project-font;
+}
+
+.checkbox label{
+  line-height: 34px;
+  display: inline-block;
+  float: left;
+  margin: 5px 0 0 10px;
+}
+
+input[type='checkbox'] {
+float: left;
+width: 34px;
+height: 34px;
+left: 0px;
+top: 0px;
+border: none;
+color: #ffffff;
+background: #ffffff;
+position: relative;
+margin-left: 0 !important;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -0px;
+    left: -0px;
+    display: block;
+    width: 34px;
+    height: 34px;
+    border: solid 2px #cfd5dd;
+    border-radius: 6px;
+    background: #ffffff;
+    -moz-transition: all 0.65s ease-in-out;
+    transition: all 0.35s ease-in-out;
+    color: #ffffff;
+    transform: rotate(90deg);
+    font-size: 5px;
+  }
+
+  &:checked {
+    &:before {
+      content: 'X';
+      background: #04c9b8;
+      font-size: 22px;
+      text-align: center;
+      line-height: 35px;
+      color: #ffffff;
+      border: none;
+      transform: rotate(0deg);
+    }
+  }
+}
