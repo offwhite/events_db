@@ -3,6 +3,7 @@
 .message{
   padding: 20px 5px;
 }
+
 .panel{
   float: left;
   width: 100%;
@@ -19,6 +20,10 @@
     font-weight: bold;
     h1, h2, h3{
       margin: 0;
+    }
+
+    .edit-link{
+      float: right;
     }
   }
 

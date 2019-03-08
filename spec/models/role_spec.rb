@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe Profile do
+describe Role do
   context 'relations' do
     it { is_expected.to belong_to(:profile) }
     it { is_expected.to belong_to(:event) }
-    it { is_expected.to have_many(:role_types) }
+    it { is_expected.to belong_to(:role_type) }
   end
 end
 

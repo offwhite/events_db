@@ -1,0 +1,11 @@
+- present @event do |event|
+  - content_for :title do
+    = "#{event.full_title} - Edit"
+
+  .panel
+    .panel-head
+      = link_to event.full_title, event_path(event)
+    .panel-body
+      %h3 Roles
+      - event.roles.each do |role|
+        = role.title
