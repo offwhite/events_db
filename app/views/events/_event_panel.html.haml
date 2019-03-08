@@ -2,5 +2,7 @@
   .panel
     .panel-head
       = event.full_title
+      - if current_user.present?
+        = link_to 'Edit', edit_event_path(event), class: 'edit-link'
     .panel-body
       = event.formatted_date(:date)

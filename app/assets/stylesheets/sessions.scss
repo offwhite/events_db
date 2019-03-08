@@ -24,6 +24,7 @@
     width: 100%;
     box-sizing: border-box;
   }
+
   input[type='submit']{
     float: right;
     background: $lime-cta;
@@ -45,5 +46,28 @@
     margin-top: 20px;
     padding-top: 20px;
     border-top: solid 1px $panel-border-color;
+  }
+
+  #error_explanation{
+    border: solid 1px $hot-pink;
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+
+    h2{
+      margin: 0;
+      color: $hot-pink;
+    }
+
+    ul{
+      list-style: none;
+      padding: 0;
+
+      li{
+        color: $hot-pink;
+      }
+    }
   }
 }
