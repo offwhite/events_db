@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.text "description"
     t.boolean "verified"
     t.index ["event_type_id"], name: "index_events_on_event_type_id"
+    t.index ["name", "date", "venue_id"], name: "index_events_on_name_and_date_and_venue_id", unique: true
     t.index ["tour_id"], name: "index_events_on_tour_id"
     t.index ["user_id"], name: "index_events_on_user_id"
     t.index ["venue_id"], name: "index_events_on_venue_id"
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.datetime "updated_at", null: false
     t.boolean "verified"
     t.index ["event_id"], name: "index_roles_on_event_id"
+    t.index ["profile_id", "role_type_id", "event_id"], name: "index_roles_on_profile_id_and_role_type_id_and_event_id", unique: true
     t.index ["profile_id"], name: "index_roles_on_profile_id"
     t.index ["role_type_id"], name: "index_roles_on_role_type_id"
   end

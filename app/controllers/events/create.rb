@@ -1,21 +1,18 @@
 module Events
   class Create < ::EditControllerAction
     def call
-      return redirect if creator.call
+      return redirect if event.present?
       render_form
     end
 
     private
 
     def redirect
-      redirect_to(
-        controller.event_path(creator.event),
-        notice: 'The event has been added'
-      )
+      redirect_to(controller.event_path(event))
     end
 
     def render_form
-      expose(creator.event, '@event')
+      expose(event, '@event')
       render 'new'
     end
 
@@ -25,8 +22,8 @@ module Events
       )
     end
 
-    def creator
-      @creator ||= ::Events::Creator.new(safe_params, current_user)
+    def event
+      @event ||= ::Events::Creator.new(safe_params, current_user).call
     end
   end
 end
