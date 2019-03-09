@@ -1,7 +1,7 @@
 - present event do |event|
   .panel
     .panel-head
-      = event.full_title
+      = link_to event.full_title, event_path(event)
       - if current_user.present?
         = link_to 'Edit', edit_event_path(event), class: 'edit-link'
     .panel-body

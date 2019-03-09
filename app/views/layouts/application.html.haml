@@ -4,7 +4,7 @@
     / Meta, title, CSS, favicons, etc.
     %meta{:charset => "utf-8"}
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= yield(:title).presence || "The Events DB"
+    %title= yield(:title).presence || "CrewDB"
 
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'

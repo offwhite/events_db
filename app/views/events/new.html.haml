@@ -1,0 +1,23 @@
+- present @event do |event|
+  - content_for :title do
+    New event
+
+= simple_form_for(@event, url: events_path, method: :post) do |f|
+  .panel
+    .panel-head
+      Add event
+    .panel-body
+      .message
+        You're adding a new event. It's easy, just fill in this form.
+      .row
+        = f.input :name, as: :string, label: false, placeholder: 'Event title'
+      .row
+        = f.input :description, label: false, placeholder: 'Event description'
+      .row
+        = f.association :event_type, label_method: :title, label: 'What type of event is it?', prompt: 'Select a type of event'
+      .row
+        = f.association :venue, label_method: :full_title, label: 'Where is it?', prompt: 'Select venue'
+      .row
+        = f.input :date, label: 'When is it?'
+      .row
+        = f.submit 'Add Event'

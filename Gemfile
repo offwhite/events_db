@@ -59,7 +59,10 @@ group :development, :test do
   gem 'rubocop', '~> 0.52.1'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+
   gem 'selenium-webdriver'
+
+  gem 'shoulda-matchers', '~> 2.8.0', require: false
 end
 
 group :development do

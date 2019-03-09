@@ -5,6 +5,8 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :roles
 
+  validates :name, presence: true
+
   delegate :town, to: :venue
 
   def venue_title
@@ -29,4 +31,5 @@ end
 #  user_id       :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  description   :text
 #

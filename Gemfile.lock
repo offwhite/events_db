@@ -231,6 +231,8 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
     sexp_processor (4.11.0)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     sidekiq (5.2.5)
       connection_pool (~> 2.2, >= 2.2.2)
       rack (>= 1.5.0)
@@ -302,6 +304,7 @@ DEPENDENCIES
   rubocop (~> 0.52.1)
   sass-rails (~> 5.0)
   selenium-webdriver
+  shoulda-matchers (~> 2.8.0)
   sidekiq
   sidekiq-cron
   simple_form (~> 3.5.0)

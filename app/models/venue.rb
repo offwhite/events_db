@@ -5,6 +5,10 @@ class Venue < ApplicationRecord
   def title
     name.titleize
   end
+
+  def full_title
+    [title, town&.title].join(', ')
+  end
 end
 
 # == Schema Information
@@ -19,4 +23,8 @@ end
 #  capacity    :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  latitude    :float
+#  longitude   :float
+#  url         :text
+#  phone       :text
 #

@@ -1,7 +1,7 @@
 .title-bar
   .title
     %h1
-      = link_to "Events Db", root_path
+      = link_to "CrewDb", root_path
     %h2
       Music, theatre, festivals and events artists and crew
   .search-form
@@ -16,3 +16,5 @@
       - else
         %li
           = link_to "Sign out", destroy_user_session_path, method: :delete
+        %li
+          = link_to "Add event", new_event_path

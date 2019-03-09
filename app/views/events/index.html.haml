@@ -2,6 +2,12 @@
   Events DB
 
 .main
-  - @events.each do |event|
-    = render 'event_panel', event: event
+  .panel
+    .panel-head
+      Recent Events
+    .panel-body
+      - @events.each do |event|
+        - present event do |event|
+          .row
+            = link_to event.full_title, event_path(event)
 .side-bar

@@ -1,0 +1,25 @@
+- present @event do |event|
+  - content_for :title do
+    = "#{event.full_title} - Edit"
+
+  = simple_form_for(@event, url: event_path, method: :put) do |f|
+    .panel
+      .panel-head
+        Edit event
+      .panel-body
+        .message
+          You're editing a new event. It's easy, just fill in this form.
+        .row
+          = f.input :name, as: :string, label: false, placeholder: 'Event title'
+        .row
+          = f.input :description, label: false, placeholder: 'Event description'
+        .row
+          = f.association :event_type, label_method: :title, label: 'What type of event is it?', prompt: 'Select a type of event'
+        .row
+          = f.association :venue, label_method: :full_title, label: 'Where is it?', prompt: 'Select venue'
+        .row
+          = f.input :date, label: 'When is it?'
+        .row
+          = f.submit 'Update Event'
+        .row
+          = link_to 'Cancel', event_path(event)
