@@ -1,4 +1,4 @@
-# Events DB
+# CrewDB
 
 The intention of this app is to be a database of events and the roles
 people played in the preparation and execution of the event.

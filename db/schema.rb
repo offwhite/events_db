@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
     t.index ["event_type_id"], name: "index_events_on_event_type_id"
     t.index ["tour_id"], name: "index_events_on_tour_id"
     t.index ["user_id"], name: "index_events_on_user_id"
@@ -126,6 +127,8 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.text "url"
+    t.text "phone"
     t.index ["town_id"], name: "index_venues_on_town_id"
   end
 

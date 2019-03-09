@@ -17,4 +17,10 @@ class EventsController < ApplicationController
       self, params
     ).call
   end
+
+  def new
+    ::Events::New.new(
+      self, params
+    ).call
+  end
 end

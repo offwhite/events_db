@@ -14,7 +14,7 @@ body{
     float: left;
     width: 100%;
     background-color: $lime-cta;
-    padding: 20px;
+    padding: $gutter;
     box-sizing: border-box;
     margin: 0;
   }
@@ -22,7 +22,26 @@ body{
   a{
     color: $purple-cta;
     text-decoration: none;
+  }
 
+  .message{
+    padding: $gutter;
+    background: $purple-cta;
+    color: #ffffff;
+    border-radius: 5px;
+    margin: $gutter 0;
+    box-shadow: $light-shadow;
+  }
+
+  .row{
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: $gutter;
+
+    &:first-of-type {
+      padding-top: $gutter;
+    }
   }
 
   .spring{
@@ -31,7 +50,7 @@ body{
     min-height: 100vh;
     background: $spring-bg;
     box-sizing: border-box;
-    box-shadow: 0 0 10px 2px rgba(0,0,0,0.2);
+    box-shadow: $light-shadow;
 
     .page-content{
       padding: 30px;

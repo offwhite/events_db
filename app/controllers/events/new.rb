@@ -1,5 +1,5 @@
 module Events
-  class Edit < ::EditControllerAction
+  class New < ::EditControllerAction
     def call
       expose(event, '@event')
     end
@@ -7,7 +7,7 @@ module Events
     private
 
     def event
-      @event ||= Event.find params[:id]
+      @event ||= Event.new
     end
   end
 end
