@@ -7,11 +7,12 @@ module Events
     end
 
     def call
-      @call ||= event.save!
+      return existing_event if existing_event.present?
+      event
     end
 
     def event
-      @event ||= Event.new full_params
+      @event ||= Event.create(full_params)
     end
 
     private
@@ -27,6 +28,20 @@ module Events
 
     def verified?
       @verified ||= user.admin?
+    end
+
+    def event_date
+      return params[:date] if params[:date].present?
+      "#{params['date(3i)']}-#{params['date(2i)']}-#{params['date(1i)']}"
+    end
+
+    def existing_event
+      @existing_event ||=
+        Event.find_by(
+          name: params[:name],
+          date: event_date,
+          venue_id: params[:venue_id]
+        )
     end
   end
 end

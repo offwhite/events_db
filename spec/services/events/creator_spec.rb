@@ -34,4 +34,23 @@ describe Events::Creator do
       expect(event.description).to eq params[:description]
     end
   end
+
+  context 'with duplicate params' do
+    let!(:event) do
+      create(
+        :event,
+        name: params[:name],
+        date: params[:date],
+        venue_id: venue.id
+      )
+    end
+
+    it 'should execute without error' do
+      expect(creator.call).to be_truthy
+    end
+
+    it 'should not create a new event' do
+      expect { creator.call }.to change { Event.count }.by(0)
+    end
+  end
 end
