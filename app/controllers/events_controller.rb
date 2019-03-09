@@ -29,4 +29,10 @@ class EventsController < ApplicationController
       self, params
     ).call
   end
+
+  def update
+    ::Events::Update.new(
+      self, params
+    ).call
+  end
 end

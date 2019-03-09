@@ -1,7 +1,7 @@
 module Events
-  class Create < ::EditControllerAction
+  class Update < ::EditControllerAction
     def call
-      return redirect if creator.call
+      return redirect if event.update! safe_params
       render_form
     end
 
@@ -9,14 +9,14 @@ module Events
 
     def redirect
       redirect_to(
-        controller.event_path(creator.event),
-        notice: 'The event has been added'
+        controller.event_path(event),
+        notice: 'The event has been updated'
       )
     end
 
     def render_form
-      expose(creator.event, '@event')
-      render 'new'
+      expose(event, '@event')
+      render 'edit'
     end
 
     def safe_params
@@ -25,8 +25,8 @@ module Events
       )
     end
 
-    def creator
-      @creator ||= ::Events::Creator.new(safe_params, current_user)
+    def event
+      @event ||= Event.find params.fetch(:id)
     end
   end
 end
