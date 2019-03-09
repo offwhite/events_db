@@ -17,7 +17,21 @@ RSpec.describe EventsController, type: :controller do
     end
   end
 
+  describe 'GET #new' do
+    it 'returns http success' do
+      get :new
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe 'GET #edit' do
+    let(:user) { create :user, permission_level: 1 }
+
+    before do
+      @request.env['devise.mapping'] = Devise.mappings[:user]
+      sign_in user
+    end
+
     let(:event) { create :event }
 
     it 'returns http success' do

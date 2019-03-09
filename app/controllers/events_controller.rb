@@ -23,4 +23,10 @@ class EventsController < ApplicationController
       self, params
     ).call
   end
+
+  def create
+    ::Events::Create.new(
+      self, params
+    ).call
+  end
 end

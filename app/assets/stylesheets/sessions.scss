@@ -13,20 +13,6 @@
     box-sizing: border-box;
   }
 
-  input[type='submit']{
-    float: right;
-    background: $lime-cta;
-    border: none;
-    text-align: center;
-    font-size: 15px;
-    height: 35px;
-    line-height: 35px;
-    padding: 0 15px;
-    text-decoration: none;
-    border-radius: 4px;
-
-  }
-
   .session-links{
     float: left;
     width: 100%;

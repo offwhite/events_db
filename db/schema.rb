@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+    t.boolean "verified"
     t.index ["event_type_id"], name: "index_events_on_event_type_id"
     t.index ["tour_id"], name: "index_events_on_tour_id"
     t.index ["user_id"], name: "index_events_on_user_id"
@@ -51,6 +52,8 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "verified"
+    t.boolean "validated"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -67,6 +70,7 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.bigint "role_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "verified"
     t.index ["event_id"], name: "index_roles_on_event_id"
     t.index ["profile_id"], name: "index_roles_on_profile_id"
     t.index ["role_type_id"], name: "index_roles_on_role_type_id"
@@ -84,6 +88,7 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "verified"
     t.index ["tour_type_id"], name: "index_tours_on_tour_type_id"
     t.index ["user_id"], name: "index_tours_on_user_id"
   end
@@ -110,7 +115,7 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.integer "permission_level"
+    t.integer "permission_level", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -129,6 +134,7 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.float "longitude"
     t.text "url"
     t.text "phone"
+    t.boolean "verified"
     t.index ["town_id"], name: "index_venues_on_town_id"
   end
 
