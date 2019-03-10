@@ -70,42 +70,33 @@ body{
     }
   }
 
-  ::-webkit-input-placeholder {
-    opacity: 0.5;
-    font-size: 18px;
-    font-weight: 100;
-    color: #000000;
-    -webkit-transition: all 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
-  }
-  :-moz-placeholder {
-    opacity: 0.5;
-    font-size: 18px;
-    font-weight: 100;
-    color: #000000;
-    -moz-transition: all 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
-  }
-  :-ms-input-placeholder {
-    opacity: 0.5;
-    font-size: 18px;
-    font-weight: 100;
-    color: #000000;
-    -ms-transition: all 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
+  .button{
+    float: right;
+    background: $lime-cta;
+    color: $text-color;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 15px;
+    text-decoration: none;
+    border-radius: 4px;
   }
 
-  /* Place Holder CSS for Focus */
-  :focus::-webkit-input-placeholder {
-    transform: translate(0, -40px);
-    opacity: 0;
-  }
-  :focus:-moz-placeholder {
-    transform: translate(0, -40px);
-    opacity: 0;
-  }
-  :focus:-ms-input-placeholder {
-    transform: translate(0, -40px);
-    opacity: 0;
+  table.roles{
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    border-spacing: 0;
+
+    tr{
+      &:nth-child(odd) {
+        background: $table-odd-row;
+      }
+      td{
+        padding: 10px;
+      }
+    }
   }
 }

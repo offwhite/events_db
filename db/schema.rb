@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "category"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "verified"
+    t.integer "creator_id"
     t.index ["event_id"], name: "index_roles_on_event_id"
     t.index ["profile_id", "role_type_id", "event_id"], name: "index_roles_on_profile_id_and_role_type_id_and_event_id", unique: true
     t.index ["profile_id"], name: "index_roles_on_profile_id"

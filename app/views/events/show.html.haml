@@ -5,9 +5,16 @@
   .panel
     .panel-head
       = link_to event.full_title, event_path(event)
-      - if current_user&.can_edit?
-        = link_to 'Edit', edit_event_path(event), class: 'edit-link'
+      = link_to 'Edit', edit_event_path(event), class: 'edit-link'
     .panel-body
-      %h3 Roles
-      - event.roles.each do |role|
-        = role.title
+      %h3 Crew
+
+      %table.roles
+        - event.roles.each do |role|
+          %tr
+            %td
+              = role.profile.title
+            %td
+              = role.role_type.title
+      .row
+        = link_to 'Add crew', new_role_path(event_id: event.id), class: 'button'
