@@ -18,4 +18,6 @@ end
 #  role_type_id :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  verified     :boolean
+#  creator_id   :integer
 #

@@ -45,7 +45,7 @@ end
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
-#  permission_level       :integer
+#  permission_level       :integer          default(0)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #

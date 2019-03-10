@@ -16,6 +16,9 @@ class AddCoordsToVenuesAndTowns < ActiveRecord::Migration[5.1]
     add_column :profiles, :verified,  :boolean
     add_column :profiles, :validated, :boolean
 
+    add_column :role_types, :category, :text
+    add_column :roles, :creator_id, :integer
+
     add_index :events, [:name, :date, :venue_id], unique: true
     add_index :roles, [:profile_id, :role_type_id, :event_id], unique: true
   end

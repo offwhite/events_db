@@ -2,10 +2,7 @@ class Role < ApplicationRecord
   belongs_to :profile
   belongs_to :event
   belongs_to :role_type
-
-  def title
-    name.titleize
-  end
+  belongs_to :creator, class_name: 'User'
 end
 
 # == Schema Information

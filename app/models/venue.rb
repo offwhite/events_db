@@ -27,4 +27,5 @@ end
 #  longitude   :float
 #  url         :text
 #  phone       :text
+#  verified    :boolean
 #
