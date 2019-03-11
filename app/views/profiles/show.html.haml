@@ -1,0 +1,15 @@
+- present @profile do |profile|
+  .panel
+    .panel-head
+      = profile.name
+    .panel-body
+
+      %h3 Events
+      %table.list
+        - profile.roles.each do |role|
+          - present role.event do |event|
+            %tr
+              %td
+                = link_to event.full_title, event_path(event)
+              %td
+                = role.role_type.title

@@ -1,6 +1,12 @@
 class Venue < ApplicationRecord
+  include PgSearch
+
   belongs_to :town
   has_many :events
+
+  pg_search_scope :fuzzy_matches,
+                  against: %i[name description address],
+                  using: { tsearch: { any_word: true } }
 
   def title
     name.titleize

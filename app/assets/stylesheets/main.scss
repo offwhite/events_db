@@ -24,6 +24,14 @@ body{
     text-decoration: none;
   }
 
+  .pull-right{
+    float: right;
+  }
+
+  .text-right{
+    text-align: right;
+  }
+
   .message{
     padding: $gutter;
     background: $purple-cta;
@@ -84,11 +92,12 @@ body{
     border-radius: 4px;
   }
 
-  table.roles{
+  table.list{
     float: left;
     width: 100%;
     box-sizing: border-box;
     border-spacing: 0;
+    margin: $gutter 0;
 
     tr{
       &:nth-child(odd) {
@@ -96,6 +105,20 @@ body{
       }
       td{
         padding: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  body .spring{
+    .page-content{
+      .main{
+        width: 100%;
+      }
+
+      .side-bar{
+        width: 100%;
       }
     }
   }

@@ -6,8 +6,5 @@
     .panel-head
       Recent Events
     .panel-body
-      - @events.each do |event|
-        - present event do |event|
-          .row
-            = link_to event.full_title, event_path(event)
+      = render 'events/event_list', events: @events
 .side-bar

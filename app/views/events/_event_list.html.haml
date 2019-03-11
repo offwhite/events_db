@@ -1,0 +1,8 @@
+%table.list
+  - events.each do |event|
+    - present event do |event|
+      %tr
+        %td
+          = link_to event.full_title, event_path(event)
+        %td.text-right
+          = "#{event.roles.count} crew"

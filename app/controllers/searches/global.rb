@@ -1,7 +1,8 @@
 module Searches
   class Global < ::ControllerAction
     def call
-      expose(events, '@events')
+      expose(search.events, '@events')
+      expose(search.venues, '@venues')
       expose(query_str, '@query_str')
     end
 
@@ -13,10 +14,6 @@ module Searches
 
     def search
       @search ||= ::Search::Global.new(query_str)
-    end
-
-    def events
-      @events ||= search.call
     end
   end
 end

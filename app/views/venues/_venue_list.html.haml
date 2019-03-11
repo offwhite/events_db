@@ -1,0 +1,8 @@
+%table.list
+  - venues.each do |venue|
+    - present venue do |venue|
+      %tr
+        %td
+          = link_to venue.full_title, 'event_path(event)'
+        %td.text-right
+          = "#{venue.events.count} events"

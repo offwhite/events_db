@@ -2,12 +2,20 @@
   = "Searching for #{@query_str}"
 
 .main
-  .panel
-    .panel-head
-      = "Searching for #{@query_str}"
-    .panel-body
-      - @events.each do |event|
-        - present event do |event|
-          .row
-            = link_to event.full_title, event_path(event)
+  - if @events.any?
+    .panel
+      .panel-head
+        = "#{@events.count} #{'event'.pluralize(@events.count)} for"
+        %em
+          = @query_str
+      .panel-body
+        = render 'events/event_list', events: @events
+  - if @venues.any?
+    .panel
+      .panel-head
+        = "#{@venues.count} #{'venue'.pluralize(@venues.count)} for"
+        %em
+          = @query_str
+      .panel-body
+        = render 'venues/venue_list', venues: @venues
 .side-bar

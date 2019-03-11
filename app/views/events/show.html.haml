@@ -9,12 +9,7 @@
     .panel-body
       %h3 Crew
 
-      %table.roles
-        - event.roles.each do |role|
-          %tr
-            %td
-              = role.profile.title
-            %td
-              = role.role_type.title
+      = render 'roles/role_list', roles: event.roles
+
       .row
         = link_to 'Add crew', new_role_path(event_id: event.id), class: 'button'

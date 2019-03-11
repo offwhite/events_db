@@ -1,0 +1,7 @@
+%table.list
+  - roles.each do |role|
+    %tr
+      %td
+        = link_to role.profile.title, profile_path(role.profile)
+      %td
+        = role.role_type.title
