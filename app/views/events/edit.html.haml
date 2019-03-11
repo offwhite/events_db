@@ -1,5 +1,5 @@
 - present @event do |event|
-  - content_for :title do
+  - content_for :page_title do
     = "#{event.full_title} - Edit"
 
   = simple_form_for(@event, url: event_path, method: :put) do |f|

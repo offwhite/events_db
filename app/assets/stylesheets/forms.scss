@@ -113,42 +113,54 @@ margin-left: 0 !important;
   }
 }
 
+.field_with_errors{
+  border: solid 1px $hot-pink;
+  padding: $gutter;
+  border-radius: 5px;
 
-  ::-webkit-input-placeholder {
-    opacity: 0.5;
-    font-size: 18px;
-    font-weight: 100;
-    color: #000000;
-    -webkit-transition: all 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
+  span{
+    display: block;
+    color: $hot-pink;
+    margin-top: $gutter;
   }
-  :-moz-placeholder {
-    opacity: 0.5;
-    font-size: 18px;
-    font-weight: 100;
-    color: #000000;
-    -moz-transition: all 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
-  }
-  :-ms-input-placeholder {
-    opacity: 0.5;
-    font-size: 18px;
-    font-weight: 100;
-    color: #000000;
-    -ms-transition: all 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
-  }
+}
 
-  /* Place Holder CSS for Focus */
-  :focus::-webkit-input-placeholder {
-    transform: translate(0, -40px);
-    opacity: 0;
-  }
-  :focus:-moz-placeholder {
-    transform: translate(0, -40px);
-    opacity: 0;
-  }
-  :focus:-ms-input-placeholder {
-    transform: translate(0, -40px);
-    opacity: 0;
-  }
+
+::-webkit-input-placeholder {
+  opacity: 0.5;
+  font-size: 18px;
+  font-weight: 100;
+  color: #000000;
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+:-moz-placeholder {
+  opacity: 0.5;
+  font-size: 18px;
+  font-weight: 100;
+  color: #000000;
+  -moz-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+:-ms-input-placeholder {
+  opacity: 0.5;
+  font-size: 18px;
+  font-weight: 100;
+  color: #000000;
+  -ms-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+
+/* Place Holder CSS for Focus */
+:focus::-webkit-input-placeholder {
+  transform: translate(0, -40px);
+  opacity: 0;
+}
+:focus:-moz-placeholder {
+  transform: translate(0, -40px);
+  opacity: 0;
+}
+:focus:-ms-input-placeholder {
+  transform: translate(0, -40px);
+  opacity: 0;
+}

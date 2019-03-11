@@ -1,5 +1,5 @@
 class Tour < ApplicationRecord
-  belongs_to :tour_type
+  belongs_to :tour_type, class_name: 'EventType'
   belongs_to :user
   has_many :events
 

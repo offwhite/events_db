@@ -1,0 +1,17 @@
+- present @tour do |tour|
+  - content_for :title do
+    Add tour
+
+  = simple_form_for(@tour, url: tours_path, method: :post) do |f|
+    .panel
+      .panel-head
+        Add tour
+      .panel-body
+        .message
+          = "You're adding a new tour. Crew on this tour will be shown on all events on the tour."
+        .row
+          = f.input :name, label: "What do you want to call this tour?", placeholder: "Example: Massive Attack 2019"
+        .row
+          = f.association :tour_type, label: "What kind of tour is it?", prompt: "Pick one of these"
+        .row
+          = f.submit 'Add Tour'
