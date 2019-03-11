@@ -8,7 +8,8 @@ module Roles
     private
 
     def redirect
-      redirect_to(controller.event_path(role.event))
+      return redirect_to(controller.event_path(role.event)) if role.event_role?
+      redirect_to(controller.tour_path(id: role.tour.id))
     end
 
     def render_form
@@ -18,7 +19,7 @@ module Roles
 
     def safe_params
       @safe_params ||= params.require('role').permit(
-        :event_id, :profile_id, :role_type_id
+        :event_id, :tour_id, :profile_id, :role_type_id
       )
     end
 

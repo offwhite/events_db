@@ -2,8 +2,10 @@ class Tour < ApplicationRecord
   belongs_to :tour_type, class_name: 'EventType'
   belongs_to :user
   has_many :events
+  has_many :roles
 
   def title
+    return "#{name} tour".titleize unless name.include?(' tour')
     name.titleize
   end
 end

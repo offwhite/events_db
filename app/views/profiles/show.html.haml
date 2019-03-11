@@ -10,6 +10,9 @@
           - present role.event do |event|
             %tr
               %td
-                = link_to event.full_title, event_path(event)
+                - if role.event_role?
+                  = link_to event.full_title, event_path(event)
+                - if role.tour_role?
+                  = link_to tour.name, tour_path(tour)
               %td
                 = role.role_type.title

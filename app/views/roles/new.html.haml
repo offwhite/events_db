@@ -1,22 +1,27 @@
 - present @role do |role|
-  - present @event do |event|
-    - content_for :title do
-      Add crew to
-      = event.full_title
+  - content_for :title do
+    Add crew to
+    = @title
 
-    = simple_form_for(@role, url: roles_path, method: :post) do |f|
-      = f.input :event_id, as: :hidden
-      .panel
-        .panel-head
-          Add crew
-        .panel-body
-          .message
-            = "You're adding new cast or crew for #{event.full_title}."
-          .row
-            -# TODO make this a search field with ajax response for results
-              And include an inline profile creation tool. This will have to do for now.
-            = f.association :profile, label_method: :title, label: 'Who?', prompt: 'Who was this magestic beast?'
-          .row
-            = f.input :role_type_id, collection: RoleType.all.group_by(&:category), as: :grouped_select, group_method: :last, group_label_method: :first, label: 'What did they do?', prompt: 'Tell us what monders they wrought'
-          .row
-            = f.submit 'Add Crew'
+  = simple_form_for(@role, url: roles_path, method: :post) do |f|
+    = f.input :event_id, as: :hidden
+    = f.input :tour_id, as: :hidden
+    .panel
+      .panel-head
+        Add crew
+      .panel-body
+        .message
+          = "You're adding cast or crew to #{@title}."
+        .row
+          -# TODO make this a search field with ajax response for results
+            And include an inline profile creation tool. This will have to do for now.
+          = f.association :profile, label_method: :title, label: 'Who?', prompt: 'Who was this magestic beast?'
+        .row
+          = f.input :role_type_id, collection: RoleType.all.group_by(&:category), as: :grouped_select, group_method: :last, group_label_method: :first, label: 'What did they do?', prompt: 'Tell us what monders they wrought'
+        .row
+          = f.submit 'Add Crew'
+        .row
+          - if role.event_role?
+            = link_to 'Cancel', event_path(role.event)
+          - else
+            = link_to 'Cancel', tour_path(role.tour)

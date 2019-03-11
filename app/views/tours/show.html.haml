@@ -1,1 +1,22 @@
-here
+- present @tour do |tour|
+  - content_for :page_title do
+    = tour.title
+
+  .panel
+    .panel-head
+      = tour.title
+    .panel-body
+      %h3 Crew
+
+      = render 'roles/role_list', roles: tour.roles
+
+      .row
+        = link_to 'Add crew', new_role_path(tour_id: tour.id), class: 'button'
+
+    .panel-body
+      %h3 Events
+
+      = render 'events/event_list', events: tour.events
+
+      .row
+        = link_to 'Add event', new_event_path(tour_id: tour.id), class: 'button'

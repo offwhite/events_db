@@ -5,4 +5,4 @@
         %td
           = link_to event.full_title, event_path(event)
         %td.text-right
-          = "#{event.roles.count} crew"
+          = "#{event.all_roles.count} crew"

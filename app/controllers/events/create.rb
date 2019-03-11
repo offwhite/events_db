@@ -8,6 +8,7 @@ module Events
     private
 
     def redirect
+      return redirect_to(controller.tour_path(event.tour)) if event.on_tour?
       redirect_to(controller.event_path(event))
     end
 
@@ -18,7 +19,7 @@ module Events
 
     def safe_params
       @safe_params ||= params.require('event').permit(
-        :name, :description, :event_type_id, :venue_id, :date
+        :name, :description, :event_type_id, :venue_id, :tour_id, :date
       )
     end
 

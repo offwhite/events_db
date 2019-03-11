@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190307091605) do
+ActiveRecord::Schema.define(version: 20190311154127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "role_departments", force: :cascade do |t|
+    t.text "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "role_types", force: :cascade do |t|
     t.text "name"
     t.text "description"
@@ -74,6 +81,8 @@ ActiveRecord::Schema.define(version: 20190307091605) do
     t.datetime "updated_at", null: false
     t.boolean "verified"
     t.integer "creator_id"
+    t.integer "tour_id"
+    t.integer "role_department_id"
     t.index ["event_id"], name: "index_roles_on_event_id"
     t.index ["profile_id", "role_type_id", "event_id"], name: "index_roles_on_profile_id_and_role_type_id_and_event_id", unique: true
     t.index ["profile_id"], name: "index_roles_on_profile_id"

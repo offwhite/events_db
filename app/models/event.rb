@@ -22,6 +22,24 @@ class Event < ApplicationRecord
   def town_title
     town.title
   end
+
+  def full_title
+    "#{name.titleize}, #{venue_title}, #{town_title} - \
+    #{date.strftime('%d %B %Y')}"
+  end
+
+  def on_tour?
+    tour_id.present?
+  end
+
+  def all_roles
+    roles + tour_roles
+  end
+
+  def tour_roles
+    return [] if tour.nil?
+    tour.roles
+  end
 end
 
 # == Schema Information

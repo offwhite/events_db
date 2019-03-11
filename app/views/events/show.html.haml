@@ -5,11 +5,13 @@
   .panel
     .panel-head
       = link_to event.full_title, event_path(event)
+      - if event.on_tour?
+        = link_to '(tour)', tour_path(event.tour)
       = link_to 'Edit', edit_event_path(event), class: 'edit-link'
     .panel-body
       %h3 Crew
 
-      = render 'roles/role_list', roles: event.roles
+      = render 'roles/role_list', roles: event.all_roles
 
       .row
         = link_to 'Add crew', new_role_path(event_id: event.id), class: 'button'
