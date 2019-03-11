@@ -34,6 +34,8 @@ gem 'sidekiq'
 
 gem 'sidekiq-cron'
 
+gem 'similar_text'
+
 gem 'simple_form', '~> 3.5.0'
 
 gem 'textacular', '~> 5.0'
