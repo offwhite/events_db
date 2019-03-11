@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  include PgSearch
+
   belongs_to :event_type
   belongs_to :venue
   belongs_to :tour, optional: true
@@ -8,6 +10,10 @@ class Event < ApplicationRecord
   validates :name, presence: true
 
   delegate :town, to: :venue
+
+  pg_search_scope :fuzzy_matches,
+                  against: %i[name description],
+                  using: { tsearch: { any_word: true } }
 
   def venue_title
     venue.title

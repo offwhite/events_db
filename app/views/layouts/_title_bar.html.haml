@@ -5,8 +5,8 @@
     %h2
       Music, theatre, festivals and events artists and crew
   .search-form
-    = simple_form_for(:search, url: search_results_path, method: :post) do |f|
-      = f.input :event_query, as: :string, label: false, placeholder: 'Search events, tours or venues'
+    = simple_form_for(:search, url: search_global_path, method: :post) do |f|
+      = f.input :query, as: :string, label: false, placeholder: 'Search events, tours or venues'
       = f.submit 'Go', label: false, class: 'button green-btn'
   .sub-menu
     %ul

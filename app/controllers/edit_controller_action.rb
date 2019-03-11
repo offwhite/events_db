@@ -9,6 +9,7 @@ class EditControllerAction < ::ControllerAction
 
     if current_user.nil?
       redirect_to('/users/sign_in', notice: 'You need to sign in to do that')
+      return
     end
 
     redirect_to('/', notice: "You don't have the permissions for that. Sorry.")
