@@ -7,12 +7,13 @@
       %h3 Events
       %table.list
         - profile.roles.each do |role|
-          - present role.event do |event|
-            %tr
-              %td
-                - if role.event_role?
+          %tr
+            %td
+              - if role.event_role?
+                - present role.event do |event|
                   = link_to event.full_title, event_path(event)
-                - if role.tour_role?
+              - if role.tour_role?
+                - present role.tour do |tour|
                   = link_to tour.name, tour_path(tour)
-              %td
-                = role.role_type.title
+            %td
+              = role.role_type.title

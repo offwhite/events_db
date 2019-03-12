@@ -22,6 +22,10 @@ body{
   a{
     color: $purple-cta;
     text-decoration: none;
+
+    &:hover{
+      text-decoration: underline;
+    }
   }
 
   .pull-right{

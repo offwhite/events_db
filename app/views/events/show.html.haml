@@ -4,9 +4,10 @@
 
   .panel
     .panel-head
-      = link_to event.full_title, event_path(event)
       - if event.on_tour?
-        = link_to '(tour)', tour_path(event.tour)
+        = link_to 'Tour > ', tour_path(event.tour)
+      = link_to event.full_title, event_path(event)
+
       = link_to 'Edit', edit_event_path(event), class: 'edit-link'
     .panel-body
       %h3 Crew
