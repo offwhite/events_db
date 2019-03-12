@@ -13,6 +13,8 @@
         = venue.address
         .town
           = venue.town_title
+        = "#{venue.capacity} Capacity"
+
       .events
         %h3 Events
         = render 'events/event_list', events: venue.events, venue: venue

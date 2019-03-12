@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    / Meta, title, CSS, favicons, etc.
+    %meta{:charset => "utf-8"}
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= yield(:page_title).presence || "CrewDB"
+
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body{class: Rails.env.development? ? 'development' : 'production'}
+    .spring
+      = render partial: 'layouts/title_bar'
+      - if notice.present?
+        %p.notice{title: 'Dismiss'}
+          = notice
+      - if alert.present?
+        %p.alert{title: 'Dismiss'}
+          = alert
+
+      %ul.admin-links
+        %li
+          ADMIN
+        %li
+          = link_to 'Add venue', new_venue_path
+        %li
+          = link_to 'Add venue', new_venue_path
+      .page-content
+
+        = yield

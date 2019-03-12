@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :roles, only: %i[new create]
   resources :profiles, only: %i[show]
   resources :tours, only: %i[new create show]
-  resources :venues, only: %i[show edit update]
+  resources :venues, only: %i[new create show edit update]
 
   post '/search', to: 'searches#global', as: :search_global
+
+  get '/admin', to: 'admin#index', as: :admin_index
 end

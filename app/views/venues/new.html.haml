@@ -1,0 +1,29 @@
+- present @venue do |venue|
+  - content_for :page_title do
+    New venue
+
+  = simple_form_for(@venue, url: venues_path, method: :post) do |f|
+    .panel
+      .panel-head
+        Edit venue
+      .panel-body
+        .message
+          You're adding a venue. It's easy, just fill in this form.
+        .row
+          = f.input :name, as: :string, label: 'Name', placeholder: 'Title'
+        .row
+          = f.input :description, label: 'Description', placeholder: 'Description'
+        .row
+          = f.input :address, label: 'Address', placeholder: 'Address'
+        .row
+          = f.association :town, label_method: :title, label: "Where's this place at?", prompt: 'Select a town yeah?'
+        .row
+          = f.input :capacity, label: 'Capacity', placeholder: 'Capacity'
+        .row
+          = f.input :url, as: :string, label: 'website?'
+        .row
+          = f.input :phone, as: :string, label: 'Phone number'
+        .row
+          = f.submit 'Add venue'
+        .row
+          = link_to 'Cancel', events_path
