@@ -16,6 +16,7 @@ module Events
     end
 
     def tour
+      return if params[:tour_id].nil?
       @tour ||= Tour.find(params[:tour_id])
     end
   end
