@@ -4,9 +4,10 @@
 
   .panel
     .panel-head
+      Venue >
       = venue.title
-      - if current_user&.admin?
-        = link_to 'Edit', 'edit_venue_path(venue)', class: 'edit-link'
+      - if current_user&.can_edit?
+        = link_to 'Edit', edit_venue_path(venue), class: 'edit-link'
     .panel-body
       .address-panel
         = venue.address
@@ -16,4 +17,4 @@
         %h3 Events
         = render 'events/event_list', events: venue.events, venue: venue
         .row
-          = link_to 'Add event', 'new_role_path(event_id: event.id)', class: 'button'
+          = link_to 'Add event', new_event_path(venue_id: venue.id), class: 'button'

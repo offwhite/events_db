@@ -1,21 +1,19 @@
 - content_for :page_title do
   = "Searching for #{@query_str}"
 
-.main
-  - if @events.any?
-    .panel
-      .panel-head
-        = "#{@events.count} #{'event'.pluralize(@events.count)} for"
-        %em
-          = @query_str
-      .panel-body
-        = render 'events/event_list', events: @events
-  - if @venues.any?
-    .panel
-      .panel-head
-        = "#{@venues.count} #{'venue'.pluralize(@venues.count)} for"
-        %em
-          = @query_str
-      .panel-body
-        = render 'venues/venue_list', venues: @venues
-.side-bar
+.panel
+  .panel-head
+    = "#{@events.count} #{'event'.pluralize(@events.count)} for"
+    %em
+      = @query_str
+  .panel-body
+    - if @events.any?
+      = render 'events/event_list', events: @events
+.panel
+  .panel-head
+    = "#{@venues.count} #{'venue'.pluralize(@venues.count)} for"
+    %em
+      = @query_str
+  .panel-body
+    - if @venues.any?
+      = render 'venues/venue_list', venues: @venues

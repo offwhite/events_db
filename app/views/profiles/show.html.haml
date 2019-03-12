@@ -15,5 +15,5 @@
               - if role.tour_role?
                 - present role.tour do |tour|
                   = link_to tour.name, tour_path(tour)
-            %td
+            %td.text-right
               = role.role_type.title

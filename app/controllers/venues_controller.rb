@@ -5,4 +5,16 @@ class VenuesController < ApplicationController
       self, params
     ).call
   end
+
+  def edit
+    ::Venues::Edit.new(
+      self, params
+    ).call
+  end
+
+  def update
+    ::Venues::Update.new(
+      self, params
+    ).call
+  end
 end

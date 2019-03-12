@@ -6,7 +6,7 @@
     .panel-head
       - if event.on_tour?
         = link_to 'Tour > ', tour_path(event.tour)
-      = link_to event.full_title, event_path(event)
+      = event.full_title
 
       = link_to 'Edit', edit_event_path(event), class: 'edit-link'
     .panel-body
