@@ -6,6 +6,7 @@ describe Events::Creator do
 
   let!(:user) { create(:user) }
   let!(:venue) { create(:venue) }
+  let!(:event) { create(:event) }
   let!(:event_type) { create(:event_type) }
 
   let(:params) do
@@ -46,6 +47,7 @@ describe Events::Creator do
     end
 
     it 'should execute without error' do
+      binding.pry
       expect(creator.call).to be_truthy
     end
 
