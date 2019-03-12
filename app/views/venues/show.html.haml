@@ -1,0 +1,19 @@
+- present @venue do |venue|
+  - content_for :page_title do
+    = venue.title
+
+  .panel
+    .panel-head
+      = venue.title
+      - if current_user&.admin?
+        = link_to 'Edit', 'edit_venue_path(venue)', class: 'edit-link'
+    .panel-body
+      .address-panel
+        = venue.address
+        .town
+          = venue.town_title
+      .events
+        %h3 Events
+        = render 'events/event_list', events: venue.events, venue: venue
+        .row
+          = link_to 'Add event', 'new_role_path(event_id: event.id)', class: 'button'

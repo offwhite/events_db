@@ -2,7 +2,7 @@ class Venue < ApplicationRecord
   include PgSearch
 
   belongs_to :town
-  has_many :events
+  has_many :events, -> { order(date: :desc) }
 
   pg_search_scope :fuzzy_matches,
                   against: %i[name description address],
@@ -14,6 +14,10 @@ class Venue < ApplicationRecord
 
   def full_title
     [title, town&.title].join(', ')
+  end
+
+  def town_title
+    town&.title
   end
 end
 

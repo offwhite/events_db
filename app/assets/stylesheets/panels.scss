@@ -31,4 +31,9 @@
     box-sizing: border-box;
     padding: 0 $gutter;
   }
+
+  .address-panel{
+    border-bottom: solid 1px $panel-border-color;
+    padding: $gutter 0;
+  }
 }

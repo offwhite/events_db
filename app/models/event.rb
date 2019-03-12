@@ -28,6 +28,10 @@ class Event < ApplicationRecord
     #{date.strftime('%d %B %Y')}"
   end
 
+  def date_str
+    date.strftime('%d %B %Y')
+  end
+
   def on_tour?
     tour_id.present?
   end

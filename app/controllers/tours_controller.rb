@@ -1,4 +1,4 @@
-# handles requests for roles routes
+# handles requests for tours routes
 class ToursController < ApplicationController
   def new
     ::Tours::New.new(
