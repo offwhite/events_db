@@ -1,0 +1,19 @@
+- present @role do |role|
+  .panel
+    .panel-head
+      Edit role
+    .panel-body
+
+      = simple_form_for(@role, url: role_path, method: :put) do |f|
+        .row
+          = f.association :profile, label_method: :title, label: 'Who dat?'
+        .row
+          = f.association :event, label: 'Where dat?'
+        .row
+          = f.association :tour, label: 'What what dat? (tour)'
+        .row
+          = f.association :role_type, label: 'What dat?'
+        .row
+          = f.input :verified, label: 'Verified'
+        .row
+          = f.submit 'Update role'

@@ -2,7 +2,6 @@ module Events
   module Mixins
     def delete
       roles.update_all deleted_at: Time.zone.now
-      puts 'assholes'
       self.deleted_at = Time.zone.now
       save!
     end

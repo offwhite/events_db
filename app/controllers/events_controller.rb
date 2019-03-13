@@ -35,4 +35,10 @@ class EventsController < ApplicationController
       self, params
     ).call
   end
+
+  def destroy
+    ::Events::Destroy.new(
+      self, params
+    ).call
+  end
 end

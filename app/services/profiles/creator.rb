@@ -30,7 +30,8 @@ module Profiles
     end
 
     def dupe_names
-      @dupe_names ||= Profile.where('lower(name) = ?', name).order(:ordinal)
+      @dupe_names ||=
+        Profile.where('lower(name) = ?', name.downcase).order(:ordinal)
     end
   end
 end

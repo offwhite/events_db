@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'events#index'
-  resources :events, only: %i[index show edit update new create]
-  resources :roles, only: %i[new create destroy]
+  resources :events, only: %i[index show edit update new create destroy]
+  resources :roles, only: %i[new create edit update destroy]
   resources :profiles, only: %i[show edit update]
   resources :tours, only: %i[new create show]
   resources :venues, only: %i[new create show edit update]

@@ -17,5 +17,7 @@
               = link_to event.full_title, event_path(event)
             %td
               = event.created_date
-            %td.text-right
+            %td
               = event.user.email
+            %td
+              = link_to 'Delete', event_path(event), method: 'DELETE', class: 'danger confirm'
