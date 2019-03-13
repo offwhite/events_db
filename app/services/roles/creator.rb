@@ -7,7 +7,7 @@ module Roles
     end
 
     def call
-      return false if profile.nil?
+      return if profile.nil?
       return existing_role if existing_role.present?
       role
     end
@@ -42,8 +42,10 @@ module Roles
     end
 
     def profile
-      return Profile.find params[:profile_id] if params[:profile_id].present?
-      @profile ||= Profiles::Creator.new(params[:profile_name]).call
+      @profile ||= begin
+        return Profile.find params[:profile_id] if params[:profile_id].present?
+        Profiles::Creator.new(params[:profile_name]).call
+      end
     end
   end
 end

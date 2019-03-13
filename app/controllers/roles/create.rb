@@ -2,7 +2,7 @@ module Roles
   class Create < ::EditControllerAction
     def call
       return redirect if role.present?
-      render_form
+      error
     end
 
     private
@@ -12,9 +12,14 @@ module Roles
       redirect_to(controller.tour_path(id: role.tour.id))
     end
 
-    def render_form
-      expose(role, '@role')
-      render 'new'
+    def error
+      redirect_to(
+        controller.new_role_path(
+          event_id: safe_params[:event_id],
+          tour_id: safe_params[:tour_id]
+        ),
+        notice: "Something didn't happen right."
+      )
     end
 
     def safe_params

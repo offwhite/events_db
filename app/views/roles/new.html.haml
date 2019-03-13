@@ -18,7 +18,7 @@
         .row
           = f.input :profile_id, as: :hidden, input_html: { class: 'profile_lookup_id' }
         .row
-          = f.input :role_type_id, collection: RoleType.all.group_by(&:category), as: :grouped_select, group_method: :last, group_label_method: :first, label: 'What did they do?', prompt: 'Tell us what monders they wrought'
+          = f.input :role_type_id, collection: RoleType.all.group_by(&:department_name), as: :grouped_select, group_method: :last, group_label_method: :first, label: 'What did they do?', prompt: 'Tell us what monders they wrought'
         .row
           = f.submit 'Add Crew'
         .row
