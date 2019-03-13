@@ -17,4 +17,10 @@ class AdminController < ApplicationController
       self, params
     ).call
   end
+
+  def profiles
+    ::Admin::Profiles.new(
+      self, params
+    ).call
+  end
 end

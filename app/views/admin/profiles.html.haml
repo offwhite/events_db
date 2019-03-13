@@ -1,0 +1,21 @@
+- content_for :page_title do
+  Admin profiles
+
+.panel
+  .panel-head
+    Profiles
+  .panel-body
+    %table.list
+      - @profiles.each do |profile|
+        - present profile do |profile|
+          %tr
+            %td
+              = profile.id
+            %td
+              = link_to 'Edit', 'edit_profile_path(profile)'
+            %td
+              = link_to profile.name, profile_path(profile)
+            %td
+              = profile.created_date
+            %td.text-right
+              = profile.user&.email

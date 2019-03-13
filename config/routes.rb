@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin#index', as: :admin_index
   get '/admin/events', to: 'admin#events', as: :admin_events
   get '/admin/venues', to: 'admin#venues', as: :admin_venues
+  get '/admin/profiles', to: 'admin#profiles', as: :admin_profiles
 end
