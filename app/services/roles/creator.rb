@@ -7,6 +7,7 @@ module Roles
     end
 
     def call
+      return false if profile.nil?
       return existing_role if existing_role.present?
       role
     end
@@ -22,7 +23,8 @@ module Roles
     def full_params
       @full_params ||= params.merge(
         creator: user,
-        verified: verified?
+        verified: verified?,
+        profile_id: profile.id
       )
     end
 
@@ -33,10 +35,15 @@ module Roles
     def existing_role
       @existing_role ||=
         Role.find_by(
-          profile_id: params[:profile_id],
+          profile_id: profile.id,
           event_id: params[:event_id],
           role_type_id: params[:role_type_id]
         )
+    end
+
+    def profile
+      return Profile.find params[:profile_id] if params[:profile_id].present?
+      @profile ||= Profiles::Creator.new(params[:profile_name]).call
     end
   end
 end

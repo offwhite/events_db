@@ -13,15 +13,13 @@
         .message
           = "You're adding cast or crew to #{@title}."
         .row
-          -# TODO make this a search field with ajax response for results
-            And include an inline profile creation tool. This will have to do for now.
-          = f.association :profile, label_method: :title, label: 'Who?', prompt: 'Who was this magestic beast?'
+          = f.input :profile_name, as: :string, label: 'Who?', required: true, placeholder: 'Who was this magestic beast?', input_html: { autocomplete: "new-password", class: 'profile_lookup' }
+          .profile_lookup_list
+        .row
+          = f.input :profile_id, as: :hidden, input_html: { class: 'profile_lookup_id' }
         .row
           = f.input :role_type_id, collection: RoleType.all.group_by(&:category), as: :grouped_select, group_method: :last, group_label_method: :first, label: 'What did they do?', prompt: 'Tell us what monders they wrought'
         .row
           = f.submit 'Add Crew'
         .row
-          - if role.event_role?
-            = link_to 'Cancel', event_path(role.event)
-          - else
-            = link_to 'Cancel', tour_path(role.tour)
+          = link_to 'Cancel', role.event_role? ? event_path(role.event) : tour_path(role.tour)
