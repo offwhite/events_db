@@ -1,5 +1,5 @@
 module Venues
-  class Update < ::EditControllerAction
+  class Update < ::AdminControllerAction
     def call
       return redirect if venue.update! safe_params
       render_form

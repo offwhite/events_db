@@ -30,8 +30,20 @@ class Profile < ApplicationRecord
     " (#{ordinal.ordinalize})"
   end
 
-  def role_summary
-    roles.collect(&:role_type_name).uniq.join(', ')
+  def role_type_names
+    role_types.collect(&:name)
+  end
+
+  def role_types
+    roles.collect(&:role_type).uniq
+  end
+
+  def town_titles
+    roles.collect(&:town_title).uniq.to_sentence
+  end
+
+  def town_titles_sml
+    roles.collect(&:town_title).uniq[0..3].to_sentence
   end
 end
 

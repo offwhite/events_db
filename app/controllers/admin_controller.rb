@@ -5,4 +5,16 @@ class AdminController < ApplicationController
       self, params
     ).call
   end
+
+  def events
+    ::Admin::Events.new(
+      self, params
+    ).call
+  end
+
+  def venues
+    ::Admin::Venues.new(
+      self, params
+    ).call
+  end
 end

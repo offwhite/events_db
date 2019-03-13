@@ -1,0 +1,20 @@
+- content_for :page_title do
+  Admin index
+
+.panel
+  .panel-head
+    Venues
+  .panel-body
+    %table.list
+      - @venues.each do |venue|
+        - present venue do |venue|
+          %tr
+            %td
+              = link_to 'Edit', edit_venue_path(venue)
+            %td
+              = link_to venue.full_title, venue_path(venue)
+            %td
+              = venue.created_date
+            %td.text-right
+              = venue.events.count
+              Events

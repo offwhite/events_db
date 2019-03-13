@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   post '/profile-lookup', to: 'profiles#lookup', as: :profiles_lookup
 
   get '/admin', to: 'admin#index', as: :admin_index
+  get '/admin/events', to: 'admin#events', as: :admin_events
+  get '/admin/venues', to: 'admin#venues', as: :admin_venues
 end

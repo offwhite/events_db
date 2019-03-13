@@ -19,7 +19,6 @@ function profile_lookup(){
 function lookup(){
   $('input.profile_lookup_id').val('')
   var string = $(this).val();
-  console.log(string)
   if(string.length < 3){return}
 
   $.ajax({

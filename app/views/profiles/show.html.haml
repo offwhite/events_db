@@ -3,7 +3,8 @@
     .panel-head
       = profile.name
     .panel-body
-
+      %h3 Overview
+      = profile.overview
       %h3 Events
       %table.list
         - profile.roles.each do |role|

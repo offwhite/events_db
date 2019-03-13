@@ -5,6 +5,8 @@ class Role < ApplicationRecord
   belongs_to :role_type
   belongs_to :creator, class_name: 'User'
 
+  delegate :town, :venue, to: :event
+
   attr_accessor :profile_name
 
   def event_role?
@@ -17,6 +19,14 @@ class Role < ApplicationRecord
 
   def role_type_name
     role_type.name
+  end
+
+  def venue_title
+    venue.title
+  end
+
+  def town_title
+    town.title
   end
 end
 

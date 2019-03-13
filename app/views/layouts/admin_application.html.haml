@@ -21,11 +21,19 @@
 
       %ul.admin-links
         %li
-          ADMIN
+          = link_to 'Admin', admin_index_path
         %li
-          = link_to 'Add venue', new_venue_path
+          = link_to 'Profiles', admin_venues_path
         %li
-          = link_to 'Add venue', new_venue_path
+          = link_to 'Venues', admin_venues_path
+        %li
+          = link_to 'Events', admin_events_path
+        %li
+          = link_to 'Event Types', admin_index_path
+        %li
+          = link_to 'Departments', admin_index_path
+        %li
+          = link_to 'Role Types', admin_index_path
       .page-content
 
         = yield

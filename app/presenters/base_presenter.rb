@@ -14,6 +14,12 @@ class BasePresenter < SimpleDelegator
     @view_context
   end
 
+  def created_date
+    return model.created_at.strftime('Today - %H:%M:%S') if
+      model.created_at.today?
+    model.created_at.strftime('%d-%m-%Y - %H:%M:%S')
+  end
+
   def formatted_date(attr)
     return '' if model.send(attr).nil?
     model.send(attr).strftime('%A, %B %d %Y')

@@ -1,5 +1,5 @@
 module Venues
-  class Edit < ::EditControllerAction
+  class Edit < ::AdminControllerAction
     def call
       expose(venue, '@venue')
     end

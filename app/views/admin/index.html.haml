@@ -3,15 +3,42 @@
 
 .panel
   .panel-head
-    Events
+    Records
   .panel-body
     %table.list
-      - @events.each do |event|
-        - present event do |event|
-          %tr
-            %td
-              = link_to event.full_title, edit_event_path(event)
-            %td
-              = event.created_date
-            %td.text-right
-              = event.user.email
+      %tr
+        %td
+          = @roles.count
+        %td
+          = link_to 'Roles', admin_venues_path
+        %td
+          Most Recent:
+          - present @roles.last do |role|
+            = role.created_date
+      %tr
+        %td
+          = @events.count
+        %td
+          = link_to 'Events', admin_events_path
+        %td
+          Most Recent:
+          - present @events.last do |event|
+            = event.created_date
+      %tr
+        %td
+          = @venues.count
+        %td
+          = link_to 'Venues', admin_venues_path
+        %td
+          Most Recent:
+          - present @venues.last do |venue|
+            = venue.created_date
+      %tr
+        %td
+          = @profiles.count
+        %td
+          = link_to 'Profiles', admin_venues_path
+        %td
+          Most Recent:
+          - present @profiles.last do |profile|
+            = profile.created_date

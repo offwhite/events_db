@@ -6,7 +6,7 @@
     .panel-head
       Venue >
       = venue.title
-      - if current_user&.can_edit?
+      - if current_user&.admin?
         = link_to 'Edit', edit_venue_path(venue), class: 'edit-link'
     .panel-body
       .address-panel
