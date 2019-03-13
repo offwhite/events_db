@@ -21,6 +21,8 @@
               = "#{profile.roles.count} #{'role'.pluralize(profile.roles.count)}"
             %td
               = "#{profile.events.count} #{'event'.pluralize(profile.events.count)}"
-            %td.text-right
+            %td
               = profile.user&.email
+            %td.text-right
+              = profile.yes_or_no(:verified)
   = paginate @profiles

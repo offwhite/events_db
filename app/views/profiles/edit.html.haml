@@ -42,6 +42,6 @@
                   = link_to tour.name, tour_path(tour)
             %td.text-right
               = role.role_type.title
-            - current_user.admin?
+            - if current_user.admin?
               %td.text-right
-                = link_to 'Delete', 'delete_role(role)', class: 'danger confirm', title: 'Delete this role'
+                = link_to 'Delete', roles_path(role), class: 'danger confirm', title: 'Delete this role'

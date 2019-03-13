@@ -30,6 +30,14 @@ class BasePresenter < SimpleDelegator
     model.send(attr).strftime('%d %B %Y')
   end
 
+  def yes_or_no(flag)
+    if model.send(flag) == true
+      h.content_tag(:div, flag, class: 'bool yes')
+    else
+      h.content_tag(:div, flag, class: 'bool no')
+    end
+  end
+
   private
 
   def clean(string)

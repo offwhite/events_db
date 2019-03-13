@@ -4,9 +4,12 @@
       %tr
         %td
           = link_to event.name, event_path(event)
-        %td
-          - unless defined? venue
+        -# don't show venue info if we're on a venue page
+        - unless defined? venue
+          %td
             = link_to event.venue_title, venue_path(event.venue)
+          %td
+            = event.venue.town_title
         %td
           = event.date_str
         %td.text-right

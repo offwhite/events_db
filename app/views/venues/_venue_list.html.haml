@@ -3,6 +3,6 @@
     - present venue do |venue|
       %tr
         %td
-          = link_to venue.full_title, 'event_path(event)'
+          = link_to venue.full_title, venue_path(venue)
         %td.text-right
           = "#{venue.events.count} events"
