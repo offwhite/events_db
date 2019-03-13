@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'events#index'
   resources :events, only: %i[index show edit update new create]
   resources :roles, only: %i[new create]
-  resources :profiles, only: %i[show]
+  resources :profiles, only: %i[show edit update]
   resources :tours, only: %i[new create show]
   resources :venues, only: %i[new create show edit update]
 

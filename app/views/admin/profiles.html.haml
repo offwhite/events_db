@@ -12,10 +12,15 @@
             %td
               = profile.id
             %td
-              = link_to 'Edit', 'edit_profile_path(profile)'
+              = link_to 'Edit', edit_profile_path(profile)
             %td
-              = link_to profile.name, profile_path(profile)
+              = link_to profile.title, profile_path(profile)
             %td
               = profile.created_date
+            %td
+              = "#{profile.roles.count} #{'role'.pluralize(profile.roles.count)}"
+            %td
+              = "#{profile.events.count} #{'event'.pluralize(profile.events.count)}"
             %td.text-right
               = profile.user&.email
+  = paginate @profiles

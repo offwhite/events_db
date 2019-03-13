@@ -12,6 +12,10 @@ class EditControllerAction < ::ControllerAction
       return
     end
 
-    redirect_to('/', notice: "You don't have the permissions for that. Sorry.")
+    redirect_to(
+      '/',
+      notice:
+        "You don't have the permissions for that. Get in touch if that's wrong."
+    )
   end
 end

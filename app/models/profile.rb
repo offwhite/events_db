@@ -45,6 +45,10 @@ class Profile < ApplicationRecord
   def town_titles_sml
     roles.collect(&:town_title).uniq[0..3].to_sentence
   end
+
+  def events
+    roles.collect(&:event).uniq
+  end
 end
 
 # == Schema Information

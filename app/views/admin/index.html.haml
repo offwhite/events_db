@@ -8,6 +8,15 @@
     %table.list
       %tr
         %td
+          = @profiles.count
+        %td
+          = link_to 'Profiles', admin_profiles_path
+        %td
+          Most Recent:
+          - present @profiles.last do |profile|
+            = profile.created_date
+      %tr
+        %td
           = @roles.count
         %td
           = link_to 'Roles', admin_venues_path
@@ -33,12 +42,3 @@
           Most Recent:
           - present @venues.last do |venue|
             = venue.created_date
-      %tr
-        %td
-          = @profiles.count
-        %td
-          = link_to 'Profiles', admin_venues_path
-        %td
-          Most Recent:
-          - present @profiles.last do |profile|
-            = profile.created_date

@@ -1,7 +1,10 @@
 module Profiles
   class BasicPresenter < BasePresenter
     def overview
-      "#{model.name} is a #{role_summary} working in #{model.town_titles}"
+      "#{model.name} is a #{role_summary} who has worked on \
+      #{model.events.count} #{'event'.pluralize(model.events.count)} \
+      in #{model.town_titles} \
+      "
     end
 
     def role_summary

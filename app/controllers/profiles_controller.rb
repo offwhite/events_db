@@ -6,6 +6,18 @@ class ProfilesController < ApplicationController
     ).call
   end
 
+  def edit
+    ::Profiles::Edit.new(
+      self, params
+    ).call
+  end
+
+  def update
+    ::Profiles::Update.new(
+      self, params
+    ).call
+  end
+
   def lookup
     ::Profiles::Lookup.new(
       self, params

@@ -37,3 +37,61 @@
     padding: $gutter 0;
   }
 }
+
+.pagination{
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: $gutter;
+  text-align: center;
+  padding: $gutter;
+
+  .prev, .first{
+    display: block;
+    float: left;
+  }
+
+  .btn a{
+    display: block;
+    width: 40px;
+    height: 20px;
+    background: white;
+    color: $purple-cta;
+    border: solid 1px $purple-cta;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: all 0.35s ease-in-out;
+
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+
+  .page a, .next a, .last a, .prev a, .first a, .current{
+    height: 20px;
+    line-height: 20px;
+    background: white;
+    color: $purple-cta;
+    border: solid 1px $purple-cta;
+    display: inline-block;
+    padding: 0 8px;
+    border-radius: 5px;
+
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+  .current{
+    background-color: $purple-cta;
+    color: white;
+    border-color: $purple-cta;
+    font-weight: bold;
+  }
+
+  .gap{
+    color: $purple-cta;
+    font-size: 30px;
+  }
+}

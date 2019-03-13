@@ -1,0 +1,47 @@
+- present @profile do |profile|
+  .panel
+    .panel-head
+      = profile.name
+    .panel-body
+      %h3 Overview
+      = profile.overview
+
+      = simple_form_for(@profile, url: profile_path, method: :put) do |f|
+        .row
+          = f.input :name, as: :string, label: 'Name', placeholder: 'Title'
+        .row
+          = profile.ordinal_str
+        .row
+          = f.input :biography, label: 'Biography', placeholder: 'Description'
+        - if current_user.admin?
+          .row
+            = f.association :user, label_method: :email, label: 'Profile owner'
+        .row
+          = f.input :phone, as: :string, label: 'Phone number'
+        .row
+          = f.input :url, as: :string, label: 'website'
+        .row
+          = f.input :verified
+        .row
+          = f.input :validated
+        .row
+          = f.input :date_of_birth, as: :string, label: 'Date of birth (yyyy-mm-dd)'
+        .row
+          = f.submit 'Update profile'
+
+      %h3 Events
+      %table.list
+        - profile.roles.each do |role|
+          %tr
+            %td
+              - if role.event_role?
+                - present role.event do |event|
+                  = link_to event.full_title, event_path(event)
+              - if role.tour_role?
+                - present role.tour do |tour|
+                  = link_to tour.name, tour_path(tour)
+            %td.text-right
+              = role.role_type.title
+            - current_user.admin?
+              %td.text-right
+                = link_to 'Delete', 'delete_role(role)', class: 'danger confirm', title: 'Delete this role'
