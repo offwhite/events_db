@@ -1,4 +1,8 @@
 class Role < ApplicationRecord
+  include Roles::Mixins
+  extend Roles::Scopes
+  default_scope { where(deleted_at: [nil]) }
+
   belongs_to :profile
   belongs_to :event, optional: true
   belongs_to :tour, optional: true

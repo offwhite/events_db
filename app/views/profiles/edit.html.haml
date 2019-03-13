@@ -44,4 +44,4 @@
               = role.role_type.title
             - if current_user.admin?
               %td.text-right
-                = link_to 'Delete', roles_path(role), class: 'danger confirm', title: 'Delete this role'
+                = link_to 'Delete', role_path(role), class: 'danger confirm', title: 'Delete this role', method: 'DELETE'

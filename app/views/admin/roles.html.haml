@@ -1,0 +1,27 @@
+- content_for :page_title do
+  Admin roles
+
+.panel
+  .panel-head
+    Roles
+  .panel-body
+    %table.list
+      - @roles.each do |role|
+        - present role do |role|
+          %tr
+            %td
+              = role.id
+            %td
+              = link_to 'Edit', 'edit_role_path(role)'
+            %td
+              = link_to role.profile.title, 'role_path(role)'
+            %td
+              = link_to role.event.name, event_path(role.event)
+            %td
+              = role.role_type.name
+            %td
+              = role.role_type.role_department.name
+            %td
+              = role.created_date
+            %td
+              = link_to 'Delete', role_path(role), class: 'danger confirm', title: 'Delete this role', method: 'DELETE'

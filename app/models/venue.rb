@@ -1,4 +1,6 @@
 class Venue < ApplicationRecord
+  extend Venues::Scopes
+  default_scope{ where(deleted_at: [nil]) }
   include PgSearch
 
   belongs_to :town

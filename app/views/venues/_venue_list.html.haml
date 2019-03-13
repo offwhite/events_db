@@ -5,4 +5,4 @@
         %td
           = link_to venue.full_title, venue_path(venue)
         %td.text-right
-          = "#{venue.events.count} events"
+          = "#{venue.events.count} #{'event'.pluralize(venue.events.count)}"

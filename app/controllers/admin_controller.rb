@@ -12,6 +12,12 @@ class AdminController < ApplicationController
     ).call
   end
 
+  def roles
+    ::Admin::Roles.new(
+      self, params
+    ).call
+  end
+
   def venues
     ::Admin::Venues.new(
       self, params

@@ -1,5 +1,8 @@
 class Event < ApplicationRecord
   include PgSearch
+  include Events::Mixins
+  extend Events::Scopes
+  default_scope { where(deleted_at: [nil]) }
 
   belongs_to :event_type
   belongs_to :venue

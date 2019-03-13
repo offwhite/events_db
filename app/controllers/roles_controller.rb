@@ -23,4 +23,10 @@ class RolesController < ApplicationController
       self, params
     ).call
   end
+
+  def destroy
+    ::Roles::Destroy.new(
+      self, params
+    ).call
+  end
 end

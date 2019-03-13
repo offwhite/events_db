@@ -1,0 +1,21 @@
+- content_for :page_title do
+  Admin events
+
+.panel
+  .panel-head
+    Events
+  .panel-body
+    %table.list
+      - @events.each do |event|
+        - present event do |event|
+          %tr
+            %td
+              = event.id
+            %td
+              = link_to 'Edit', edit_event_path(event)
+            %td
+              = link_to event.full_title, event_path(event)
+            %td
+              = event.created_date
+            %td.text-right
+              = event.user.email

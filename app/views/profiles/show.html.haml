@@ -2,6 +2,8 @@
   .panel
     .panel-head
       = profile.name
+      - if current_user&.admin?
+        = link_to 'Edit', edit_profile_path(profile), class: 'edit-link'
     .panel-body
       %h3 Overview
       = profile.overview
