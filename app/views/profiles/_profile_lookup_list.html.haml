@@ -1,0 +1,9 @@
+%ul
+  - profiles.each do |profile|
+    %li{'data-id' => profile.id}
+      %span.profile-name
+        = profile.title
+      - if profile.roles.any?
+        .pull-right
+          = '...'
+          = profile.role_summary

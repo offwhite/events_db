@@ -11,5 +11,7 @@ Rails.application.routes.draw do
 
   post '/search', to: 'searches#global', as: :search_global
 
+  post '/profile-lookup', to: 'profiles#lookup', as: :profiles_lookup
+
   get '/admin', to: 'admin#index', as: :admin_index
 end

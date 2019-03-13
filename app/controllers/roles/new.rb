@@ -14,12 +14,12 @@ module Roles
     end
 
     def event
-      return if params[:event_id].nil?
+      return if params[:event_id].blank?
       @event ||= Event.find params[:event_id]
     end
 
     def tour
-      return if params[:tour_id].nil?
+      return if params[:tour_id].blank?
       @tour ||= Tour.find params[:tour_id]
     end
 

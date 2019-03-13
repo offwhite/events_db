@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190311154127) do
+ActiveRecord::Schema.define(version: 20190313092455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_trgm"
 
   create_table "countries", force: :cascade do |t|
     t.text "name"
@@ -55,6 +56,11 @@ ActiveRecord::Schema.define(version: 20190311154127) do
     t.datetime "updated_at", null: false
     t.boolean "verified"
     t.boolean "validated"
+    t.integer "ordinal", default: 0
+    t.date "date_of_birth"
+    t.text "phone"
+    t.text "url"
+    t.integer "merged_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -71,6 +77,8 @@ ActiveRecord::Schema.define(version: 20190311154127) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "category"
+    t.bigint "role_department_id"
+    t.index ["role_department_id"], name: "index_role_types_on_role_department_id"
   end
 
   create_table "roles", force: :cascade do |t|

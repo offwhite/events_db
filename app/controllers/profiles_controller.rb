@@ -5,4 +5,10 @@ class ProfilesController < ApplicationController
       self, params
     ).call
   end
+
+  def lookup
+    ::Profiles::Lookup.new(
+      self, params
+    ).call
+  end
 end

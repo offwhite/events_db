@@ -5,12 +5,18 @@ class Role < ApplicationRecord
   belongs_to :role_type
   belongs_to :creator, class_name: 'User'
 
+  attr_accessor :profile_name
+
   def event_role?
     event_id.present?
   end
 
   def tour_role?
     tour_id.present?
+  end
+
+  def role_type_name
+    role_type.name
   end
 end
 
