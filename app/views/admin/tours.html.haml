@@ -1,0 +1,30 @@
+- content_for :page_title do
+  Admin tours
+
+.panel
+  .panel-head
+    Tours
+  .panel-body
+    %table.list
+      - @tours.each do |tour|
+        - present tour do |tour|
+          %tr
+            %td
+              = tour.id
+            %td
+              = link_to 'Edit', edit_tour_path(tour)
+            %td
+              = link_to tour.title, tour_path(tour)
+            %td
+              = tour.events.count
+              events
+            %td
+              = tour.roles.count
+              tour roles
+            %td
+              = tour.created_date
+            %td.text-right
+              = tour.yes_or_no(:verified)
+            %td
+              = link_to 'Delete', tour_path(tour), class: 'danger confirm', title: 'Delete this tour', method: 'DELETE'
+    = paginate @tours

@@ -9,12 +9,13 @@ module Roles
     def call
       return if profile.nil?
       return existing_role if existing_role.present?
+      return false unless role.save
       logger.call
       role
     end
 
     def role
-      @role ||= Role.create(full_params)
+      @role ||= Role.new(full_params)
     end
 
     private
@@ -55,7 +56,7 @@ module Roles
           role.parent,
           'role added',
           user,
-          profile: ['', profile.name],
+          profile: ['', "#{profile.title} (#{profile.id})"],
           role_type: ['', "#{role.role_type.name} (#{role.role_type.id})"]
         )
     end

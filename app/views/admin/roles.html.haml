@@ -30,3 +30,4 @@
               = role.created_date
             %td
               = link_to 'Delete', role_path(role), class: 'danger confirm', title: 'Delete this role', method: 'DELETE'
+    = paginate @roles

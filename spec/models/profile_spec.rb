@@ -24,4 +24,5 @@ end
 #  phone         :text
 #  url           :text
 #  merged_id     :integer
+#  deleted_at    :date
 #

@@ -21,3 +21,4 @@
               = event.user.email
             %td
               = link_to 'Delete', event_path(event), method: 'DELETE', class: 'danger confirm'
+    = paginate @events

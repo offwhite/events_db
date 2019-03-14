@@ -7,7 +7,7 @@ module Admin
     private
 
     def events
-      @events ||= Event.order(id: :desc)
+      @events ||= Event.order(id: :desc).page(params[:page])
     end
   end
 end

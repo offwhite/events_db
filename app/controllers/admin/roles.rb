@@ -7,7 +7,7 @@ module Admin
     private
 
     def roles
-      @roles ||= Role.order(id: :desc)
+      @roles ||= Role.order(id: :desc).page(params[:page])
     end
   end
 end

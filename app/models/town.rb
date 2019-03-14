@@ -1,4 +1,8 @@
 class Town < ApplicationRecord
+  extend Towns::Scopes
+  include Towns::Mixins
+  default_scope { where(deleted_at: [nil]) }
+
   has_many :venues
   belongs_to :country
   has_many :logs, as: :record
@@ -20,4 +24,5 @@ end
 #  updated_at  :datetime         not null
 #  latitude    :float
 #  longitude   :float
+#  deleted_at  :date
 #

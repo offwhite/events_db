@@ -49,4 +49,5 @@ end
 #  permission_level       :integer          default(0)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  banned_at              :date
 #

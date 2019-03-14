@@ -17,4 +17,5 @@ end
 #  updated_at         :datetime         not null
 #  category           :text
 #  role_department_id :integer
+#  deleted_at         :date
 #

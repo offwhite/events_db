@@ -1,4 +1,8 @@
 class RoleType < ApplicationRecord
+  extend RoleTypes::Scopes
+  include RoleTypes::Mixins
+  default_scope { where(deleted_at: [nil]) }
+
   has_many :roles
   belongs_to :role_department
   has_many :logs, as: :record
@@ -23,4 +27,5 @@ end
 #  updated_at         :datetime         not null
 #  category           :text
 #  role_department_id :integer
+#  deleted_at         :date
 #

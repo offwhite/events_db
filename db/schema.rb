@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190314091442) do
+ActiveRecord::Schema.define(version: 20190314125036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20190314091442) do
     t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "deleted_at"
   end
 
   create_table "events", force: :cascade do |t|
@@ -84,6 +85,7 @@ ActiveRecord::Schema.define(version: 20190314091442) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "deleted_at"
   end
 
   create_table "role_types", force: :cascade do |t|
@@ -93,6 +95,7 @@ ActiveRecord::Schema.define(version: 20190314091442) do
     t.datetime "updated_at", null: false
     t.text "category"
     t.bigint "role_department_id"
+    t.date "deleted_at"
     t.index ["role_department_id"], name: "index_role_types_on_role_department_id"
   end
 
@@ -105,7 +108,6 @@ ActiveRecord::Schema.define(version: 20190314091442) do
     t.boolean "verified"
     t.integer "creator_id"
     t.integer "tour_id"
-    t.integer "role_department_id"
     t.date "deleted_at"
     t.index ["event_id"], name: "index_roles_on_event_id"
     t.index ["profile_id", "role_type_id", "event_id"], name: "index_roles_on_profile_id_and_role_type_id_and_event_id", unique: true
@@ -126,6 +128,7 @@ ActiveRecord::Schema.define(version: 20190314091442) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "verified"
+    t.date "deleted_at"
     t.index ["tour_type_id"], name: "index_tours_on_tour_type_id"
     t.index ["user_id"], name: "index_tours_on_user_id"
   end
@@ -138,6 +141,7 @@ ActiveRecord::Schema.define(version: 20190314091442) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.date "deleted_at"
     t.index ["country_id"], name: "index_towns_on_country_id"
   end
 

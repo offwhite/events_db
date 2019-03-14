@@ -1,9 +1,9 @@
-class RoleDepartment < ApplicationRecord
-  extend RoleDepartments::Scopes
-  include RoleDepartments::Mixins
-  default_scope { where(deleted_at: [nil]) }
-  has_many :role_types
-  has_many :logs, as: :record
+require 'rails_helper'
+
+describe RoleDepartment do
+  context 'relations' do
+    it { is_expected.to have_many(:role_types) }
+  end
 end
 
 # == Schema Information

@@ -19,4 +19,5 @@ end
 #  updated_at  :datetime         not null
 #  latitude    :float
 #  longitude   :float
+#  deleted_at  :date
 #

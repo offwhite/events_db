@@ -65,4 +65,5 @@ end
 #  updated_at    :datetime         not null
 #  description   :text
 #  verified      :boolean
+#  deleted_at    :date
 #

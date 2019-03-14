@@ -1,4 +1,4 @@
-module Events
+module Profiles
   module Mixins
     def delete
       roles.update_all deleted_at: Time.zone.now

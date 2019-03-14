@@ -1,4 +1,7 @@
 class EventType < ApplicationRecord
+  include EventTypes::Mixins
+  default_scope { where(deleted_at: [nil]) }
+
   has_many :events
   has_many :logs, as: :record
 
@@ -15,4 +18,5 @@ end
 #  name       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  deleted_at :date
 #

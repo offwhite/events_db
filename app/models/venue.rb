@@ -1,5 +1,6 @@
 class Venue < ApplicationRecord
   extend Venues::Scopes
+  include Venues::Mixins
   default_scope { where(deleted_at: [nil]) }
   include PgSearch
 
@@ -41,4 +42,5 @@ end
 #  url         :text
 #  phone       :text
 #  verified    :boolean
+#  deleted_at  :date
 #

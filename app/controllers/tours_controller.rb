@@ -17,4 +17,22 @@ class ToursController < ApplicationController
       self, params
     ).call
   end
+
+  def edit
+    ::Tours::Edit.new(
+      self, params
+    ).call
+  end
+
+  def update
+    ::Tours::Update.new(
+      self, params
+    ).call
+  end
+
+  def destroy
+    ::Tours::Destroy.new(
+      self, params
+    ).call
+  end
 end

@@ -29,4 +29,10 @@ class AdminController < ApplicationController
       self, params
     ).call
   end
+
+  def tours
+    ::Admin::Tours.new(
+      self, params
+    ).call
+  end
 end

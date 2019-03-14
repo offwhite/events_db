@@ -1,5 +1,6 @@
 class Profile < ApplicationRecord
   extend Profiles::Scopes
+  include Profiles::Mixins
   default_scope { where(deleted_at: [nil]) }
 
   include PgSearch
@@ -72,4 +73,5 @@ end
 #  phone         :text
 #  url           :text
 #  merged_id     :integer
+#  deleted_at    :date
 #
