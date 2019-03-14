@@ -14,6 +14,14 @@ class Role < ApplicationRecord
 
   attr_accessor :profile_name
 
+  def town
+    event&.town
+  end
+
+  def venue
+    event&.venue
+  end
+
   def parent
     return event if event_id.present?
     tour
@@ -36,7 +44,7 @@ class Role < ApplicationRecord
   end
 
   def town_title
-    town.title
+    town&.title
   end
 end
 

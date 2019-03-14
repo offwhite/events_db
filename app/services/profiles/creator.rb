@@ -2,6 +2,7 @@ module Profiles
   class Creator
     def initialize(name, user = nil)
       @name = name
+      @user = user
     end
 
     def call
@@ -12,7 +13,7 @@ module Profiles
 
     private
 
-    attr_reader :name
+    attr_reader :name, :user
 
     def profile
       @profile ||= Profile.create(

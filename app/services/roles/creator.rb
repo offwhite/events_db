@@ -55,7 +55,8 @@ module Roles
           role.parent,
           'role added',
           user,
-          profile: ['', profile.name], role_type: ['', role.role_type.id]
+          profile: ['', profile.name],
+          role_type: ['', "#{role.role_type.name} (#{role.role_type.id})"]
         )
     end
   end
