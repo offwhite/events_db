@@ -23,6 +23,8 @@
               = "#{profile.events.count} #{'event'.pluralize(profile.events.count)}"
             %td
               = profile.user&.email
-            %td.text-right
+            %td
               = profile.yes_or_no(:verified)
+            %td
+              = link_to 'Delete', profile_path(profile), class: 'danger confirm', title: 'Delete this profile', method: 'DELETE'
   = paginate @profiles

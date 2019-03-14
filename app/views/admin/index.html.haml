@@ -19,7 +19,7 @@
         %td
           = @roles.count
         %td
-          = link_to 'Roles', admin_venues_path
+          = link_to 'Roles', admin_roles_path
         %td
           Most Recent:
           - present @roles.last do |role|
@@ -33,6 +33,15 @@
           Most Recent:
           - present @events.last do |event|
             = event.created_date
+      %tr
+        %td
+          = @tours.count
+        %td
+          = link_to 'Tours', admin_tours_path
+        %td
+          Most Recent:
+          - present @tours.last do |tour|
+            = tour.created_date
       %tr
         %td
           = @venues.count

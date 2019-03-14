@@ -18,6 +18,12 @@ class ProfilesController < ApplicationController
     ).call
   end
 
+  def destroy
+    ::Profiles::Destroy.new(
+      self, params
+    ).call
+  end
+
   def lookup
     ::Profiles::Lookup.new(
       self, params

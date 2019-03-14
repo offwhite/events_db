@@ -4,6 +4,7 @@ module Admin
       expose(events, '@events')
       expose(venues, '@venues')
       expose(profiles, '@profiles')
+      expose(tours, '@tours')
       expose(roles, '@roles')
     end
 
@@ -19,6 +20,10 @@ module Admin
 
     def profiles
       @profiles ||= Profile.order(:created_at)
+    end
+
+    def tours
+      @tours ||= Tour.order(:created_at)
     end
 
     def roles
