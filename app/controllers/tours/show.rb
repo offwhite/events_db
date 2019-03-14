@@ -1,5 +1,5 @@
 module Tours
-  class Show < ::EditControllerAction
+  class Show < ::ControllerAction
     def call
       expose(tour, '@tour')
     end
