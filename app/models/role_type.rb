@@ -1,6 +1,7 @@
 class RoleType < ApplicationRecord
   has_many :roles
   belongs_to :role_department
+  has_many :logs, as: :record
 
   def title
     name.titleize

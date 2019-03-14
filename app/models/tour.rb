@@ -3,6 +3,7 @@ class Tour < ApplicationRecord
   belongs_to :user
   has_many :events
   has_many :roles
+  has_many :logs, as: :record
 
   def title
     return "#{name} tour".titleize unless name.include?(' tour')

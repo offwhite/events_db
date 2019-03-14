@@ -1,0 +1,26 @@
+- if current_user.admin?
+  .panel.log
+    .panel-body
+      %h3
+        = "Log (#{logs.count})"
+      %table.list
+        - logs.each do |log|
+          - present log do |log|
+            %tr{valign: 'top'}
+              %td
+                = log.created_date
+              %td
+                = log.user&.email
+              %td
+                = log.action
+              %td
+                - log.change_values&.each do |attribute, changes|
+                  - next if attribute == 'updated_at'
+                  .change_set
+                    .change_title
+                      = attribute
+                    .change_values
+                      .from{title: 'Before the change'}
+                        = changes[0].blank? ? '~' : changes[0]
+                      .to{title: 'After the change'}
+                        = changes[1]

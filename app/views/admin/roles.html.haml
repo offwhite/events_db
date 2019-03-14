@@ -16,10 +16,12 @@
             %td
               = link_to role.profile.title, profile_path(role.profile)
             %td
+              = role.event_role? ? 'E' : 'T'
+            %td
               - if role.event_role?
                 = link_to role.event.name, event_path(role.event)
               - else
-                = link_to role.tour_name, tour_path(role.tour)
+                = link_to role.tour.name, tour_path(role.tour)
             %td
               = role.role_type.name
             %td

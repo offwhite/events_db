@@ -1,5 +1,6 @@
 class EventType < ApplicationRecord
   has_many :events
+  has_many :logs, as: :record
 
   def title
     name.titleize

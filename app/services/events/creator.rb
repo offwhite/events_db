@@ -8,6 +8,7 @@ module Events
 
     def call
       return existing_event if existing_event.present?
+      logger.call if event.present?
       event
     end
 
@@ -42,6 +43,10 @@ module Events
           date: event_date,
           venue_id: params[:venue_id]
         )
+    end
+
+    def logger
+      @logger ||= ::Utilities::Logger.new(event, 'created', user)
     end
   end
 end

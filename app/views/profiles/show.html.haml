@@ -20,3 +20,5 @@
                   = link_to tour.name, tour_path(tour)
             %td.text-right
               = role.role_type.title
+
+  = render 'logs/log_list', logs: profile.logs

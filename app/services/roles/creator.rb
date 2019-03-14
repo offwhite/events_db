@@ -9,6 +9,7 @@ module Roles
     def call
       return if profile.nil?
       return existing_role if existing_role.present?
+      logger.call
       role
     end
 
@@ -44,8 +45,18 @@ module Roles
     def profile
       @profile ||= begin
         return Profile.find params[:profile_id] if params[:profile_id].present?
-        Profiles::Creator.new(params[:profile_name]).call
+        Profiles::Creator.new(params[:profile_name], user).call
       end
+    end
+
+    def logger
+      @logger ||=
+        ::Utilities::Logger.new(
+          role.parent,
+          'role added',
+          user,
+          profile: ['', profile.name], role_type: ['', role.role_type.id]
+        )
     end
   end
 end

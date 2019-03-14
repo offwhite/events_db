@@ -1,5 +1,6 @@
 class TourType < ApplicationRecord
   has_many :tours
+  has_many :logs, as: :record
 
   def title
     name.titleize

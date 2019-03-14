@@ -20,3 +20,5 @@
 
       .row
         = link_to 'Add event', new_event_path(tour_id: tour.id), class: 'button'
+
+  = render 'logs/log_list', logs: tour.logs

@@ -1,13 +1,13 @@
 module Events
   class Index < ::ControllerAction
     def call
-      expose(events, '@events')
+      expose(recently_added_events, '@recently_added_events')
     end
 
     private
 
-    def events
-      @events ||= Event.order(id: :desc)
+    def recently_added_events
+      @recently_added_events ||= Event.order(id: :desc).limit(10)
     end
   end
 end

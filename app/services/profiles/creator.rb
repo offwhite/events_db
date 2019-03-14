@@ -1,11 +1,12 @@
 module Profiles
   class Creator
-    def initialize(name)
+    def initialize(name, user = nil)
       @name = name
     end
 
     def call
       return if contains_profanity?
+      logger.call if profile.present?
       profile
     end
 
@@ -32,6 +33,10 @@ module Profiles
     def dupe_names
       @dupe_names ||=
         Profile.where('lower(name) = ?', name.downcase).order(:ordinal)
+    end
+
+    def logger
+      @logger ||= ::Utilities::Logger.new(profile, 'edited', user)
     end
   end
 end

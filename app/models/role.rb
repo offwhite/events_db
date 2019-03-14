@@ -8,10 +8,16 @@ class Role < ApplicationRecord
   belongs_to :tour, optional: true
   belongs_to :role_type
   belongs_to :creator, class_name: 'User'
+  has_many :logs, as: :record
 
   delegate :town, :venue, to: :event
 
   attr_accessor :profile_name
+
+  def parent
+    return event if event_id.present?
+    tour
+  end
 
   def event_role?
     event_id.present?

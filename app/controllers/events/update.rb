@@ -1,8 +1,9 @@
 module Events
   class Update < ::EditControllerAction
     def call
-      return redirect if event.update! safe_params
-      render_form
+      return render_form unless event.update! safe_params
+      logger.call
+      redirect
     end
 
     private
@@ -27,6 +28,10 @@ module Events
 
     def event
       @event ||= Event.find params.fetch(:id)
+    end
+
+    def logger
+      @logger ||= ::Utilities::Logger.new(event, 'edited', current_user)
     end
   end
 end

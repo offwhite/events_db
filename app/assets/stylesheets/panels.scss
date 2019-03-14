@@ -5,13 +5,13 @@
   width: 100%;
   box-sizing: border-box;
   border-radius: 7px;
-  border: solid 1px $panel-border-color;
+  border: solid 1px $border-color;
   background: white;
   box-shadow: $light-shadow;
   margin-bottom: $double-gutter;
 
   .panel-head{
-    border-bottom: solid 1px $panel-border-color;
+    border-bottom: solid 1px $border-color;
     box-sizing: border-box;
     padding: $gutter;
     font-weight: bold;
@@ -33,7 +33,7 @@
   }
 
   .address-panel{
-    border-bottom: solid 1px $panel-border-color;
+    border-bottom: solid 1px $border-color;
     padding: $gutter 0;
   }
 }

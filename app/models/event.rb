@@ -9,6 +9,7 @@ class Event < ApplicationRecord
   belongs_to :tour, optional: true
   belongs_to :user
   has_many :roles
+  has_many :logs, as: :record
 
   validates :name, presence: true
 

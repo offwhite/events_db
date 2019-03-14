@@ -1,5 +1,6 @@
 class RoleDepartment < ApplicationRecord
   has_many :roles
+  has_many :logs, as: :record
 end
 
 # == Schema Information

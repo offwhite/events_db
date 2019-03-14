@@ -16,3 +16,5 @@
 
       .row
         = link_to 'Add crew', new_role_path(event_id: event.id), class: 'button'
+
+  = render 'logs/log_list', logs: event.logs

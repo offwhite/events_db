@@ -17,3 +17,5 @@
           = f.input :verified, label: 'Verified'
         .row
           = f.submit 'Update role'
+
+  = render 'logs/log_list', logs: role.logs

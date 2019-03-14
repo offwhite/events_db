@@ -1,6 +1,7 @@
 class Town < ApplicationRecord
   has_many :venues
   belongs_to :country
+  has_many :logs, as: :record
 
   def title
     name.titleize

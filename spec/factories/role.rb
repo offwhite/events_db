@@ -3,5 +3,6 @@ FactoryGirl.define do
     profile
     event
     role_type
+    creator
   end
 end

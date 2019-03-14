@@ -1,10 +1,11 @@
 class Venue < ApplicationRecord
   extend Venues::Scopes
-  default_scope{ where(deleted_at: [nil]) }
+  default_scope { where(deleted_at: [nil]) }
   include PgSearch
 
   belongs_to :town
   has_many :events, -> { order(date: :desc) }
+  has_many :logs, as: :record
 
   pg_search_scope :fuzzy_matches,
                   against: %i[name description address],
