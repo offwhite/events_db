@@ -36,7 +36,15 @@
       font-weight: bold;
       padding-top: 5px;
     }
+
+    .change_values{
+      float: left;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     .from, .to{
+      overflow: scroll;
       float: left;
       width: 50%;
     }

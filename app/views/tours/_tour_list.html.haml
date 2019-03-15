@@ -1,0 +1,7 @@
+%table.list
+  - tours.each do |tour|
+    %tr
+      %td
+        = link_to tour.name, tour_path(tour)
+      %td.text-right
+        = tour.events.count

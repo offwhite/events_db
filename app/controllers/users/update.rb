@@ -39,7 +39,7 @@ module Users
     end
 
     def logger
-      @logger ||= ::Utilities::Logger.new(user, 'edited', current_user)
+      @logger ||= ::Utilities::Logger.new(user, 'edited', current_user, {})
     end
   end
 end

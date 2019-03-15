@@ -3,6 +3,7 @@ module Searches
     def call
       expose(search.events, '@events')
       expose(search.venues, '@venues')
+      expose(search.tours, '@tours')
       expose(search.profiles, '@profiles')
       expose(query_str, '@query_str')
     end

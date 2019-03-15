@@ -17,6 +17,10 @@ module Search
       @profiles ||= Profile.matches(query_str).limit(limit)
     end
 
+    def tours
+      @tours ||= Tour.fuzzy_matches(query_str).limit(limit)
+    end
+
     private
 
     attr_reader :query_str, :limit

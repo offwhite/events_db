@@ -4,7 +4,7 @@
       %h3
         = "Log (#{logs.count})"
       %table.list
-        - logs.each do |log|
+        - logs.limit(50).each do |log|
           - present log do |log|
             %tr{valign: 'top'}
               %td

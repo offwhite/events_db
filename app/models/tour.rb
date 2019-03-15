@@ -1,4 +1,5 @@
 class Tour < ApplicationRecord
+  include PgSearch
   include Tours::Mixins
   default_scope { where(deleted_at: [nil]) }
 
@@ -8,6 +9,15 @@ class Tour < ApplicationRecord
   has_many :event_roles, through: :events
   has_many :roles
   has_many :logs, as: :record
+
+  pg_search_scope :fuzzy_matches,
+                  against: %i[name],
+                  using: {
+                    tsearch: {
+                      any_word: true,
+                      dictionary: 'english'
+                    }
+                  }
 
   def title
     return "#{name} tour".titleize unless name.include?(' tour')
