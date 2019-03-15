@@ -6,7 +6,7 @@ module Profiles
     end
 
     def call
-      return if contains_profanity?
+      return if contains_profanity? || dupe_username?
       logger.call if profile.present?
       profile
     end
@@ -18,7 +18,8 @@ module Profiles
     def profile
       @profile ||= Profile.create(
         name: name.titleize,
-        ordinal: ordinal
+        ordinal: ordinal,
+        username: username
       )
     end
 
@@ -28,12 +29,24 @@ module Profiles
 
     def ordinal
       return 0 if dupe_names.empty?
-      @ordinal ||= dupe_names.last.ordinal + 1
+      @ordinal ||= dupe_names.last.ordinal.to_i + 1
+    end
+
+    def username
+      @username ||= clean_name + (ordinal.zero? ? '' : "-#{ordinal}")
+    end
+
+    def clean_name
+      @clean_name ||= Utilities::Cleaner.new(name.downcase).username
     end
 
     def dupe_names
       @dupe_names ||=
         Profile.where('lower(name) = ?', name.downcase).order(:ordinal)
+    end
+
+    def dupe_username?
+      @dupe_username ||= Profile.find_by_username(username).present?
     end
 
     def logger

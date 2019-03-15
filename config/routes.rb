@@ -29,4 +29,6 @@ Rails.application.routes.draw do
   get '/admin/roles', to: 'admin#roles', as: :admin_roles
   get '/admin/role_types', to: 'admin#role_types', as: :admin_role_types
   get '/admin/departments', to: 'admin#departments', as: :admin_departments
+
+  get '/:username', to: 'profiles#home', as: :profile_home
 end

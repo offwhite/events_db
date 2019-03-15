@@ -3,7 +3,7 @@
     - present profile do |profile|
       %tr
         %td
-          = link_to profile.title, profile_path(profile)
+          = link_to profile.title, profile_home_path(username: profile.username)
         %td
           = profile.role_summary
         %td

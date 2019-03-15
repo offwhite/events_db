@@ -14,7 +14,7 @@
             %td
               = link_to 'Edit', edit_profile_path(profile)
             %td
-              = link_to profile.title, profile_path(profile)
+              = link_to profile.title, profile_home_path(username: profile.username)
 
             %td{class: profile.roles.count.zero? ? 'grey' : ''}
               = "#{profile.roles.count} #{'role'.pluralize(profile.roles.count)}"

@@ -1,5 +1,11 @@
 # handles requests for searches routes
 class ProfilesController < ApplicationController
+  def home
+    ::Profiles::Home.new(
+      self, params
+    ).call
+  end
+
   def show
     ::Profiles::Show.new(
       self, params
