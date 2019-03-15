@@ -1,0 +1,32 @@
+- present @role_type do |role_type|
+  - content_for :page_title do
+    New role type for
+    = @department.name
+
+  = simple_form_for(role_type, url: role_types_path, method: :post) do |f|
+    = f.input :role_department_id, as: :hidden
+    .panel
+      .panel-head
+        Add a role type to
+        = @department.name
+      .panel-body
+        .message
+          You're adding a new role type. Role types describe what the person
+          did. Like a sound engineer or a goose wrangler.
+        .row
+          = f.input :name, as: :string, label: 'Name', placeholder: 'Give it a name'
+        .row
+          = f.input :description, label: 'description'
+        .row
+          = f.submit 'Add role type'
+
+  .panel
+    .panel-head
+      = "Existing #{@department.name} role types (#{@department.role_types.count})"
+    .panel-body
+      - @department.role_types.each do |type|
+        .row
+          = type.name
+          .pull-right
+            = type.roles.count
+            roles

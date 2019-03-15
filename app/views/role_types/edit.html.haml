@@ -1,0 +1,35 @@
+- present @role_type do |role_type|
+  - present role_type.role_department do |department|
+    - content_for :page_title do
+      = department.name
+      >
+      = role_type.name
+
+    = simple_form_for(role_type, url: role_type_path, method: :put) do |f|
+      .panel
+        .panel-head
+          = department.name
+          >
+          = role_type.name
+        .panel-body
+          .row
+            = f.input :name, as: :string, label: 'Name', placeholder: 'Give it a name'
+          .row
+            = f.input :description, label: 'description'
+          .row
+            = f.association :role_department, label: 'Department'
+          .row
+            = f.submit 'Save'
+
+    .panel
+      .panel-head
+        = "Existing #{department.name} role types (#{department.role_types.count})"
+      .panel-body
+        - department.role_types.each do |type|
+          - next if type.id == role_type.id
+          .row
+            = type.name
+            .pull-right
+              = type.roles.count
+              roles
+    = render 'logs/log_list', logs: role_type.logs

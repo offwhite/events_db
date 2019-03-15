@@ -4,13 +4,12 @@
 .panel
   .panel-head
     Tours
+    = link_to 'New', new_tour_path, class: 'pull-right'
   .panel-body
     %table.list
       - @tours.each do |tour|
         - present tour do |tour|
-          %tr
-            %td
-              = tour.id
+          %tr{valign: 'top'}
             %td
               = link_to 'Edit', edit_tour_path(tour)
             %td
@@ -21,10 +20,12 @@
             %td
               = tour.roles.count
               tour roles
-            %td
-              = tour.created_date
             %td.text-right
               = tour.yes_or_no(:verified)
+            %td{title: tour.user.email}
+              = tour.user.name
+              .grey
+                = tour.created_date
             %td
               = link_to 'Delete', tour_path(tour), class: 'danger confirm', title: 'Delete this tour', method: 'DELETE'
     = paginate @tours

@@ -1,0 +1,20 @@
+- if current_user&.admin?
+  %ul.admin-links
+    %li
+      = link_to 'Admin', admin_index_path
+    %li
+      = link_to 'Profiles', admin_profiles_path
+    %li
+      = link_to 'Roles', admin_roles_path
+    %li
+      = link_to 'Events', admin_events_path
+    %li
+      = link_to 'Tours', admin_tours_path
+    %li
+      = link_to 'Venues', admin_venues_path
+    %li
+      = link_to 'Event Types', admin_event_types_path
+    %li
+      = link_to 'Role Types', admin_role_types_path
+    %li
+      = link_to 'Role Departments', admin_departments_path

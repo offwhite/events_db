@@ -15,9 +15,9 @@ class BasePresenter < SimpleDelegator
   end
 
   def created_date
-    return model.created_at.strftime('Today - %H:%M:%S') if
+    return model.created_at.strftime('%H:%M Today') if
       model.created_at.today?
-    model.created_at.strftime('%d-%m-%Y - %H:%M:%S')
+    model.created_at.strftime('%H:%M %d-%m-%y')
   end
 
   def formatted_date(attr)

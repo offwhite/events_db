@@ -1,0 +1,29 @@
+- present @role_department do |role_department|
+  - content_for :page_title do
+    New role department
+
+  = simple_form_for(role_department, url: role_departments_path, method: :post) do |f|
+    .panel
+      .panel-head
+        New role department
+      .panel-body
+        .message
+          You're adding a new role department. Role types sit in a role department.
+          Like, lighting engineer is in lighting, or drumming is in lame.
+        .row
+          = f.input :name, as: :string, label: 'Name', placeholder: 'Give it a name'
+        .row
+          = f.input :description, label: 'description'
+        .row
+          = f.submit 'Add department'
+
+  .panel
+    .panel-head
+      = "Existing Departments (#{@existing_role_departments.count})"
+    .panel-body
+      - @existing_role_departments.each do |department|
+        .row
+          = department.name
+          .pull-right
+            = department.role_types.count
+            role types

@@ -1,0 +1,26 @@
+- present @event_type do |event_type|
+  - content_for :page_title do
+    = event_type.name
+    Edit
+
+  = simple_form_for(@event_type, url: event_type_path, method: :put) do |f|
+    .panel
+      .panel-head
+        Edit event type
+      .panel-body
+        .row
+          = f.input :name, as: :string, label: 'Name', placeholder: 'Give it a name'
+        .row
+          = f.submit 'Save'
+
+  .panel
+    .panel-head
+      = "Existing Event Types (#{@existing_event_types.count})"
+    .panel-body
+      - @existing_event_types.each do |type|
+        - next if type.id == event_type.id
+        .row
+          = type.title
+          .pull-right
+            = type.events.count
+            events

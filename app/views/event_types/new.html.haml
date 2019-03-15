@@ -1,0 +1,27 @@
+- present @event_type do |event_type|
+  - content_for :page_title do
+    New event type
+
+  = simple_form_for(@event_type, url: event_types_path, method: :post) do |f|
+    .panel
+      .panel-head
+        Add event type
+      .panel-body
+        .message
+          You're adding a new event type. Users select one of these when adding
+          a new event.
+        .row
+          = f.input :name, as: :string, label: 'Name', placeholder: 'Give it a name'
+        .row
+          = f.submit 'Add event type'
+
+  .panel
+    .panel-head
+      = "Existing Event Types (#{@existing_event_types.count})"
+    .panel-body
+      - @existing_event_types.each do |event_type|
+        .row
+          = event_type.title
+          .pull-right
+            = event_type.events.count
+            events

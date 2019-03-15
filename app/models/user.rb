@@ -29,6 +29,10 @@ class User < ApplicationRecord
   def can_edit?
     permission_level > 1
   end
+
+  def name
+    email.tr('.', ' ').split('@').first&.titleize
+  end
 end
 
 # == Schema Information

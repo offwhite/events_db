@@ -62,6 +62,10 @@ body{
     text-align: right;
   }
 
+  .grey{
+    color: $grey;
+  }
+
   .message{
     padding: $gutter;
     background: $purple-cta;

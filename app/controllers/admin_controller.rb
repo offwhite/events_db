@@ -1,5 +1,4 @@
 class AdminController < ApplicationController
-  layout 'admin_application'
   def index
     ::Admin::Index.new(
       self, params
@@ -32,6 +31,24 @@ class AdminController < ApplicationController
 
   def tours
     ::Admin::Tours.new(
+      self, params
+    ).call
+  end
+
+  def event_types
+    ::Admin::EventTypes.new(
+      self, params
+    ).call
+  end
+
+  def role_types
+    ::Admin::RoleTypes.new(
+      self, params
+    ).call
+  end
+
+  def departments
+    ::Admin::Departments.new(
       self, params
     ).call
   end

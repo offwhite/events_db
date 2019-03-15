@@ -7,7 +7,8 @@
   width: 100%;
   box-sizing: border-box;
   list-style: none;
-  background: $admin-orange;
+  background: $admin-grey;
+  box-shadow: $light-shadow;
 
   li{
     float: left;

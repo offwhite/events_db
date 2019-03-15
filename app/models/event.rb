@@ -29,11 +29,15 @@ class Event < ApplicationRecord
 
   def full_title
     "#{name.titleize}, #{venue_title}, #{town_title} - \
-    #{date.strftime('%d %B %Y')}"
+    #{date_str}"
   end
 
   def date_str
     date.strftime('%d %B %Y')
+  end
+
+  def date_str_sml
+    date.strftime('%d-%m-%y')
   end
 
   def on_tour?

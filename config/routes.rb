@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :profiles, only: %i[show edit update destroy]
   resources :tours, only: %i[new create show edit update destroy]
   resources :venues, only: %i[new create show edit update]
+  resources :event_types, only: %i[new create edit update destroy]
+  resources :role_types, only: %i[new create edit update destroy]
+  resources :role_departments, only: %i[new create destroy]
 
   post '/search', to: 'searches#global', as: :search_global
 
@@ -16,7 +19,11 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin#index', as: :admin_index
   get '/admin/events', to: 'admin#events', as: :admin_events
   get '/admin/venues', to: 'admin#venues', as: :admin_venues
-  get '/admin/roles', to: 'admin#roles', as: :admin_roles
   get '/admin/profiles', to: 'admin#profiles', as: :admin_profiles
   get '/admin/tours', to: 'admin#tours', as: :admin_tours
+  get '/admin/event_types', to: 'admin#event_types', as: :admin_event_types
+
+  get '/admin/roles', to: 'admin#roles', as: :admin_roles
+  get '/admin/role_types', to: 'admin#role_types', as: :admin_role_types
+  get '/admin/departments', to: 'admin#departments', as: :admin_departments
 end
