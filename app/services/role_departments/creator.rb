@@ -19,7 +19,8 @@ module RoleDepartments
     attr_reader :params, :user
 
     def logger
-      @logger ||= ::Utilities::Logger.new(department, 'created', user)
+      @logger ||=
+        ::Utilities::Logger.new(department, 'role department created', user)
     end
   end
 end

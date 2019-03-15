@@ -8,6 +8,7 @@ module Tours
 
     def call
       return existing_tour if existing_tour.present?
+      logger.call
       tour
     end
 
@@ -32,6 +33,10 @@ module Tours
 
     def existing_tour
       @existing_tour ||= Tour.find_by(name: params[:name])
+    end
+
+    def logger
+      @logger ||= ::Utilities::Logger.new(tour, 'tour created', user)
     end
   end
 end

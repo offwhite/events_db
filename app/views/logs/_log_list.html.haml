@@ -12,6 +12,8 @@
               %td
                 = log.user&.email
               %td
+                .div
+                  = log.record_type
                 = log.action
               %td
                 - log.change_values&.each do |attribute, changes|

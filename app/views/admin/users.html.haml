@@ -1,0 +1,37 @@
+- content_for :page_title do
+  Admin users
+
+.panel
+  .panel-head
+    Users
+  .panel-body
+    %table.list
+      %thead
+        %tr
+          %td
+          %td
+            Email
+          %td
+            Created
+          %td
+            Status
+          %td
+            Actions Logged
+          %td
+            Last sign in
+      - @users.each do |user|
+        - present user do |user|
+          %tr{valign: 'top'}
+            %td
+              = link_to 'Edit', edit_user_path(user)
+            %td
+              = user.email
+            %td
+              = user.created_date
+            %td
+              = user.banned_at.nil? ? 'Active' : "Banned: #{user.banned_at}"
+            %td
+              = user.logs.count
+            %td
+              = user.formatted_time_sml(:last_sign_in_at)
+    = paginate @users

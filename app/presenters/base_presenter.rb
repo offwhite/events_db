@@ -30,6 +30,11 @@ class BasePresenter < SimpleDelegator
     model.send(attr).strftime('%d %B %Y')
   end
 
+  def formatted_time_sml(attr)
+    return '' if model.send(attr).nil?
+    model.send(attr).strftime('%H:%M %d-%m-%y')
+  end
+
   def yes_or_no(flag)
     if model.send(flag) == true
       h.content_tag(:div, flag, class: 'bool yes')

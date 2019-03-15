@@ -1,0 +1,59 @@
+- present @user do |user|
+  - content_for :page_title do
+    = user.email
+    edit
+
+  .panel
+    .panel-head
+      = user.email
+    .panel-body
+      %table.list
+        %tr
+          %td.strong
+            Permission Level
+          %td.text-right
+            = user.permission_level_str
+        %tr
+          %td.strong
+            Last sign in at
+          %td.text-right
+            = user.formatted_time_sml(:last_sign_in_at)
+        %tr
+          %td.strong
+            Current sign in at
+          %td.text-right
+            = user.formatted_time_sml(:current_sign_in_at)
+        %tr
+          %td.strong
+            Sign in count
+          %td.text-right
+            = user.sign_in_count
+        %tr
+          %td.strong
+            Status
+          %td.text-right
+            - if user.banned_at.nil?
+              Active
+            - else
+              Banned at
+              = user.formatted_time_sml(:banned_at)
+        %tr
+          %td.strong
+            Current sign in ip
+          %td.text-right
+            = link_to user.current_sign_in_ip, "https://tools.keycdn.com/geo?host=#{user.current_sign_in_ip}", target: '_blank'
+
+
+  = simple_form_for(user, url: user_path, method: :put) do |f|
+    .panel
+      .panel-head
+        Update password
+      .panel-body
+        .row
+          = f.input :password
+        .row
+          = f.input :password_confirmation
+        .row
+          = f.submit 'Save'
+
+  = render 'logs/log_list', logs: user.logs.limit(50)

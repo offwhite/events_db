@@ -8,6 +8,7 @@ module Venues
 
     def call
       return existing_venue if existing_venue.present?
+      logger.call
       venue
     end
 
@@ -32,6 +33,10 @@ module Venues
     def existing_venue
       @existing_venue ||=
         Venue.find_by(name: params[:name], town_id: params[:town_id])
+    end
+
+    def logger
+      @logger ||= ::Utilities::Logger.new(venue, 'venue created', user)
     end
   end
 end

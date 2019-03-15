@@ -51,3 +51,12 @@
           Most Recent:
           - present @venues.last do |venue|
             = venue.created_date
+      %tr
+        %td
+          = @users.count
+        %td
+          = link_to 'Users', admin_users_path
+        %td
+          Most Recent:
+          - present @users.last do |user|
+            = user.created_date

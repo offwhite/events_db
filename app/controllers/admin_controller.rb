@@ -52,4 +52,10 @@ class AdminController < ApplicationController
       self, params
     ).call
   end
+
+  def users
+    ::Admin::Users.new(
+      self, params
+    ).call
+  end
 end

@@ -6,6 +6,7 @@ module Admin
       expose(profiles, '@profiles')
       expose(tours, '@tours')
       expose(roles, '@roles')
+      expose(users, '@users')
     end
 
     private
@@ -28,6 +29,10 @@ module Admin
 
     def roles
       @roles ||= Role.order(:created_at)
+    end
+
+    def users
+      @users ||= User.order(:created_at)
     end
   end
 end
