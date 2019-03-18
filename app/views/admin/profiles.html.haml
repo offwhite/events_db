@@ -21,11 +21,13 @@
 
             %td{class: profile.events.count.zero? ? 'grey' : ''}
               = "#{profile.events.count} #{'event'.pluralize(profile.events.count)}"
-
-            %td
-              = profile.user&.email
             %td
               = profile.yes_or_no(:verified)
+            %td
+              - if profile.unowned?
+                .bool.no claimed
+              - else
+                .bool.yes claimed
             %td{title: 'Created'}
               = profile.created_date
             %td

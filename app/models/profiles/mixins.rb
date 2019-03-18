@@ -15,5 +15,13 @@ module Profiles
     def roles_inc_deleted
       roles.unscoped.all
     end
+
+    def unowned?
+      user_id.nil?
+    end
+
+    def owned?
+      user_id.present?
+    end
   end
 end

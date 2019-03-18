@@ -15,7 +15,12 @@ Rails.application.routes.draw do
 
   post '/search', to: 'searches#global', as: :search_global
 
-  post '/profile-lookup', to: 'profiles#lookup', as: :profiles_lookup
+  post '/profile-lookup',     to: 'profiles#lookup', as: :profiles_lookup
+  get '/profiles/:id/claim',  to: 'profiles#claim', as: :profiles_claim
+  post '/profiles/:id/claim', to: 'profiles#register_claim',
+                              as: :profiles_register_claim
+
+  post '/role-type-lookup', to: 'role_types#lookup', as: :role_types_lookup
 
   get '/admin', to: 'admin#index', as: :admin_index
   get '/admin/events', to: 'admin#events', as: :admin_events

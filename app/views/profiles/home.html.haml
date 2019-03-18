@@ -1,13 +1,32 @@
 - present @profile do |profile|
+  - content_for :page_title do
+    = profile.name
+
+  %h1.content-title
+    = profile.name
   .panel
     .panel-head
-      = profile.name
+      Overview
       - if current_user&.admin?
         = link_to 'Edit', edit_profile_path(profile), class: 'edit-link'
     .panel-body
-      %h3 Overview
-      = profile.overview
-      %h3 Events
+      .row
+        = profile.overview
+
+      - if profile.biography.present?
+        .row
+          %h4 Biography
+          = profile.biography
+
+  - if profile.unowned? && current_user&.profile.nil?
+    = link_to profiles_claim_path(id: profile.id), { class: 'claim-btn' } do
+      %h3 Is this you?
+      Claim your profile
+
+  .panel
+    .panel-head
+      Work
+    .panel-body
       %table.list
         - profile.roles.each do |role|
           %tr

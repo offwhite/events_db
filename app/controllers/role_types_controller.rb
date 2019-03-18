@@ -28,4 +28,10 @@ class RoleTypesController < ApplicationController
       self, params
     ).call
   end
+
+  def lookup
+    ::RoleTypes::Lookup.new(
+      self, params
+    ).call
+  end
 end

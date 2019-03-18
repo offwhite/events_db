@@ -1,0 +1,27 @@
+- present @profile do |profile|
+  - content_for :page_title do
+    = "Claim #{profile.name}"
+
+  .panel
+    .panel-head
+      Claim your profile
+    .panel-body
+      .message
+        .row
+          Claiming your profile lets you control what jobs you are credited for.
+          You can be messaged when someone else credits you for work done, and
+          you can remove any inaccurate information.
+        .row
+          And it'll stop anyone else owning it.
+
+      - if current_user.nil?
+        sign up form
+        .row
+          log in button
+      - else
+        .message
+          .row
+            By claiming this profile you agree to our terms and conditions.
+            Which are myriad.
+        = link_to profiles_claim_path(id: profile.id), { class: 'claim-btn', method: 'POST' } do
+          %h3 Claim this profile now

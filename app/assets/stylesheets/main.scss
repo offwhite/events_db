@@ -71,9 +71,11 @@ body{
   }
 
   .message{
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
     padding: $gutter;
-    background: $purple-cta;
-    color: #ffffff;
+    background: $table-odd-row;
     border-radius: 5px;
     margin: $gutter 0;
     box-shadow: $light-shadow;
@@ -163,6 +165,30 @@ body{
       td{
         padding: 10px;
       }
+    }
+  }
+
+  .claim-btn{
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border: solid 1px $purple-cta;
+    background: $purple-cta;
+    box-shadow: $light-shadow;
+    margin-bottom: $double-gutter;
+
+    color: #ffffff;
+    text-align: center;
+    padding: $gutter;
+
+    h3{
+      margin: 0;
+    }
+
+    &:hover{
+      text-decoration: none;
+      background: $purple-cta-dark;
     }
   }
 }

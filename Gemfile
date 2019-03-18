@@ -42,6 +42,8 @@ gem 'similar_text'
 
 gem 'simple_form', '~> 3.5.0'
 
+gem 'slack-notifier', '~> 2.3'
+
 gem 'textacular', '~> 5.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

@@ -35,4 +35,16 @@ class ProfilesController < ApplicationController
       self, params
     ).call
   end
+
+  def claim
+    ::Profiles::Claim.new(
+      self, params
+    ).call
+  end
+
+  def register_claim
+    ::Profiles::RegisterClaim.new(
+      self, params
+    ).call
+  end
 end

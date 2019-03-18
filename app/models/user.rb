@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  default_scope{ where(banned_at: [nil]) }
+  default_scope { where(banned_at: [nil]) }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :events
   has_many :logs
+  has_many :profiles
 
   # disable email confirmation
 
@@ -33,6 +34,14 @@ class User < ApplicationRecord
 
   def name
     email.tr('.', ' ').split('@').first&.titleize
+  end
+
+  def profile
+    profiles.first
+  end
+
+  def has_profile?
+    profiles.any?
   end
 end
 

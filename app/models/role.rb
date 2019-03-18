@@ -12,7 +12,7 @@ class Role < ApplicationRecord
 
   delegate :town, :venue, to: :event
 
-  attr_accessor :profile_name
+  attr_accessor :profile_name, :role_type_name
 
   def town
     event&.town
@@ -36,7 +36,7 @@ class Role < ApplicationRecord
   end
 
   def role_type_name
-    role_type.name
+    role_type&.name
   end
 
   def venue_title

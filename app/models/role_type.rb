@@ -3,9 +3,28 @@ class RoleType < ApplicationRecord
   include RoleTypes::Mixins
   default_scope { where(deleted_at: [nil]) }
 
+  include PgSearch
+
   has_many :roles
   belongs_to :role_department
   has_many :logs, as: :record
+
+  pg_search_scope :fuzzy_matches,
+                  against: %i[name],
+                  using: {
+                    tsearch: {
+                      any_word: true,
+                      dictionary: 'english'
+                    }
+                  }
+
+  pg_search_scope :matches,
+                  against: %i[name],
+                  using: {
+                    trigram: {
+                      threshold: 0.2
+                    }
+                  }
 
   def title
     name.titleize

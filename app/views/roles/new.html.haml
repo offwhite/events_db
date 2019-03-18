@@ -1,11 +1,14 @@
 - present @role do |role|
-  - content_for :title do
+  - content_for :page_title do
     Add crew to
     = @title
 
   = simple_form_for(@role, url: roles_path, method: :post) do |f|
     = f.input :event_id, as: :hidden
     = f.input :tour_id, as: :hidden
+    = f.input :profile_id, as: :hidden, input_html: { class: 'profile_lookup_id' }
+    = f.input :profile_name, as: :hidden, input_html: { class: 'profile_name' }
+    = f.input :role_type_id, as: :hidden, input_html: { class: 'role_type_lookup_id' }
     .panel
       .panel-head
         Add crew
@@ -13,13 +16,14 @@
         .message
           = "You're adding cast or crew to #{@title}."
         .row
-          = f.input :profile_name, as: :string, label: 'Who?', required: true, placeholder: 'Who was this magestic beast?', input_html: { autocomplete: "new-password", class: 'profile_lookup' }
+          %label Who?
+          .boxy{contenteditable: 'true', class: 'profile_lookup' }
           .profile_lookup_list
         .row
-          = f.input :profile_id, as: :hidden, input_html: { class: 'profile_lookup_id' }
-        .row
-          = f.input :role_type_id, collection: RoleType.all.group_by(&:department_name), as: :grouped_select, group_method: :last, group_label_method: :first, label: 'What did they do?', prompt: 'Tell us what monders they wrought'
-        .row
+          %label What did they do?
+          .boxy{contenteditable: 'true', class: 'role_type_lookup' }
+          .role_type_lookup_list
+        .row.submit-row
           = f.submit 'Add Crew'
         .row
           = link_to 'Cancel', role.event_role? ? event_path(role.event) : tour_path(role.tour)

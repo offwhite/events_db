@@ -1,0 +1,7 @@
+$('.role_type_lookup_list').html(
+  <%- if @role_types.empty? %>
+    "<div class='none-found'>Couldn't find anything - try again. Try harder</div>"
+  <%- else %>
+    "<%= escape_javascript(render partial: 'role_type_lookup_list', locals: { role_types: @role_types } ) %>"
+  <%- end %>
+).slideDown();

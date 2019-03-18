@@ -1,5 +1,9 @@
 @import '_mixins';
 
+.content-title{
+  padding-left: $gutter;
+}
+
 .panel{
   float: left;
   width: 100%;
@@ -16,7 +20,7 @@
     padding: $gutter;
     font-weight: bold;
 
-    h1, h2, h3{
+    h1, h2, h3, h4{
       margin: 0;
     }
 
@@ -30,6 +34,10 @@
     width: 100%;
     box-sizing: border-box;
     padding: 0 $gutter;
+
+    h1, h2, h3, h4{
+      margin: $double-gutter 0 $gutter 0;
+    }
   }
 
   .address-panel{

@@ -14,7 +14,7 @@
             %td
               = link_to 'Edit', edit_role_path(role)
             %td
-              = link_to role.profile.title, profile_path(role.profile)
+              = link_to role.profile.title, profile_home_path(username: role.profile.username)
             %td
               = role.event_role? ? 'E' : 'T'
             %td

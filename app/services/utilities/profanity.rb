@@ -15,7 +15,7 @@ module Utilities
     attr_reader :string
 
     def black_list
-      @black_list ||= %w[fuck shit cunt]
+      @black_list ||= %w[fuck shit cunt search searches admin]
     end
   end
 end
