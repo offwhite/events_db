@@ -35,10 +35,6 @@ class Role < ApplicationRecord
     tour_id.present?
   end
 
-  def role_type_name
-    role_type&.name
-  end
-
   def venue_title
     venue.title
   end
