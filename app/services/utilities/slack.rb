@@ -6,12 +6,17 @@ module Utilities
     end
 
     def call
-      notifier.post text: string
+      notifier.post text: message
     end
 
     private
 
     attr_reader :string, :channel
+
+    def message
+      return string if Rails.env.production?
+      "#{string} (#{Rails.env})"
+    end
 
     def notifier
       @notifier ||=

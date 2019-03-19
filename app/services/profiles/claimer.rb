@@ -10,7 +10,7 @@ module Profiles
       profile.user_id = user.id
       retrun false unless profile.save
       logger.call
-      # notifier.call
+      notifier.call
     end
 
     private
@@ -22,7 +22,9 @@ module Profiles
     end
 
     def notifier
-      true
+      @notifier ||= ::Utilities::Slack.new(
+        "Claimed: #{user.email} claimed ownership of #{profile.title}"
+      )
     end
   end
 end
