@@ -1,4 +1,6 @@
 module Profiles
+  # we can have profiles with duplicate names, but we add an ordinal to the
+  # profile - james white, james white 2nd, james white 3rd...
   class Creator
     def initialize(name, user = nil)
       @name = name
@@ -6,7 +8,7 @@ module Profiles
     end
 
     def call
-      return if contains_profanity? || dupe_username?
+      return if illegal_name?
       logger.call if profile.present?
       profile
     end
@@ -23,6 +25,12 @@ module Profiles
       )
     end
 
+    def illegal_name?
+      contains_profanity? ||
+        name_cleaner.call.length < 5 ||
+        dupe_username?
+    end
+
     def contains_profanity?
       @contains_profanity ||= Utilities::Profanity.new(name).call
     end
@@ -33,11 +41,11 @@ module Profiles
     end
 
     def username
-      @username ||= clean_name + (ordinal.zero? ? '' : "-#{ordinal}")
+      @username ||= name_cleaner.username + (ordinal.zero? ? '' : "-#{ordinal}")
     end
 
-    def clean_name
-      @clean_name ||= Utilities::Cleaner.new(name.downcase).username
+    def name_cleaner
+      @name_cleaner ||= Utilities::Cleaner.new(name.downcase)
     end
 
     def dupe_names

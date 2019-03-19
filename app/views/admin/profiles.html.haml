@@ -3,7 +3,7 @@
 
 .panel
   .panel-head
-    Profiles
+    = "Profiles (#{@profiles.total_count})"
   .panel-body
     %table.list
       - @profiles.each do |profile|

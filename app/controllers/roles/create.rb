@@ -18,7 +18,8 @@ module Roles
           event_id: safe_params[:event_id],
           tour_id: safe_params[:tour_id]
         ),
-        notice: "Something didn't happen right."
+        notice:
+          'The name has to be longer than 5 characters and no funny business.'
       )
     end
 

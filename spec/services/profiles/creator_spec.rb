@@ -110,4 +110,15 @@ describe Profiles::Creator do
       end
     end
   end
+
+  context 'with swearing in the name' do
+    let(:name) { 'Colin the cunt' }
+    it 'should execute without error' do
+      expect(creator.call).to be_falsey
+    end
+
+    it 'should not create a new profile' do
+      expect { creator.call }.to change { Profile.count }.by(0)
+    end
+  end
 end

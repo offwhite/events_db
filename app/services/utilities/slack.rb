@@ -6,6 +6,7 @@ module Utilities
     end
 
     def call
+      return if Rails.env.test?
       notifier.post text: message
     end
 
