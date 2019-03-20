@@ -1,6 +1,7 @@
 module Profiles
   class Edit < ::EditControllerAction
     def call
+      return if controller.performed?
       return error unless can_edit?
       expose(profile, '@profile')
     end

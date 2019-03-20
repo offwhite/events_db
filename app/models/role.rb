@@ -42,6 +42,10 @@ class Role < ApplicationRecord
   def town_title
     town&.title
   end
+
+  def owner?(user)
+    creator_id == user&.id
+  end
 end
 
 # == Schema Information

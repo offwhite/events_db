@@ -1,12 +1,18 @@
 module Events
   class Update < ::EditControllerAction
     def call
-      return render_form unless event.update! safe_params
+      return if controller.performed?
+      return error unless user_can_edit_this?
+      return error unless event.update(safe_params)
       logger.call
       redirect
     end
 
     private
+
+    def user_can_edit_this?
+      current_user.admin? || event.owner?(current_user)
+    end
 
     def redirect
       redirect_to(
@@ -15,9 +21,11 @@ module Events
       )
     end
 
-    def render_form
-      expose(event, '@event')
-      render 'edit'
+    def error
+      redirect_to(
+        controller.event_path(event),
+        notice: 'Something went wrong.'
+      )
     end
 
     def safe_params

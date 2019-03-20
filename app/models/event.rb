@@ -52,6 +52,10 @@ class Event < ApplicationRecord
     return [] if tour.nil?
     tour.roles
   end
+
+  def owner?(user)
+    user&.id == user_id
+  end
 end
 
 # == Schema Information

@@ -1,6 +1,7 @@
 module Roles
   class Update < ::AdminControllerAction
     def call
+      return if controller.performed?
       role.update! safe_params
       logger.call
       redirect

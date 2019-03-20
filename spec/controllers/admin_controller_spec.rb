@@ -10,7 +10,7 @@ RSpec.describe AdminController, type: :controller do
     end
 
     describe 'GET #events' do
-      it 'returns http success' do
+      it 'returns http redirect' do
         get :events
         expect(response).to have_http_status(302)
       end
@@ -26,14 +26,14 @@ RSpec.describe AdminController, type: :controller do
     end
 
     describe 'GET #index' do
-      it 'returns http success' do
+      it 'returns http redirect' do
         get :index
         expect(response).to have_http_status(302)
       end
     end
 
     describe 'GET #events' do
-      it 'returns http success' do
+      it 'returns http redirect' do
         get :events
         expect(response).to have_http_status(302)
       end

@@ -1,4 +1,5 @@
 require 'sidekiq/web'
+# rubocop:disable Metrics/BlockLength
 Rails.application.routes.draw do
   devise_for :users
 
@@ -37,3 +38,4 @@ Rails.application.routes.draw do
 
   get '/:username', to: 'profiles#home', as: :profile_home
 end
+# rubocop:enable Metrics/BlockLength
