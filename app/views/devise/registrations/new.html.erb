@@ -23,6 +23,11 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Password confirmation' %>
       </div>
 
+      <div class='message'>
+        By joining CrewdB you agree to our
+        <%= link_to 'terms and conditions', pages_terms_path, target: '_blank' %>
+      </div>
+
       <div class="actions">
         <%= f.submit "Sign up" %>
       </div>

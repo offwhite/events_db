@@ -17,11 +17,11 @@
       - if current_user.nil?
         = simple_form_for(@user, url: profiles_register_claim_path, method: :post) do |f|
           .row
-            = f.input :email, as: :email, label: 'Email', placeholder: 'Who are you?'
+            = f.input :email, as: :email, label: 'Email', placeholder: 'Email'
           .row
-            = f.input :password, as: :password, label: 'Password', placeholder: 'Keep it secret... keep it safe.'
+            = f.input :password, as: :password, label: 'Password', placeholder: 'Password'
           .row
-            = f.input :password_confirmation, as: :password, label: 'Password again', placeholder: 'This time mean it'
+            = f.input :password_confirmation, as: :password, label: 'Password again', placeholder: 'Password confirmation'
           .message
             By joining CrewdB you agree to our
             = link_to 'terms and conditions', pages_terms_path, target: '_blank'
@@ -30,8 +30,8 @@
 
       - else
         .message
-          .row
-            By claiming this profile you agree to our terms and conditions.
-            Which are myriad.
+          .message
+            By claiming this profile you agree to our
+            = link_to 'terms and conditions', pages_terms_path, target: '_blank'
         = link_to profiles_claim_path(id: profile.id), { class: 'claim-btn', method: 'POST' } do
           %h3 Claim this profile now
