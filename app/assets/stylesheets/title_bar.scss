@@ -5,9 +5,24 @@
   width: 100%;
   background: $title-bar-bg;
   position: relative;
+  overflow: hidden;
   box-shadow: 0 0 10px 2px rgba(0,0,0,0.2);
   box-sizing: border-box;
   padding: 40px 20px 0 20px;
+
+  .page-ribbon{
+    position: absolute;
+    top: 14px;
+    left: -24px;
+    transform: rotate(-45deg);
+    width: 100px;
+    height: 25px;
+    line-height: 23px;
+    text-align: center;
+    background: $purple-cta;
+    color: white;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,0.3);
+  }
 
   .title{
     float: left;
