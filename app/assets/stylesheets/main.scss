@@ -81,6 +81,13 @@ body{
     box-shadow: $light-shadow;
   }
 
+  .paragraph{
+    margin: $gutter 0;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .row{
     float: left;
     width: 100%;
@@ -189,6 +196,12 @@ body{
     &:hover{
       text-decoration: none;
       background: $purple-cta-dark;
+    }
+  }
+
+  ol.terms{
+    li{
+      margin: $double-gutter 0;
     }
   }
 }

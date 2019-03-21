@@ -15,9 +15,19 @@
           And it'll stop anyone else owning it.
 
       - if current_user.nil?
-        sign up form
-        .row
-          log in button
+        = simple_form_for(@user, url: profiles_register_claim_path, method: :post) do |f|
+          .row
+            = f.input :email, as: :email, label: 'Email', placeholder: 'Who are you?'
+          .row
+            = f.input :password, as: :password, label: 'Password', placeholder: 'Keep it secret... keep it safe.'
+          .row
+            = f.input :password_confirmation, as: :password, label: 'Password again', placeholder: 'This time mean it'
+          .message
+            By joining CrewdB you agree to our
+            = link_to 'terms and conditions', pages_terms_path, target: '_blank'
+          .row
+            = f.submit 'Claim this profile'
+
       - else
         .message
           .row

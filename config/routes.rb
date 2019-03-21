@@ -36,6 +36,9 @@ Rails.application.routes.draw do
   get '/admin/role_types', to: 'admin#role_types', as: :admin_role_types
   get '/admin/departments', to: 'admin#departments', as: :admin_departments
 
+  get '/terms', to: 'pages#terms', as: :pages_terms
+  get '/privacy', to: 'pages#privacy', as: :pages_privacy
+
   get '/:username', to: 'profiles#home', as: :profile_home
 end
 # rubocop:enable Metrics/BlockLength
