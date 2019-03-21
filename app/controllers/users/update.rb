@@ -30,7 +30,7 @@ module Users
 
     def safe_params
       @safe_params ||= params.require('user').permit(
-        :password, :password_confirmation
+        :email, :permission_level
       )
     end
 

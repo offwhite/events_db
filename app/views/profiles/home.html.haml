@@ -23,6 +23,11 @@
       %h3 Is this you?
       Claim your profile
 
+  - if profile.owner?(current_user)
+    = link_to profiles_claim_path(id: profile.id), { class: 'claim-btn' } do
+      %h3 Something missing?
+      Get credit for your work
+
   .panel
     .panel-head
       Work

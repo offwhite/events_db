@@ -23,5 +23,38 @@ module Profiles
     def owned?
       user_id.present?
     end
+
+    def title
+      name.titleize + ordinal_str
+    end
+
+    def ordinal_str
+      return '' if ordinal.zero?
+      " (#{ordinal.ordinalize})"
+    end
+
+    def role_type_names
+      role_types.collect(&:name)
+    end
+
+    def role_types
+      roles.collect(&:role_type).uniq
+    end
+
+    def town_titles
+      roles.collect(&:town_title).uniq.to_sentence
+    end
+
+    def town_titles_sml
+      roles.collect(&:town_title).uniq[0..3].to_sentence
+    end
+
+    def events
+      roles.collect(&:event).uniq
+    end
+
+    def owner?(user)
+      user&.id == user_id
+    end
   end
 end
