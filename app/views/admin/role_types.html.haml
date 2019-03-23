@@ -8,17 +8,17 @@
       = department.name
       = link_to 'New', new_role_type_path(role_department_id: department.id), class: 'pull-right'
     .panel-body
-      %table.list
+      .table.list
         - department.role_types.each do |role_type|
           - present role_type do |role_type|
-            %tr
-              %td
+            .tr
+              .td
                 = link_to 'Edit', edit_role_type_path(role_type)
-              %td
+              .td
                 = role_type.name
-              %td{class: role_type.roles.count.zero? ? 'grey' : ''}
+              .td{class: role_type.roles.count.zero? ? 'grey' : ''}
                 = "#{role_type.roles.count} #{'role'.pluralize(role_type.roles.count)}"
-              %td.text-right
+              .td.text-right
                 = role_type.created_date
-              %td.text-right
+              .td.text-right
                 = link_to 'Delete', role_type_path(role_type), title: 'delete', method: 'DELETE', class: 'danger confirm'

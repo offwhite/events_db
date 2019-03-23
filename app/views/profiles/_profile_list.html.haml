@@ -1,12 +1,12 @@
-%table.list
+.table.list
   - profiles.each do |profile|
     - present profile do |profile|
-      %tr
-        %td
+      .tr
+        .td
           = link_to profile.title, profile_home_path(username: profile.username)
-        %td
+        .td
           = profile.role_summary
-        %td
+        .td
           = profile.town_titles_sml
-        %td.text-right
+        .td.text-right
           = "#{profile.events.count} events"

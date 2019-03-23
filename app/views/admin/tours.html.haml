@@ -6,26 +6,26 @@
     Tours
     = link_to 'New', new_tour_path, class: 'pull-right'
   .panel-body
-    %table.list
+    .table.list
       - @tours.each do |tour|
         - present tour do |tour|
-          %tr{valign: 'top'}
-            %td
+          .tr{valign: 'top'}
+            .td
               = link_to 'Edit', edit_tour_path(tour)
-            %td
+            .td
               = link_to tour.title, tour_path(tour)
-            %td
+            .td
               = tour.events.count
               events
-            %td
+            .td
               = tour.roles.count
               tour roles
-            %td.text-right
+            .td.text-right
               = tour.yes_or_no(:verified)
-            %td{title: tour.user.email}
+            .td{title: tour.user.email}
               = tour.user.name
               .grey
                 = tour.created_date
-            %td
+            .td
               = link_to 'Delete', tour_path(tour), class: 'danger confirm', title: 'Delete this tour', method: 'DELETE'
     = paginate @tours

@@ -19,7 +19,7 @@
     height: 25px;
     line-height: 23px;
     text-align: center;
-    background: $purple-cta;
+    background: $purple;
     color: white;
     box-shadow: 0 0 10px 2px rgba(0,0,0,0.3);
   }
@@ -30,7 +30,7 @@
     h1{
       margin: 0;
       a{
-        background: $lime-cta;
+        background: $lime;
         color: $text-color;
         float: left;
         text-align: center;
@@ -45,7 +45,7 @@
     h2{
       line-height: 35px;
       float: left;
-      color: $lime-cta;
+      color: $lime;
       margin: 0;
       padding-left: 10px;
       font-size: 15px;
@@ -78,7 +78,7 @@
       border-radius: 0 4px 4px 0;
       border: none;
       box-sizing: border-box;
-      background: $lime-cta;
+      background: $lime;
       color: $text-color;
     }
   }
@@ -88,7 +88,7 @@
     width: 100%;
     box-sizing: border-box;
     margin-top: 10px;
-    border-top: solid 1px $lime-cta;
+    border-top: solid 1px $lime;
 
     ul{
       float: left;

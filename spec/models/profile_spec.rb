@@ -5,6 +5,26 @@ describe Profile do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to have_many(:roles) }
   end
+
+  context 'deletions' do
+    let!(:profile) { create(:profile, username: 'username') }
+
+    it "doesn't delete the profile from the db" do
+      profile.delete
+      expect(Profile.count).to eq(0)
+      expect(Profile.unscoped.count).to eq(1)
+    end
+
+    it 'sets the deleted at date' do
+      profile.delete
+      expect(profile.deleted_at).to_not be_nil
+    end
+
+    it 'updates the profile username to remove conflicts' do
+      profile.delete
+      expect(profile.username).to_not eq('username')
+    end
+  end
 end
 
 # == Schema Information

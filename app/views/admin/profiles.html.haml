@@ -5,31 +5,31 @@
   .panel-head
     = "Profiles (#{@profiles.total_count})"
   .panel-body
-    %table.list
+    .table.list
       - @profiles.each do |profile|
         - present profile do |profile|
-          %tr
-            %td
+          .tr
+            .td
               = profile.id
-            %td
+            .td
               = link_to 'Edit', edit_profile_path(profile)
-            %td
+            .td
               = link_to profile.title, profile_home_path(username: profile.username)
 
-            %td{class: profile.roles.count.zero? ? 'grey' : ''}
+            .td{class: profile.roles.count.zero? ? 'grey' : ''}
               = "#{profile.roles.count} #{'role'.pluralize(profile.roles.count)}"
 
-            %td{class: profile.events.count.zero? ? 'grey' : ''}
+            .td{class: profile.events.count.zero? ? 'grey' : ''}
               = "#{profile.events.count} #{'event'.pluralize(profile.events.count)}"
-            %td
+            .td
               = profile.yes_or_no(:verified)
-            %td
+            .td
               - if profile.unowned?
                 .bool.no claimed
               - else
                 .bool.yes claimed
-            %td{title: 'Created'}
+            .td{title: 'Created'}
               = profile.created_date
-            %td
+            .td
               = link_to 'Delete', profile_path(profile), class: 'danger confirm', title: 'Delete this profile', method: 'DELETE'
   = paginate @profiles

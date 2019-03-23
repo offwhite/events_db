@@ -6,28 +6,28 @@
     Events
     = link_to 'New', new_event_path, class: 'pull-right'
   .panel-body
-    %table.list
+    .table.list
       - @events.each do |event|
         - present event do |event|
-          %tr{valign: 'top'}
-            %td
+          .tr{valign: 'top'}
+            .td
               = link_to 'Edit', edit_event_path(event)
-            %td
+            .td
               = link_to event.name, event_path(event)
 
-            %td
+            .td
               = event.venue.name
 
-            %td{title: 'when this event is happening'}
+            .td{title: 'when this event is happening'}
               = event.date_str_sml
 
-            %td{class: event.roles.count.zero? ? 'grey' : ''}
+            .td{class: event.roles.count.zero? ? 'grey' : ''}
               = "#{event.roles.count} #{'role'.pluralize(event.roles.count)}"
 
-            %td{title: event.user.email}
+            .td{title: event.user.email}
               = event.user.name
               .grey
                 = event.created_date
-            %td
+            .td
               = link_to 'Delete', event_path(event), title: 'delete', method: 'DELETE', class: 'danger confirm'
     = paginate @events

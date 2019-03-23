@@ -30,18 +30,18 @@
           = f.submit 'Update profile'
 
       %h3 Events
-      %table.list
+      .table.list
         - profile.roles.each do |role|
-          %tr
-            %td
+          .tr
+            .td
               - if role.event_role?
                 - present role.event do |event|
                   = link_to event.full_title, event_path(event)
               - if role.tour_role?
                 - present role.tour do |tour|
                   = link_to tour.name, tour_path(tour)
-            %td.text-right
+            .td.text-right
               = role.role_type.title
             - if current_user.admin?
-              %td.text-right
+              .td.text-right
                 = link_to 'Delete', role_path(role), class: 'danger confirm', title: 'Delete this role', method: 'DELETE'

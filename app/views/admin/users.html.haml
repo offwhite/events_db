@@ -5,33 +5,33 @@
   .panel-head
     Users
   .panel-body
-    %table.list
-      %thead
-        %tr
-          %td
-          %td
+    .table.list
+      .thead
+        .tr
+          .td
+          .td
             Email
-          %td
+          .td
             Created
-          %td
+          .td
             Status
-          %td
+          .td
             Actions Logged
-          %td
+          .td
             Last sign in
       - @users.each do |user|
         - present user do |user|
-          %tr{valign: 'top'}
-            %td
+          .tr{valign: 'top'}
+            .td
               = link_to 'Edit', edit_user_path(user)
-            %td
+            .td
               = user.email
-            %td
+            .td
               = user.created_date
-            %td
+            .td
               = user.banned_at.nil? ? 'Active' : "Banned: #{user.banned_at}"
-            %td
+            .td
               = user.logs.count
-            %td
+            .td
               = user.formatted_time_sml(:last_sign_in_at)
     = paginate @users

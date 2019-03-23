@@ -3,9 +3,7 @@
 .admin-links{
   margin: 0;
   padding: 0;
-  float: left;
-  width: 100%;
-  box-sizing: border-box;
+  @include left-100;
   list-style: none;
   background: $admin-grey;
   box-shadow: $light-shadow;
@@ -22,9 +20,7 @@
 
 .log{
   .change_set{
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
+    @include left-100;
     border-bottom: solid 1px $border-color;
     padding: 5px 0;
 
@@ -38,9 +34,7 @@
     }
 
     .change_values{
-      float: left;
-      width: 100%;
-      box-sizing: border-box;
+      @include left-100;
     }
 
     .from, .to{

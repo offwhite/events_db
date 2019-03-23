@@ -6,17 +6,17 @@
     Venues
     = link_to 'New', new_venue_path, class: 'pull-right'
   .panel-body
-    %table.list
+    .table.list
       - @venues.each do |venue|
         - present venue do |venue|
-          %tr
-            %td
+          .tr
+            .td
               = link_to 'Edit', edit_venue_path(venue)
-            %td
+            .td
               = link_to venue.full_title, venue_path(venue)
-            %td
+            .td
               = venue.created_date
-            %td.text-right
+            .td.text-right
               = venue.events.count
               Events
     = paginate @venues

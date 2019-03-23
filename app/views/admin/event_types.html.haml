@@ -6,21 +6,21 @@
     Event types
     = link_to 'New', new_event_type_path, class: 'pull-right'
   .panel-body
-    %table.list
+    .table.list
       - @event_types.each do |event_type|
         - present event_type do |event_type|
-          %tr
-            %td
+          .tr
+            .td
               = event_type.id
-            %td
+            .td
               = link_to 'Edit', edit_event_type_path(event_type)
-            %td
+            .td
               = event_type.name
-            %td
+            .td
               = event_type.created_date
-            %td
+            .td
               = event_type.events.count
               events
-            %td
+            .td
               = link_to 'Delete', event_type_path(event_type), title: 'delete', method: 'DELETE', class: 'danger confirm'
     = paginate @event_types

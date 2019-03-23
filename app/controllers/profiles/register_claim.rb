@@ -1,27 +1,25 @@
 module Profiles
   class RegisterClaim < ::ControllerAction
     def call
+      return error(user_creator.errors) if user.nil?
       return success if claimer.call
-      error
+      error("You can't claim ownership of that profile.")
     end
 
     private
 
-    def redirect(message)
+    def error(message)
       redirect_to(
-        controller.profile_home_path(username: profile.username),
-        notice: message
+        controller.profiles_claim_path(id: profile.id),
+        alert: message
       )
     end
 
     def success
-      redirect(
-        "Congratulations, you just claimed ownership of #{profile.name}"
+      redirect_to(
+        controller.profile_home_path(username: profile.username),
+        notice: "Congratulations, you just claimed ownership of #{profile.name}"
       )
-    end
-
-    def error
-      redirect("You can't claim ownership of that profile.")
     end
 
     def profile
@@ -29,7 +27,21 @@ module Profiles
     end
 
     def claimer
-      @claimer ||= Profiles::Claimer.new(profile, current_user)
+      @claimer ||= Profiles::Claimer.new(profile, user)
+    end
+
+    def user
+      @user ||= current_user || user_creator.call
+    end
+
+    def user_creator
+      @user_creator ||= ::Users::Creator.new(user_params)
+    end
+
+    def user_params
+      @user_params ||= params.require('user').permit(
+        :email, :password, :password_confirmation
+      )
     end
   end
 end

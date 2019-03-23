@@ -1,12 +1,12 @@
-%table.list
+.table.list
   - roles.each do |role|
-    %tr
-      %td
+    .tr
+      .td
         = link_to role.profile.title, profile_home_path(username: role.profile.username)
-      %td
+      .td
         = role.role_type.title
-      %td.text-right
+      .td.text-right
         = role.role_type.role_department.name
       - if current_user&.admin?
-        %td.text-right
+        .td.text-right
           = link_to 'Delete', role_path(role), class: 'danger confirm', title: 'Delete this role', method: 'DELETE'

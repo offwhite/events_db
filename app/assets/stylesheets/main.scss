@@ -11,16 +11,18 @@ body{
   color: $text-color;
 
   .alert, .notice{
-    float: left;
-    width: 100%;
-    background-color: $lime-cta;
+    @include left-100;
+    background-color: $lime;
     padding: $gutter;
-    box-sizing: border-box;
     margin: 0;
+  }
+  .alert{
+    background: $red;
+    color: #ffffff;
   }
 
   a{
-    color: $purple-cta;
+    color: $purple;
     text-decoration: none;
 
     &:hover{
@@ -45,7 +47,7 @@ body{
       width: 10px;
       height: 10px;
       border-radius: 100%;
-      background-color: $lime-cta;
+      background-color: $lime;
     }
   }
   .bool.no{
@@ -71,9 +73,7 @@ body{
   }
 
   .message{
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
+    @include left-100;
     padding: $gutter;
     background: $table-odd-row;
     border-radius: 5px;
@@ -83,15 +83,11 @@ body{
 
   .paragraph{
     margin: $gutter 0;
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
+    @include left-100;
   }
 
   .row{
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
+    @include left-100;
     padding-bottom: $gutter;
 
     &:first-of-type {
@@ -108,10 +104,8 @@ body{
     .page-content{
       padding: 30px 30px 45px 30px;
       position: relative;
-      float: left;
-      width: 100%;
       min-height: calc(100vh - 126px);
-      box-sizing: border-box;
+      @include left-100;
       margin-bottom: $gutter;
       background: $spring-bg;
 
@@ -137,7 +131,7 @@ body{
         ul{
           list-style: none;
           margin: 0;
-          color: $lime-cta;
+          color: $lime;
           font-size: 0.8em;
           li{
             float: left;
@@ -150,7 +144,7 @@ body{
 
   .button{
     float: right;
-    background: $lime-cta;
+    background: $lime;
     color: $text-color;
     border: none;
     text-align: center;
@@ -163,47 +157,56 @@ body{
   }
 
   .boxy{
-    float: left;
-    width: 100%;
+    @include left-100;
     height: 35px;
     padding: 5px 10px;
     font-size: 16px;
     border-radius: 4px;
     border: solid 1px $border-color;
-    box-sizing: border-box;
     color: $text-color;
   }
 
-  table.list{
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
+  .table.list{
+    @include left-100;
     border-spacing: 0;
     margin: $gutter 0;
 
-    thead td{
-      font-weight: bold;
-      border-bottom: solid 1px $border-color;
-      background: $spring-bg;
+    .thead{
+       .td{
+        font-weight: bold;
+        border-bottom: solid 1px $border-color;
+        background: $spring-bg;
+      }
     }
 
-    tr{
+    .tr{
       &:nth-child(odd) {
         background: $table-odd-row;
       }
-      td{
+      .td{
         padding: 10px;
       }
     }
   }
 
+  .table{
+    display: table;
+    .thead{
+      display: table-header-group;
+    }
+    .tr{
+      display: table-row;
+      .td{
+        display: table-cell;
+      }
+    }
+  }
+
   .claim-btn{
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
+    @include left-100;
     border-radius: 7px;
-    border: solid 1px $purple-cta;
-    background: $purple-cta;
+    border: solid 1px $purple;
+    background: $purple;
     box-shadow: $light-shadow;
     margin-bottom: $double-gutter;
 
@@ -217,7 +220,7 @@ body{
 
     &:hover{
       text-decoration: none;
-      background: $purple-cta-dark;
+      background: $purple-dark;
     }
   }
 

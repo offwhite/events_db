@@ -1,16 +1,16 @@
-%table.list
+.table.list
   - events.each do |event|
     - present event do |event|
-      %tr
-        %td
+      .tr
+        .td.mobile-title
           = link_to event.name, event_path(event)
         -# don't show venue info if we're on a venue page
         - unless defined? venue
-          %td
+          .td
             = link_to event.venue_title, venue_path(event.venue)
-          %td
+          .td.mobile-30
             = event.venue.town_title
-        %td
+        .td.mobile-30
           = event.date_str
-        %td.text-right
+        .td.text-right.mobile-30
           = "#{event.all_roles.count} crew"

@@ -8,7 +8,7 @@ module Profiles
     def call
       return false if user.has_profile? || profile.owned?
       profile.user_id = user.id
-      retrun false unless profile.save
+      return false unless profile.save
       logger.call
       notifier.call
     end

@@ -5,12 +5,10 @@
 }
 
 .panel{
-  float: left;
-  width: 100%;
-  box-sizing: border-box;
+  @include left-100;
   border-radius: 7px;
   border: solid 1px $border-color;
-  background: white;
+  background: $panel-bg;
   box-shadow: $light-shadow;
   margin-bottom: $double-gutter;
 
@@ -30,9 +28,7 @@
   }
 
   .panel-body{
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
+    @include left-100;
     padding: 0 $gutter;
 
     h1, h2, h3, h4{
@@ -47,9 +43,7 @@
 }
 
 .pagination{
-  float: left;
-  width: 100%;
-  box-sizing: border-box;
+  @include left-100;
   margin-bottom: $gutter;
   text-align: center;
   padding: $gutter;
@@ -64,8 +58,8 @@
     width: 40px;
     height: 20px;
     background: white;
-    color: $purple-cta;
-    border: solid 1px $purple-cta;
+    color: $purple;
+    border: solid 1px $purple;
     border-radius: 5px;
     margin: 0 5px;
     transition: all 0.35s ease-in-out;
@@ -80,8 +74,8 @@
     height: 20px;
     line-height: 20px;
     background: white;
-    color: $purple-cta;
-    border: solid 1px $purple-cta;
+    color: $purple;
+    border: solid 1px $purple;
     display: inline-block;
     padding: 0 8px;
     border-radius: 5px;
@@ -92,14 +86,14 @@
   }
 
   .current{
-    background-color: $purple-cta;
+    background-color: $purple;
     color: white;
-    border-color: $purple-cta;
+    border-color: $purple;
     font-weight: bold;
   }
 
   .gap{
-    color: $purple-cta;
+    color: $purple;
     font-size: 30px;
   }
 }

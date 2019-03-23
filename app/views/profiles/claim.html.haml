@@ -15,23 +15,36 @@
           And it'll stop anyone else owning it.
 
       - if current_user.nil?
+        .row
+          %h2 Create an account
         = simple_form_for(@user, url: profiles_register_claim_path, method: :post) do |f|
           .row
-            = f.input :email, as: :email, label: 'Email', placeholder: 'Email'
+            = f.input :email, as: :email, required: true, label: 'Email', placeholder: 'Email'
           .row
-            = f.input :password, as: :password, label: 'Password', placeholder: 'Password'
+            = f.input :password, as: :password, required: true, 'min-length' => 6, label: 'Password', placeholder: 'Password'
           .row
-            = f.input :password_confirmation, as: :password, label: 'Password again', placeholder: 'Password confirmation'
+            = f.input :password_confirmation, as: :password, required: true, label: 'Password confirmation (just in case)', placeholder: 'Password confirmation'
           .message
             By joining CrewdB you agree to our
             = link_to 'terms and conditions', pages_terms_path, target: '_blank'
           .row
             = f.submit 'Claim this profile'
-
+        .row
+          .or
+            %span Or
+        .row
+          %h2 Sign into your account
+        .row
+          = link_to 'Sign in', new_user_session_path, { class: 'claim-sign-in' }
+      - elsif current_user.has_profile?
+        %h4
+          Error: You already have a profile.
+        .message
+          You can't claim more than one profile. Naughty.
+          = link_to current_user.profile.title, profile_home_path(username: current_user.profile.username)
       - else
         .message
-          .message
-            By claiming this profile you agree to our
-            = link_to 'terms and conditions', pages_terms_path, target: '_blank'
+          By claiming this profile you agree to our
+          = link_to 'terms and conditions', pages_terms_path, target: '_blank'
         = link_to profiles_claim_path(id: profile.id), { class: 'claim-btn', method: 'POST' } do
           %h3 Claim this profile now

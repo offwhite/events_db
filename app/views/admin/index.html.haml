@@ -5,58 +5,60 @@
   .panel-head
     Records
   .panel-body
-    %table.list
-      %tr
-        %td
+    .table.list
+      .tr
+        .td
           = @profiles.count
-        %td
+        .td
           = link_to 'Profiles', admin_profiles_path
-        %td
+        .td
           Most Recent:
-          - present @profiles.last do |profile|
-            = profile.created_date
-      %tr
-        %td
+          - if @profiles.any?
+            - present @profiles.last do |profile|
+              = profile.created_date
+      .tr
+        .td
           = @roles.count
-        %td
+        .td
           = link_to 'Roles', admin_roles_path
-        %td
+        .td
           Most Recent:
-          - present @roles.last do |role|
-            = role.created_date
-      %tr
-        %td
+          - if @roles.any?
+            - present @roles.last do |role|
+              = role.created_date
+      .tr
+        .td
           = @events.count
-        %td
+        .td
           = link_to 'Events', admin_events_path
-        %td
+        .td
           Most Recent:
           - present @events.last do |event|
             = event.created_date
-      %tr
-        %td
+      .tr
+        .td
           = @tours.count
-        %td
+        .td
           = link_to 'Tours', admin_tours_path
-        %td
+        .td
           Most Recent:
           - present @tours.last do |tour|
             = tour.created_date
-      %tr
-        %td
+      .tr
+        .td
           = @venues.count
-        %td
+        .td
           = link_to 'Venues', admin_venues_path
-        %td
+        .td
           Most Recent:
           - present @venues.last do |venue|
             = venue.created_date
-      %tr
-        %td
+      .tr
+        .td
           = @users.count
-        %td
+        .td
           = link_to 'Users', admin_users_path
-        %td
+        .td
           Most Recent:
           - present @users.last do |user|
             = user.created_date

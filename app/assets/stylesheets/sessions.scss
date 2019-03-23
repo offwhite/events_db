@@ -8,15 +8,11 @@
   }
 
   .actions{
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
+    @include left-100;
   }
 
   .session-links{
-    float: left;
-    width: 100%;
-    box-sizing: border-box;
+    @include left-100;
     margin-top: 20px;
     padding-top: 20px;
     border-top: solid 1px $border-color;
@@ -24,9 +20,7 @@
 
   #error_explanation{
     border: solid 1px $hot-pink;
-    box-sizing: border-box;
-    float: left;
-    width: 100%;
+    @include left-100;
     padding: 10px;
     border-radius: 5px;
 

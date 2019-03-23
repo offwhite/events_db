@@ -7,40 +7,40 @@
     .panel-head
       = user.email
     .panel-body
-      %table.list
-        %tr
-          %td.strong
+      .table.list
+        .tr
+          .td.strong
             Permission Level
-          %td.text-right
+          .td.text-right
             = user.permission_level_str
-        %tr
-          %td.strong
+        .tr
+          .td.strong
             Last sign in at
-          %td.text-right
+          .td.text-right
             = user.formatted_time_sml(:last_sign_in_at)
-        %tr
-          %td.strong
+        .tr
+          .td.strong
             Current sign in at
-          %td.text-right
+          .td.text-right
             = user.formatted_time_sml(:current_sign_in_at)
-        %tr
-          %td.strong
+        .tr
+          .td.strong
             Sign in count
-          %td.text-right
+          .td.text-right
             = user.sign_in_count
-        %tr
-          %td.strong
+        .tr
+          .td.strong
             Status
-          %td.text-right
+          .td.text-right
             - if user.banned_at.nil?
               Active
             - else
               Banned at
               = user.formatted_time_sml(:banned_at)
-        %tr
-          %td.strong
+        .tr
+          .td.strong
             Current sign in ip
-          %td.text-right
+          .td.text-right
             = link_to user.current_sign_in_ip, "https://tools.keycdn.com/geo?host=#{user.current_sign_in_ip}", target: '_blank'
 
 

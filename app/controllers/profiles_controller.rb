@@ -47,4 +47,10 @@ class ProfilesController < ApplicationController
       self, params
     ).call
   end
+
+  def add_role
+    ::Profiles::AddRole.new(
+      self, params
+    ).call
+  end
 end

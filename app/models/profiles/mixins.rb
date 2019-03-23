@@ -3,12 +3,14 @@ module Profiles
     def delete
       roles.update_all deleted_at: Time.zone.now
       self.deleted_at = Time.zone.now
+      self.username = "#{username}_deleted_at_#{deleted_at}"
       save!
     end
 
     def undelete
       roles_inc_deleted.update_all deleted_at: nil
       self.deleted_at = nil
+      self.username = username.split('_deleted_at_').first
       save!
     end
 

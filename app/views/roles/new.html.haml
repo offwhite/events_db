@@ -15,10 +15,10 @@
         .message
           = "You're adding cast or crew to #{@title}."
         .row
-          = f.input :profile_name, as: :string, label: 'Who?', required: true, placeholder: 'Who was this magestic beast?', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'profile_lookup' }
+          = f.input :profile_name, as: :string, label: 'Who was this?', required: true, placeholder: 'Who was this? eg: Alan Smithee', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'profile_lookup' }
           .profile_lookup_list
         .row
-          = f.input :role_type_name, as: :string, label: 'What?', required: true, placeholder: 'What wonders did they wrought?', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'role_type_lookup' }
+          = f.input :role_type_name, as: :string, label: 'What did they do?', required: true, placeholder: 'What did they do? eg: Sound engineer', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'role_type_lookup' }
           .role_type_lookup_list
         .row.submit-row
           = f.submit 'Add Crew'

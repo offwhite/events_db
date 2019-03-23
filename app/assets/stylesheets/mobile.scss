@@ -1,0 +1,81 @@
+@import '_mixins';
+
+@media (max-width: 700px) {
+  body .spring{
+
+    .title-bar{
+      .title{
+        margin-bottom: $gutter;
+        width: 100%;
+      }
+      .search-form{
+        width: 100%;
+
+        input[type='text']{
+          width: 100%;
+          height: 35px;
+          padding: 5px 10px;
+          font-size: 16px;
+          border-radius: 0;
+        }
+        input[type='submit']{
+          border-radius: 0;
+        }
+      }
+    }
+
+
+    .page-content{
+      padding: $double-gutter $half-gutter;
+      padding-bottom: 90px;
+
+      .panel{
+        border: none;
+
+        .panel-body{
+          padding: $half-gutter;
+        }
+      }
+
+      .footer{
+        height: 80px;
+      }
+    }
+
+    .table{
+      display: block;
+      .tr{
+        display: block;
+        float: left;
+        width: 100%;
+        padding: $gutter 0;
+        .td{
+          display: block;
+          box-sizing: border-box;
+          float: left;
+          width: 100%;
+          padding: 3px;
+        }
+        .td.mobile-50{
+          width: 50%;
+        }
+
+        .td.mobile-30{
+          width: 33%;
+        }
+      }
+    }
+
+    .mobile-hidden{
+      display: none;
+    }
+
+    .mobile-title{
+      font-size: 1.1em;
+    }
+
+    .mobile-text-right{
+      text-align: right;
+    }
+  }
+}

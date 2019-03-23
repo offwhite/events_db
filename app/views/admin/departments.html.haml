@@ -6,19 +6,19 @@
     Role departments
     = link_to 'New', new_role_department_path, class: 'pull-right'
   .panel-body
-    %table.list
+    .table.list
       - @departments.each do |department|
         - present department do |department|
-          %tr
-            %td
+          .tr
+            .td
               = department.id
-            %td
+            .td
               = department.name
-            %td{class: department.role_types.count.zero? ? 'grey' : ''}
+            .td{class: department.role_types.count.zero? ? 'grey' : ''}
               = department.role_types.count
               role types
-            %td.text-right{title: 'Created'}
+            .td.text-right{title: 'Created'}
               = department.created_date
-            %td.text-right
+            .td.text-right
               = link_to 'Delete', role_department_path(department), title: 'delete', method: 'DELETE', class: 'danger confirm'
     = paginate @departments

@@ -23,8 +23,8 @@
       %h3 Is this you?
       Claim your profile
 
-  - if current_user.present? && profile.owner?(current_user)
-    = link_to profiles_claim_path(id: profile.id), { class: 'claim-btn' } do
+  -# if current_user.present? && profile.owner?(current_user)
+    = link_to profiles_add_role_path(id: profile.id), { class: 'claim-btn' } do
       %h3 Something missing?
       Get credit for your work
 
@@ -32,17 +32,17 @@
     .panel-head
       Work
     .panel-body
-      %table.list
+      .table.list
         - profile.roles.each do |role|
-          %tr
-            %td
+          .tr
+            .td
               - if role.event_role?
                 - present role.event do |event|
                   = link_to event.full_title, event_path(event)
               - if role.tour_role?
                 - present role.tour do |tour|
                   = link_to tour.name, tour_path(tour)
-            %td.text-right
+            .td.text-right
               = role.role_type.title
 
   = render 'logs/log_list', logs: profile.logs

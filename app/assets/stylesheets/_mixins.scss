@@ -7,21 +7,30 @@ $body-bg: #cdcdcd;
 $text-color: #696969;
 $spring-bg: #fdfdfd;
 $title-bar-bg: #505a65;
+$panel-bg: #ffffff;
 
-$lime-cta: #b7fb36;
+$lime: #b7fb36;
 $lime-light: #d5f1dd;
 $table-odd-row: #f5f9f6;
 $hot-pink: #e85c5c;
-$purple-cta: #cb78ea;
-$purple-cta-dark: #b065cc;
+$purple: #cb78ea;
+$purple-dark: #b065cc;
 $admin-grey: #8c8c8c;
-$admin-orange: #ffb600;
+$orange: #ffb600;
+$red: #e23b20;
 
 $border-color: #c3c3c3;
 $good: #7dbd02;
 $bad: #e01313;
 $grey: #c3c3c3;
 
+$half-gutter: 5px;
 $gutter: 10px;
 $double-gutter: 20px;
 $light-shadow: 0 0 5px rgba(0,0,0,0.1);
+
+@mixin left-100 {
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+}
