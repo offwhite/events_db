@@ -37,8 +37,10 @@
   }
 
   .address-panel{
+    @include left-100;
     border-bottom: solid 1px $border-color;
     padding: $gutter 0;
+    margin-bottom: $gutter;
   }
 }
 

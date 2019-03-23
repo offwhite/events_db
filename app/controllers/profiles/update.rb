@@ -11,7 +11,7 @@ module Profiles
 
     def redirect
       redirect_to(
-        controller.profile_path(profile),
+        controller.profile_home_path(username: profile.username),
         notice: 'The profile has been updated'
       )
     end

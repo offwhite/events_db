@@ -36,6 +36,7 @@ class User < ApplicationRecord
   end
 
   def name
+    return profile.title if has_profile?
     email.tr('.', ' ').split('@').first&.titleize
   end
 

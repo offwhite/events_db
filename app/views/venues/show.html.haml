@@ -4,17 +4,20 @@
 
   .panel
     .panel-head
-      Venue >
       = venue.title
       - if current_user&.admin?
         = link_to 'Edit', edit_venue_path(venue), class: 'edit-link'
     .panel-body
       .address-panel
-        = venue.address
-        .town
+        .row
+          = venue.address
+        .row
           = venue.town_title
-        = "#{venue.capacity} Capacity"
-
+        .row
+          = "#{venue.capacity} Capacity"
+        - if venue.url.present?
+          .row
+            = link_to venue.safe_url, venue.safe_url, target: '_blank'
       .events
         %h3 Events
         = render 'events/event_list', events: venue.events, venue: venue
