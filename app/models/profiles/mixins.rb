@@ -58,5 +58,17 @@ module Profiles
     def owner?(user)
       user&.id == user_id
     end
+
+    def future_roles
+      roles.joins(:event)
+           .where('events.date > ?', Time.zone.today)
+           .reorder('events.date asc')
+    end
+
+    def past_roles
+      roles.joins(:event)
+           .where('events.date < ?', Time.zone.today)
+           .reorder('events.date desc')
+    end
   end
 end

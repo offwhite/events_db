@@ -23,5 +23,6 @@
             = link_to "Profile", profile_home_path(username: current_user.profile.username)
         %li
           = link_to "Add event", new_event_path
-        %li
-          = link_to "Add tour", new_tour_path
+        -#
+            %li
+              = link_to "Add tour", new_tour_path

@@ -1,0 +1,12 @@
+.table.list
+  - roles.each do |role|
+    .tr
+      - if role.event_role?
+        .td
+          = link_to role.event.name, event_path(role.event)
+        .td
+          = link_to role.venue.name, venue_path(role.venue)
+        .td
+          = role.event.date_str
+      .td.text-right
+        = role.role_type.title

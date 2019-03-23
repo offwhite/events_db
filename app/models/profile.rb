@@ -7,6 +7,7 @@ class Profile < ApplicationRecord
 
   belongs_to :user, optional: true
   has_many :roles
+  has_many :evens, through: :roles
   has_many :logs, as: :record
 
   pg_search_scope :fuzzy_matches,
