@@ -12,17 +12,6 @@ class Venue < ApplicationRecord
                   against: %i[name description address],
                   using: { tsearch: { any_word: true } }
 
-  def title
-    name.titleize
-  end
-
-  def full_title
-    [title, town&.title].join(', ')
-  end
-
-  def town_title
-    town&.title
-  end
 end
 
 # == Schema Information

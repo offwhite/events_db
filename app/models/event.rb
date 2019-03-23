@@ -19,43 +19,6 @@ class Event < ApplicationRecord
                   against: %i[name description],
                   using: { tsearch: { any_word: true } }
 
-  def venue_title
-    venue.title
-  end
-
-  def town_title
-    town.title
-  end
-
-  def full_title
-    "#{name.titleize}, #{venue_title}, #{town_title} - \
-    #{date_str}"
-  end
-
-  def date_str
-    date.strftime('%d %B %Y')
-  end
-
-  def date_str_sml
-    date.strftime('%d-%m-%y')
-  end
-
-  def on_tour?
-    tour_id.present?
-  end
-
-  def all_roles
-    roles + tour_roles
-  end
-
-  def tour_roles
-    return [] if tour.nil?
-    tour.roles
-  end
-
-  def owner?(user)
-    user&.id == user_id
-  end
 end
 
 # == Schema Information

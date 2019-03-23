@@ -19,7 +19,13 @@
           .row
             = link_to venue.safe_url, venue.safe_url, target: '_blank'
       .events
-        %h3 Events
-        = render 'events/event_list', events: venue.events, venue: venue
+        - if venue.future_events.any?
+          .row
+            %h3 Upcoming Events
+            = render 'events/event_list', events: venue.future_events, venue: venue
+        - if venue.past_events.any?
+          .row
+            %h3 Past Events
+            = render 'events/event_list', events: venue.past_events, venue: venue
         .row
           = link_to 'Add event', new_event_path(venue_id: venue.id), class: 'button'

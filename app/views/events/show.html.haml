@@ -4,15 +4,33 @@
 
   .panel
     .panel-head
-      - if event.on_tour?
-        = link_to 'Tour > ', tour_path(event.tour)
-      = event.full_title
+      = event.name
+      = event.date_str
 
       = link_to 'Edit', edit_event_path(event), class: 'edit-link'
     .panel-body
-      %h3 Crew
-
-      = render 'roles/role_list', roles: event.all_roles
+      .table.list
+        .tr
+          .td
+            Venue
+          .td
+            = link_to event.venue_title, venue_path(event.venue)
+        .tr
+          .td
+            Date
+          .td
+            = event.date_str
+        .tr
+          .td
+            Tour
+          .td
+            - if event.on_tour?
+              = link_to event.tour.title, tour_path(event.tour)
+            - else
+              Not registered as on a tour
+      .row
+        %h3 Crew
+        = render 'roles/role_list', roles: event.all_roles
 
       .row
         = link_to 'Add crew', new_role_path(event_id: event.id), class: 'button'
