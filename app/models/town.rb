@@ -3,6 +3,8 @@ class Town < ApplicationRecord
   include Towns::Mixins
   default_scope { where(deleted_at: [nil]) }
 
+  include PgSearch
+
   has_many :venues
   belongs_to :country
   has_many :logs, as: :record

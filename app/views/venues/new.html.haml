@@ -3,10 +3,15 @@
     New venue
 
   = simple_form_for(@venue, url: venues_path, method: :post) do |f|
+    = f.input :town_id, as: :hidden, input_html: { class: 'town_lookup_id' }
     .panel
       .panel-head
-        Edit venue
+        New venue
       .panel-body
+        - if venue.errors.any?
+          .message
+            There was a problem.
+            = venue.errors.full_messages.to_sentence
         .row
           = f.input :name, as: :string, label: 'Name', placeholder: 'Title'
         .row
@@ -14,7 +19,8 @@
         .row
           = f.input :address, label: 'Address', placeholder: 'Address'
         .row
-          = f.association :town, label_method: :title, label: "Where's this place at?", prompt: 'Select a town yeah?'
+          = f.input :lookup_query, as: :string, label: 'In which city or town is this venue?', required: true, placeholder: 'Search for a place', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'town_lookup' }
+          .town_lookup_list
         .row
           = f.input :capacity, label: 'Capacity', placeholder: 'Capacity'
         .row

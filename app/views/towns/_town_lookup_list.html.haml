@@ -1,0 +1,9 @@
+%ul
+  %h4 Please select one
+  - towns.each do |town|
+    %li{'data-id' => town.id}
+      %span.lookup-name
+        = town.title
+      .pull-right
+        = '...'
+        = town.country.title

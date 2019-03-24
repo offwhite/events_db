@@ -24,15 +24,6 @@
     .panel-body
       = render 'venues/venue_list', venues: @venues
 
-- if @tours.any?
-  .panel
-    .panel-head
-      = "#{@tours.count} #{'tour'.pluralize(@tours.count)} for"
-      %em
-        = @query_str
-    .panel-body
-      = render 'tours/tour_list', tours: @tours
-
 - if @profiles.any?
   .panel
     .panel-head

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post '/profile-lookup',   to: 'profiles#lookup',   as: :profiles_lookup
   post '/venue-lookup',     to: 'venues#lookup',     as: :venues_lookup
   post '/event-lookup',     to: 'events#lookup',     as: :events_lookup
+  post '/town-lookup',      to: 'towns#lookup',      as: :towns_lookup
 
   get   '/profiles/:id/add-job', to: 'profiles#add_role', as: :profiles_add_role
   post  '/profiles/:id/add-job', to: 'profiles#create_role',

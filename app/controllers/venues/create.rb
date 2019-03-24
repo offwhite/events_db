@@ -1,7 +1,7 @@
 module Venues
   class Create < ::EditControllerAction
     def call
-      return redirect if venue.present?
+      return redirect if venue.persisted?
       render_form
     end
 

@@ -3,12 +3,14 @@ var ready = function(){
   prep_lookup('input.profile_lookup', profile_lookup);
   prep_lookup('input.role_type_lookup', role_type_lookup);
   prep_lookup('input.venue_lookup', venue_lookup);
+  prep_lookup('input.town_lookup', town_lookup);
   prep_shortcuts();
 
   $('body').on('click', '.profile_lookup_list li', set_profile);
   $('body').on('click', '.role_type_lookup_list li', set_selected_role_type);
   $('body').on('click', '.venue_lookup_list li', set_selected_venue);
   $('body').on('click', '.event_lookup_list li', set_selected_event);
+  $('body').on('click', '.town_lookup_list li', set_selected_town);
   $('body').on('click', '.event_lookup', event_lookup);
   $('.date_input').on('change', event_lookup);
 
@@ -145,6 +147,30 @@ function set_selected_event(){
 
   $('.existing-events, .new-events').slideUp();
   show_next_step();
+}
+
+// --- town ---
+
+function town_lookup(){
+  $('input.town_lookup_id').val('')
+  var string = $(this).val();
+  if(string.length < 3){return}
+
+  $.ajax({
+    url     : '/town-lookup',
+    type    : 'POST',
+    context : document.body,
+    data    : {search: string}
+  });
+};
+
+function set_selected_town(){
+  var id = $(this).data('id')
+  var name = $(this).find('.lookup-name').html()
+  $('input.town_lookup_id').val(id)
+  $('.town_lookup').val(name)
+
+  $('.town_lookup_list').slideUp();
 }
 
 // --- SAVE BTN ---

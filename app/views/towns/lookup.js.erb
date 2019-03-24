@@ -1,0 +1,7 @@
+$('.town_lookup_list').html(
+  <%- if @towns.empty? %>
+    "<div class='none-found'>Couldn't find '<%= @query_str.titleize %>'. Get in touch if it's missing.</div>"
+  <%- else %>
+    "<%= escape_javascript(render partial: 'town_lookup_list', locals: { towns: @towns } ) %>"
+  <%- end %>
+).slideDown();

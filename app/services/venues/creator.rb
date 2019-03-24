@@ -8,12 +8,12 @@ module Venues
 
     def call
       return existing_venue if existing_venue.present?
-      logger.call
+      logger.call if venue.save
       venue
     end
 
     def venue
-      @venue ||= Venue.create(full_params)
+      @venue ||= Venue.new(full_params)
     end
 
     private

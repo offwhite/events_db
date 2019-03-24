@@ -1,51 +1,61 @@
 @import '_mixins';
 
-.profile_lookup_list, .role_type_lookup_list, .venue_lookup_list, .event_lookup_list{
-  border: solid 1px $border-color;
-  border-top: 0;
-  display: none;
-  float: left;
-  width: calc(100% - 10px);
-  box-sizing: border-box;
-  margin: 0 5px ;
-  border-radius: 0 0 5px 5px;
-  padding-top:5px;
+body .panel .panel-body{
 
-  .none-found{
-    text-align: center;
-    padding: 20px;
-  }
+  .profile_lookup_list, .role_type_lookup_list, .town_lookup_list,
+  .venue_lookup_list, .event_lookup_list, .profile_lookup_list{
+    border: solid 1px $border-color;
+    border-top: 0;
+    display: none;
+    float: left;
+    width: calc(100% - 10px);
+    box-sizing: border-box;
+    margin: 0 5px ;
+    border-radius: 0 0 5px 5px;
+    padding-top:5px;
 
-  ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    H4{
+      margin: $half-gutter $gutter 0 $gutter;
+      border-bottom: solid 1px $border-color;
+      padding-bottom: 5px;
+    }
 
-    li{
-      @include left-100;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
+    .none-found{
+      text-align: center;
+      padding: 20px;
+    }
 
-      &:hover{
-        background-color: $table-odd-row;
+    ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li{
+        @include left-100;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover{
+          background-color: $table-odd-row;
+        }
       }
     }
   }
-}
 
-.event_lookup{
-  cursor: pointer;
-}
+  .event_lookup{
+    cursor: pointer;
+  }
 
-.event_lookup_list_holder{
-  @include left-100;
-  margin: $gutter 0;
+  .event_lookup_list_holder{
+    @include left-100;
+    margin: $gutter 0;
 
-  label{
-    border: solid 1px $border-color;
-    border-radius: 5px;
-    font-weight: bold;
-    border-bottom: solid 1px $border-color;
+    label{
+      border: solid 1px $border-color;
+      border-radius: 5px;
+      font-weight: bold;
+      border-bottom: solid 1px $border-color;
+    }
   }
 }

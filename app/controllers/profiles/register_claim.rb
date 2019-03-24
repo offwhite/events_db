@@ -18,7 +18,8 @@ module Profiles
     def success
       redirect_to(
         controller.profile_home_path(username: profile.username),
-        notice: "Congratulations, you just claimed ownership of #{profile.title}"
+        notice:
+          "Congratulations, you just claimed ownership of #{profile.title}"
       )
     end
 

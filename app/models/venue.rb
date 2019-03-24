@@ -8,6 +8,8 @@ class Venue < ApplicationRecord
   has_many :events, -> { order(date: :desc) }
   has_many :logs, as: :record
 
+  attr_accessor :lookup_query
+
   pg_search_scope :fuzzy_matches,
                   against: %i[name description address],
                   using: { tsearch: { any_word: true } }
