@@ -9,7 +9,7 @@
         - present event do |event|
           %li{'data-id' => event.id}
             %span.lookup-name
-              = event.name
+              = event.title
             .pull-right
               = '...'
               = "#{event.roles.count} crew"

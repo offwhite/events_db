@@ -1,12 +1,19 @@
 module Profiles
   class AddRole < ::ControllerAction
     def call
-      # cancel if this owner isn't admin or doesnt own this profile
+      return error unless valid_request?
       expose(profile, '@profile')
       expose(role, '@role')
     end
 
     private
+
+    def error
+      redirect_to(
+        controller.root_path,
+        alert: "You're not allowed to do that"
+      )
+    end
 
     def profile
       @profile ||= Profile.find params[:id]
@@ -21,6 +28,10 @@ module Profiles
 
     def event
       @event ||= Event.new(date: Time.zone.today)
+    end
+
+    def valid_request?
+      current_user.admin? || current_user.id = profile.user_id
     end
   end
 end

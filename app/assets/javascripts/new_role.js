@@ -1,5 +1,5 @@
 var ready = function(){
-  // TODO: really nead to rebuild this in react soon
+  // TODO: really nead to rebuild this in react
   prep_lookup('input.profile_lookup', profile_lookup);
   prep_lookup('input.role_type_lookup', role_type_lookup);
   prep_lookup('input.venue_lookup', venue_lookup);
@@ -127,7 +127,6 @@ function event_lookup(){
   $('.existing-events, .new-events').slideDown();
   var venue_id = $('input.venue_lookup_id').val();
   var date = date_as_string();
-  console.log(venue_id, date)
   show_next_step();
 
   $.ajax({

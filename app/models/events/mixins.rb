@@ -16,6 +16,10 @@ module Events
       roles.unscoped.all
     end
 
+    def title
+      name.titleize
+    end
+
     def venue_title
       venue.title
     end
