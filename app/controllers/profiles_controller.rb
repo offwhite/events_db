@@ -53,4 +53,10 @@ class ProfilesController < ApplicationController
       self, params
     ).call
   end
+
+  def create_role
+    ::Profiles::CreateRole.new(
+      self, params
+    ).call
+  end
 end

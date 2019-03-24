@@ -2,7 +2,7 @@
   - role_types.each do |role_type|
     - present role_type do |role_type|
       %li{'data-id' => role_type.id}
-        %span.role-type-name
+        %span.lookup-name
           = role_type.title
         .pull-right
           = '...'

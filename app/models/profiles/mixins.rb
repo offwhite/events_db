@@ -61,7 +61,7 @@ module Profiles
 
     def future_roles
       roles.joins(:event)
-           .where('events.date > ?', Time.zone.today)
+           .where('events.date >= ?', Time.zone.today)
            .reorder('events.date asc')
     end
 

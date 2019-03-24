@@ -41,4 +41,10 @@ class EventsController < ApplicationController
       self, params
     ).call
   end
+
+  def lookup
+    ::Events::Lookup.new(
+      self, params
+    ).call
+  end
 end

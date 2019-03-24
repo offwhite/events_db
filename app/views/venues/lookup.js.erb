@@ -1,0 +1,8 @@
+<%- if @venues.empty? %>
+  // show new venue form
+  console.log('show new venue form')
+<%- else %>
+  $('.venue_lookup_list').html(
+    "<%= escape_javascript(render partial: 'venue_lookup_list', locals: { venues: @venues } ) %>"
+  ).slideDown();
+<%- end %>

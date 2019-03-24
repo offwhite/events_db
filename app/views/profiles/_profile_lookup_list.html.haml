@@ -2,7 +2,7 @@
   - profiles.each do |profile|
     - present profile do |profile|
       %li{'data-id' => profile.id}
-        %span.profile-name
+        %span.lookup-name
           = profile.title
         - if profile.roles.any?
           .pull-right

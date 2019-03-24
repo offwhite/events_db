@@ -1,0 +1,9 @@
+%ul
+  - venues.each do |venue|
+    - present venue do |venue|
+      %li{'data-id' => venue.id}
+        %span.lookup-name
+          = venue.name
+        .pull-right
+          = '...'
+          = venue.town.title

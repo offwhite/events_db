@@ -11,7 +11,6 @@ class Venue < ApplicationRecord
   pg_search_scope :fuzzy_matches,
                   against: %i[name description address],
                   using: { tsearch: { any_word: true } }
-
 end
 
 # == Schema Information

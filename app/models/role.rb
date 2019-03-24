@@ -12,7 +12,9 @@ class Role < ApplicationRecord
 
   delegate :town, :venue, to: :event
 
-  attr_accessor :profile_name, :role_type_name
+  accepts_nested_attributes_for :event
+
+  attr_accessor :profile_name, :role_type_name, :venue_name
 
   def town
     event&.town

@@ -29,4 +29,10 @@ class VenuesController < ApplicationController
       self, params
     ).call
   end
+
+  def lookup
+    ::Venues::Lookup.new(
+      self, params
+    ).call
+  end
 end

@@ -1,0 +1,8 @@
+$('.event_lookup_list_holder').html(
+  <%- if @events.empty? %>
+    ""
+  <%- else %>
+    "<%= escape_javascript(render partial: 'event_lookup_list', locals: { events: @events } ) %>"
+  <%- end %>
+)
+$('.event_lookup_list').show();

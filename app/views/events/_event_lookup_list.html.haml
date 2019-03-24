@@ -1,0 +1,18 @@
+- event = events.first
+%h2 Existing events
+%label.event_lookup
+  = "Existing events at #{event.venue.title} on the #{event.date_str}"
+.existing-events
+  .event_lookup_list
+    %ul
+      - events.each do |event|
+        - present event do |event|
+          %li{'data-id' => event.id}
+            %span.lookup-name
+              = event.name
+            .pull-right
+              = '...'
+              = "#{event.roles.count} crew"
+  .row
+    .or
+      %span Or

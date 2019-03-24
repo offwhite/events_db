@@ -1,9 +1,9 @@
 - present @profile do |profile|
   - content_for :page_title do
-    = profile.name
+    = profile.title
 
   %h1.content-title
-    = profile.name
+    = profile.title
   .panel
     .panel-head
       Overview
@@ -23,7 +23,7 @@
       %h3 Is this you?
       Claim your profile
 
-  -# if current_user.present? && profile.owner?(current_user)
+  - if current_user.present? && profile.owner?(current_user)
     = link_to profiles_add_role_path(id: profile.id), { class: 'claim-btn' } do
       %h3 Something missing?
       Get credit for your work
