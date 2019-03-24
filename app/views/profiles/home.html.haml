@@ -7,6 +7,8 @@
   .panel
     .panel-head
       Overview
+      - if profile.owner?(current_user)
+        = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'edit-link'
       - if current_user&.admin?
         = link_to 'Edit', edit_profile_path(profile), class: 'edit-link'
     .panel-body

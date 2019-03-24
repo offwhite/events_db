@@ -15,6 +15,8 @@ class Event < ApplicationRecord
 
   delegate :town, to: :venue
 
+  attr_accessor :lookup_query
+
   pg_search_scope :fuzzy_matches,
                   against: %i[name description],
                   using: { tsearch: { any_word: true } }
