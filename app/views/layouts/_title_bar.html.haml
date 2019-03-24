@@ -19,8 +19,10 @@
         - if current_user.has_profile?
           %li
             = link_to "Profile", profile_home_path(username: current_user.profile.username)
+          %li
+            = link_to "Add a job", profiles_add_role_path(id: current_user.profile.id)
         - else
           %li
             = link_to "Sign out", destroy_user_session_path, method: :delete
-        %li
-          = link_to "Add event", new_event_path
+          %li
+            = link_to "Add event", new_event_path

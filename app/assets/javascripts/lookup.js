@@ -29,7 +29,7 @@ function prep_lookup(input, callback){
 // --- utilities ---
 
 function prep_shortcuts(){
-  $('input').on('keyup keypress', function(e) {
+  $('.page-content input').on('keyup keypress', function(e) {
     var keyCode = e.keyCode || e.which;
     if (keyCode === 13) {
       e.preventDefault();
