@@ -1,13 +1,13 @@
 module Pages
   class Home < ::ControllerAction
     def call
-      expose(recently_added_events, '@recently_added_events')
+      expose(recent_events, '@recent_events')
     end
 
     private
 
-    def recently_added_events
-      @recently_added_events ||= Event.order(id: :desc).limit(10)
+    def recent_events
+      @recently_added_events ||= Event.recent
     end
   end
 end

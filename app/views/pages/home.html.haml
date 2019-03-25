@@ -1,34 +1,51 @@
 
 
-.home-page
+.pages.home-page
   .hero-banner
     .title-col
       %h1
-        Discover the people behind
+        Discover the people
         %br
-        the worlds live events
+        behind the worlds
+        %br
+        live events
 
       %h5
         Giving credit where it’s due to the unsung heroes.
-    .image-col
-      = image_tag(image_path('mixing-desk-1-crop.jpg'), width: 350)
-      .credit
-        Photo by Adi Goldstein on Unsplash
+    .credit
+      Photo by Israel palacio on Unsplash
 
   .content
 
-    .row
-      Search for crew, events or venues
-    .row
-      .search-form
+    .pane
+      %h2.text-center
+        Search
+      .mini-row
+        You can search for venues, events, artists and crew. Search for an event,
+        see who worked on it and then see what other events they have been
+        involved in.
+      .search-form.mini-row
         = simple_form_for(:search, url: search_global_path, method: :post) do |f|
-          = f.input :query, as: :string, label: false, input_html: {value: @query_str, class: 'allow-enter'}, placeholder: 'Search events, crew or venues'
+          = f.input :query, as: :string, label: false, input_html: {value: @query_str, class: 'allow-enter disable-auto-select'}, placeholder: 'Search events, crew or venues'
+          = f.submit 'Go', label: false, class: 'button green-btn'
 
-    .row
-      Sign up here
+    - if current_user.nil?
+      .pane
+        %h2.text-center
+          Join us
+        .mini-row
+          You can add and update the site by signing up. We won't give your email
+          address to anyone else. Promise.
+          CrewdB will always be free to use.
+          .row
+            = link_to new_user_registration_path, { class: 'claim-btn' } do
+              %h3 Sign up
 
-    .panel
-      .panel-head
-        Recently added events
-      .panel-body
-        = render 'events/event_list', events: @recently_added_events
+    .pane
+      %h2.text-center
+        Events
+      .panel
+        .panel-head
+          Recent events
+        .panel-body
+          = render 'events/event_list', events: @recent_events

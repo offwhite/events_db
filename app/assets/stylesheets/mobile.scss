@@ -24,6 +24,19 @@
       }
     }
 
+    .home-page{
+      .hero-banner{
+        height: 300px;
+
+        .title-col{
+          width: 100%;
+          h1{
+            font-size: 30px;
+          }
+        }
+      }
+    }
+
 
     .content{
       padding: $double-gutter $half-gutter;

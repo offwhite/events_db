@@ -17,7 +17,7 @@ var ready = function(){
   $('.event_name, .event_type_id').on('change', show_next_step);
 
   $('.submit-row, .event_panel, .role_type_panel').hide();
-  $('.content input[type=text], .content input[type=date], .content textarea').first().focus();
+  $('.content input[type=text]:not(.disable-auto-select), .content input[type=date], .content textarea').first().focus();
 };
 
 function prep_lookup(input, callback){
