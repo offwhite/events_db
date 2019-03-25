@@ -2,8 +2,19 @@
 
 
 .home-page{
-  .hero-banner{
+  .banner-type-1{
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url(image_path('mic-01.jpg'));
+  }
+
+  .banner-type-2{
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url(image_path('mic-02.jpg'));
+  }
+
+  .banner-type-3{
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url(image_path('mic-03.jpg'));
+  }
+
+  .hero-banner{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
