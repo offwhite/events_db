@@ -22,12 +22,9 @@
             = event.date_str
         .tr
           .td
-            Tour
+            Town
           .td
-            - if event.on_tour?
-              = link_to event.tour.title, tour_path(event.tour)
-            - else
-              Not registered as on a tour
+            = event.town_title
       .row
         %h3 Crew
         = render 'roles/role_list', roles: event.all_roles

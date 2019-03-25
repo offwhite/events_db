@@ -3,7 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'events#index'
+  root 'pages#home'
   resources :events,      only: %i[index show edit update new create destroy]
   resources :roles,       only: %i[new create edit update destroy]
   resources :profiles,    only: %i[show edit update destroy]

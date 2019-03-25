@@ -1,0 +1,34 @@
+
+
+.home-page
+  .hero-banner
+    .title-col
+      %h1
+        Discover the people behind
+        %br
+        the worlds live events
+
+      %h5
+        Giving credit where it’s due to the unsung heroes.
+    .image-col
+      = image_tag(image_path('mixing-desk-1-crop.jpg'), width: 350)
+      .credit
+        Photo by Adi Goldstein on Unsplash
+
+  .content
+
+    .row
+      Search for crew, events or venues
+    .row
+      .search-form
+        = simple_form_for(:search, url: search_global_path, method: :post) do |f|
+          = f.input :query, as: :string, label: false, input_html: {value: @query_str, class: 'allow-enter'}, placeholder: 'Search events, crew or venues'
+
+    .row
+      Sign up here
+
+    .panel
+      .panel-head
+        Recently added events
+      .panel-body
+        = render 'events/event_list', events: @recently_added_events

@@ -17,7 +17,7 @@ var ready = function(){
   $('.event_name, .event_type_id').on('change', show_next_step);
 
   $('.submit-row, .event_panel, .role_type_panel').hide();
-  $('.page-content input[type=text], .page-content input[type=date], .page-content textarea').first().focus();
+  $('.content input[type=text], .content input[type=date], .content textarea').first().focus();
 };
 
 function prep_lookup(input, callback){
@@ -29,9 +29,9 @@ function prep_lookup(input, callback){
 // --- utilities ---
 
 function prep_shortcuts(){
-  $('.page-content input').on('keyup keypress', function(e) {
+  $('.content input').on('keyup keypress', function(e) {
     var keyCode = e.keyCode || e.which;
-    if (keyCode === 13) {
+    if (keyCode === 13 && !$(this).hasClass('allow-enter')) {
       e.preventDefault();
       return false;
     }

@@ -3,6 +3,7 @@
     = "#{venue.full_title} - Edit"
 
   = simple_form_for(@venue, url: venue_path, method: :put) do |f|
+    = f.input :town_id, as: :hidden, input_html: { class: 'town_lookup_id' }
     .panel
       .panel-head
         Edit venue
@@ -16,7 +17,8 @@
         .row
           = f.input :address, label: 'Address', placeholder: 'Address'
         .row
-          = f.association :town, label_method: :title, label: "Where's this place at?", prompt: 'Select a town yeah?'
+          = f.input :lookup_query, as: :string, label: 'Town or City', required: true, placeholder: 'Search for a place', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'town_lookup' }
+          .town_lookup_list
         .row
           = f.input :capacity, label: 'Capacity', placeholder: 'Capacity'
         .row

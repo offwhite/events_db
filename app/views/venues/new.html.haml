@@ -19,7 +19,7 @@
         .row
           = f.input :address, label: 'Address', placeholder: 'Address'
         .row
-          = f.input :lookup_query, as: :string, label: 'In which city or town is this venue?', required: true, placeholder: 'Search for a place', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'town_lookup' }
+          = f.input :lookup_query, as: :string, label: 'Town or City', required: true, placeholder: 'Search for a place', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'town_lookup' }
           .town_lookup_list
         .row
           = f.input :capacity, label: 'Capacity', placeholder: 'Capacity'

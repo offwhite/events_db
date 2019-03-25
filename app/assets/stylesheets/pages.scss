@@ -1,0 +1,46 @@
+@import '_mixins';
+
+
+.home-page{
+  .hero-banner{
+    background: $grey;
+    @include left-100;
+
+    .title-col{
+      float: left;
+      width: calc(100% - 350px);
+      box-sizing: border-box;
+      padding: 30px 0 0 30px;
+      color: #dfdfdf;
+
+      h1{
+        font-size: 2.8em;
+        margin: $double-gutter 0;
+      }
+      h5{
+        margin: 0;
+        font-weight: 400;
+        font-size: 19px;
+      }
+
+    }
+    .image-col{
+      float: left;
+      width: 350px;
+      position: relative;
+
+      .credit{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-weight: 400;
+        font-size: 12px;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+body .spring .page-content{
+  padding: 0;
+}
