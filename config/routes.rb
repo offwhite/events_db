@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   resources :events,      only: %i[index show edit update new create destroy]
   resources :roles,       only: %i[new create edit update destroy]
-  resources :profiles,    only: %i[show edit update destroy]
+  resources :profiles,    only: %i[new create show edit update destroy]
   resources :tours,       only: %i[new create show edit update destroy]
   resources :venues,      only: %i[new create show edit update]
   resources :event_types, only: %i[new create edit update destroy]

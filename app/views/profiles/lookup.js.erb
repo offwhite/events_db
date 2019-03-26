@@ -1,7 +1,7 @@
-$('.profile_lookup_list').html(
-  <%- if @profiles.empty? %>
-    "<div class='none-found'>Couldn't find them - This will make a new profile '<%= @query_str.titleize %>'</div>"
-  <%- else %>
+<%- if @profiles.empty? %>
+  $('.profile_lookup_list').slideUp();
+<%- else %>
+  $('.profile_lookup_list').html(
     "<%= escape_javascript(render partial: 'profile_lookup_list', locals: { profiles: @profiles } ) %>"
-  <%- end %>
-).slideDown();
+  ).slideDown();
+<%- end %>

@@ -26,6 +26,14 @@ class Profile < ApplicationRecord
                       threshold: 0.2
                     }
                   }
+
+  validates :name, length: { minimum: 5 }
+
+  validate do
+    if Utilities::Profanity.new(name).call
+      errors[:base] << "You can't have profanity in your name"
+    end
+  end
 end
 
 # == Schema Information

@@ -1,0 +1,23 @@
+- present @profile do |profile|
+
+  %h2.text-center
+    Get yourself a profile
+  .panel
+    .panel-body
+      .mini-row
+        .message
+          Adding or claiming a profile lets you control what jobs you are credited for.
+          You can be messaged when someone else credits you for work done, and
+          you can remove any inaccurate information.
+      .pane
+        - if profile.errors.any?
+          .message
+            There was a problem.
+            = profile.errors.full_messages.to_sentence
+        = simple_form_for(@profile, url: profiles_path, method: :post) do |f|
+          = f.input :id, as: :hidden, input_html: { class: 'profile_lookup_id' }
+          .row
+            = f.input :name, as: :string, label: 'Full name (This is how people will find you)', placeholder: "What's your name?", input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'profile_lookup only_unclaimed' }
+            .profile_lookup_list
+          .row
+            = f.submit 'Save'

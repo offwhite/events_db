@@ -14,7 +14,7 @@
       </div>
 
       <div class="field">
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password' %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', class: 'allow-enter'  %>
       </div>
 
       <% if devise_mapping.rememberable? %>

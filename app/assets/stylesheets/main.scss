@@ -34,6 +34,22 @@ body{
     font-weight: bold;
   }
 
+  .text-center{
+    text-align: center;
+  }
+
+  .pane{
+    @include left-100;
+    margin: $gutter 0;
+  }
+
+  .mini-row{
+    float: left;
+    width: 80%;
+    box-sizing: border-box;
+    margin: $double-gutter 10% 0 10%;
+  }
+
   .bool{
     padding-left: 8px;
     text-align: left;
@@ -204,6 +220,7 @@ body{
     color: #ffffff;
     text-align: center;
     padding: $gutter;
+    transition: $transition-slow;
 
     h3{
       margin: 0;

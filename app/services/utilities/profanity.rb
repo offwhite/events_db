@@ -2,7 +2,7 @@ module Utilities
   # any iasa apparently quicker than regex
   class Profanity
     def initialize(string)
-      @string = string
+      @string = string.downcase
     end
 
     def call
@@ -15,7 +15,7 @@ module Utilities
     attr_reader :string
 
     def black_list
-      @black_list ||= %w[fuck shit cunt search searches admin]
+      @black_list ||= %w[fuck shit cunt search searches]
     end
   end
 end

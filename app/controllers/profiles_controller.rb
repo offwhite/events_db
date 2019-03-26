@@ -6,6 +6,18 @@ class ProfilesController < ApplicationController
     ).call
   end
 
+  def new
+    ::Profiles::New.new(
+      self, params
+    ).call
+  end
+
+  def create
+    ::Profiles::Create.new(
+      self, params
+    ).call
+  end
+
   def show
     ::Profiles::Show.new(
       self, params

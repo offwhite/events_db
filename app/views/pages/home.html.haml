@@ -38,9 +38,23 @@
           You can add and update the site by signing up. We won't give your email
           address to anyone else. Promise.
           CrewdB will always be free to use.
-          .row
-            = link_to new_user_registration_path, { class: 'claim-btn' } do
-              %h3 Sign up
+        .mini-row
+          = link_to new_user_registration_path, { class: 'claim-btn' } do
+            %h3 Sign up
+
+    - else
+      - if current_user.has_profile?
+        show add job button
+      - else
+        .pane
+          %h2.text-center
+            Work in the industry?
+          .mini-row
+            Maybe you're already in our system, maybe you should be.
+            Get a profile to be listed, to track your jobs and to be awesome.
+          .mini-row
+            = link_to new_profile_path, { class: 'claim-btn' } do
+              %h3 Get a profile
 
     .pane
       %h2.text-center

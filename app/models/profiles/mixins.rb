@@ -3,7 +3,7 @@ module Profiles
     def delete
       roles.update_all deleted_at: Time.zone.now
       self.deleted_at = Time.zone.now
-      self.username = "#{username}_deleted_at_#{deleted_at}"
+      self.username = "#{username}_deleted_at_#{Time.zone.now.to_i}"
       save!
     end
 
@@ -31,7 +31,7 @@ module Profiles
     end
 
     def ordinal_str
-      return '' if ordinal.zero?
+      return '' if ordinal < 2
       " (#{ordinal.ordinalize})"
     end
 

@@ -44,21 +44,25 @@ function profile_lookup(){
   $('input.profile_lookup_id').val('')
   show_next_step();
   var string = $(this).val();
+  var only_unclaimed = $(this).hasClass('only_unclaimed');
   if(string.length < 3){return}
 
   $.ajax({
     url     : '/profile-lookup',
     type    : 'POST',
     context : document.body,
-    data    : {search: string}
+    data    : {search: string, only_unclaimed: only_unclaimed}
   });
 };
 
 function set_profile(){
   var id = $(this).data('id')
   var name = $(this).find('.lookup-name').html()
-  $('input.profile_lookup_id').val(id)
-  $('input.profile_lookup').val(name)
+
+  if($(this).data('id') != undefined){
+    $('input.profile_lookup_id').val(id)
+    $('input.profile_lookup').val(name)
+  }
 
   $('.profile_lookup_list ').slideUp();
   $('input.role_type_lookup').focus();

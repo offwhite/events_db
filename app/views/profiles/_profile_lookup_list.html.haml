@@ -1,4 +1,5 @@
 %ul
+
   - profiles.each do |profile|
     - present profile do |profile|
       %li{'data-id' => profile.id}
@@ -9,3 +10,5 @@
             = profile.town_titles_sml
             = '...'
             = profile.role_summary
+  %li
+    Create new profile with this name
