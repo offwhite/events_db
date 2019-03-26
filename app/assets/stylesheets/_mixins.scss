@@ -27,10 +27,16 @@ $good: #7dbd02;
 $bad: #e01313;
 $light-grey: #c3c3c3;
 
+$border-radius: 5px;
+$border-radius-tight: 3px;
 $half-gutter: 5px;
 $gutter: 10px;
 $double-gutter: 20px;
 $light-shadow: 0 0 5px rgba(0,0,0,0.1);
+
+$transition: all 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+$transition-fast: all 0.2s cubic-bezier(0.77,0.2,0.05,1.0);
+$transition-slow: all 0.8s cubic-bezier(0.77,0.2,0.05,1.0);
 
 @mixin left-100 {
   float: left;

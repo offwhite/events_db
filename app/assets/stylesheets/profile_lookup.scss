@@ -11,7 +11,7 @@ body .panel .panel-body{
     width: calc(100% - 10px);
     box-sizing: border-box;
     margin: 0 5px ;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 $border-radius $border-radius;
     padding-top:5px;
 
     H4{
@@ -33,7 +33,7 @@ body .panel .panel-body{
       li{
         @include left-100;
         padding: 5px 10px;
-        border-radius: 5px;
+        border-radius: $border-radius;
         cursor: pointer;
 
         &:hover{
@@ -53,7 +53,7 @@ body .panel .panel-body{
 
     label{
       border: solid 1px $border-color;
-      border-radius: 5px;
+      border-radius: $border-radius;
       font-weight: bold;
       border-bottom: solid 1px $border-color;
     }

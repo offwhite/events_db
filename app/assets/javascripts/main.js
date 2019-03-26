@@ -1,5 +1,6 @@
 var ready = function(){
   prepConfirmations();
+  prepMobileMenus();
 };
 
 var prepConfirmations = function(){
@@ -9,6 +10,13 @@ var prepConfirmations = function(){
       e.preventDefault();
       return false;
     }
+  });
+}
+
+var prepMobileMenus = function(){
+  $('.admin-burger').click(function(){
+    $(this).toggleClass('open')
+    $('.admin-links').slideToggle();
   });
 }
 

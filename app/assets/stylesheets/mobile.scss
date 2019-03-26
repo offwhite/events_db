@@ -4,9 +4,17 @@
   body .spring{
 
     .title-bar{
+      padding-top: 20px;
       .title{
         margin-bottom: $gutter;
         width: 100%;
+
+        a{
+          margin: auto;
+          display: block;
+          width: 80px;
+          float: none;
+        }
       }
       .search-form{
         width: 100%;

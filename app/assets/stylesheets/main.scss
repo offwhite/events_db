@@ -76,7 +76,7 @@ body{
     @include left-100;
     padding: $gutter;
     background: $table-odd-row;
-    border-radius: 5px;
+    border-radius: $border-radius;
     margin: $gutter 0;
     box-shadow: $light-shadow;
   }
@@ -96,6 +96,7 @@ body{
   }
 
   .spring{
+    position: relative;
     max-width: 1000px;
     margin: auto;
     box-sizing: border-box;
@@ -143,7 +144,7 @@ body{
     line-height: 35px;
     padding: 0 15px;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: $border-radius-tight;
   }
 
   .boxy{
@@ -151,7 +152,7 @@ body{
     height: 35px;
     padding: 5px 10px;
     font-size: 16px;
-    border-radius: 4px;
+    border-radius: $border-radius-tight;
     border: solid 1px $border-color;
     color: $text-color;
   }
@@ -194,7 +195,7 @@ body{
 
   .claim-btn{
     @include left-100;
-    border-radius: 7px;
+    border-radius: $border-radius;
     border: solid 1px $purple;
     background: $purple;
     box-shadow: $light-shadow;

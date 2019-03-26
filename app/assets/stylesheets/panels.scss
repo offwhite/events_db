@@ -6,7 +6,7 @@
 
 .panel{
   @include left-100;
-  border-radius: 7px;
+  border-radius: $border-radius;
   border: solid 1px $border-color;
   background: $panel-bg;
   box-shadow: $light-shadow;
@@ -63,7 +63,7 @@
     background: white;
     color: $purple;
     border: solid 1px $purple;
-    border-radius: 5px;
+    border-radius: $border-radius;
     margin: 0 5px;
     transition: all 0.35s ease-in-out;
 
@@ -81,7 +81,7 @@
     border: solid 1px $purple;
     display: inline-block;
     padding: 0 8px;
-    border-radius: 5px;
+    border-radius: $border-radius;
 
     &:hover{
       text-decoration: none;
