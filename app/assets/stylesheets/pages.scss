@@ -33,11 +33,12 @@
       h1{
         font-size: 2.8em;
         margin: $double-gutter 0 30px;
-        font-family: $title-font;
+        font-family: $page-title-font;
       }
       h5{
+        font-family: $project-font;
+        font-weight: 300;
         margin: 0;
-        font-weight: 400;
         font-size: 19px;
       }
 
