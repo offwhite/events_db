@@ -13,7 +13,7 @@ module Roles
     end
 
     def role
-      @roles ||= Role.find params[:id]
+      @roles ||= Role.unscoped.find params[:id]
     end
 
     def user_can_edit_this?

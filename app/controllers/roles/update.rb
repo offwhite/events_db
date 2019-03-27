@@ -22,7 +22,7 @@ module Roles
 
     def safe_params
       @safe_params ||= params.require('role').permit(
-        :profile_id, :event_id, :tour_id, :verified, :role_type_id
+        :profile_id, :event_id, :creator_id, :verified, :role_type_id
       )
     end
 

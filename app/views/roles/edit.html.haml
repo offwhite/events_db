@@ -2,6 +2,12 @@
   .panel
     .panel-head
       Edit role
+      -  if role.deleted_at.present?
+        .danger
+          THIS ROLE HAS BEEN DELETED
+      - elsif current_user&.admin? || role.owner?(current_user)
+        .td.text-right
+          = link_to 'Delete', role_path(role), class: 'danger confirm', title: 'Delete this role', method: 'DELETE'
     .panel-body
 
       = simple_form_for(@role, url: role_path, method: :put) do |f|
@@ -10,11 +16,14 @@
         .row
           = f.association :event, label: 'Where dat?'
         .row
-          = f.association :tour, label: 'What what dat? (tour)'
-        .row
           = f.association :role_type, label: 'What dat?'
-        .row
-          = f.input :verified, label: 'Verified'
+        - if current_user.admin?
+          .row
+            %h5 Admin
+          .row
+            = f.input :verified, label: 'Verified'
+          .row
+            = f.association :creator, label: 'Creator'
         .row
           = f.submit 'Update role'
 

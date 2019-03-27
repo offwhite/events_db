@@ -1,15 +1,14 @@
 .table.terminal
   - @logs.each do |log|
-    .tr
-      .td
-        = log.created_at.strftime('%H:%M:%S %d-%m-%y')
-      .td
-        = link_to log.user.email, logs_path(log.user)
-      .td{title: 'record id'}
-        = log.record_id
-      .td.text-right{title: 'record type'}
-        = log.record_type
-      .td{title: 'action'}
-        = log.action
-      .td
-        = log.change_summary
+    - present log do |log|
+      .tr
+        .td
+          = log.created_at.strftime('%H:%M:%S %d-%m-%y')
+        .td
+          = link_to log.user.email, logs_path(user_id: log.user_id)
+        .td.text-right{title: 'record type'}
+          = log.model_link
+        .td{title: 'action'}
+          = log.action
+        .td
+          = log.change_summary
