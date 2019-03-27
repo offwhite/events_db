@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :role_types,  only: %i[new create edit update destroy]
   resources :role_departments, only: %i[new create destroy]
   resources :users,            only: %i[edit update destroy]
+  resources :logs,             only: %i[index]
 
   post '/search',           to: 'searches#global',   as: :search_global
   post '/role-type-lookup', to: 'role_types#lookup', as: :role_types_lookup

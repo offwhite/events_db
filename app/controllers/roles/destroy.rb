@@ -1,8 +1,9 @@
 module Roles
-  class Destroy < ::EditControllerAction
+  class Destroy < ::ControllerAction
     def call
       return perms_error unless can_edit?
       role.delete
+      logger.call
       redirect
     end
 
@@ -10,7 +11,7 @@ module Roles
 
     def redirect
       redirect_to(
-        controller.admin_roles_path,
+        controller.profile_home_path(username: role.profile.username),
         notice: 'The role has been deleted'
       )
     end
@@ -26,7 +27,11 @@ module Roles
     end
 
     def can_edit?
-      @can_edit ||= current_user.admin? || current_user == role.profile.user
+      @can_edit ||= current_user.admin? || role.owner?(current_user)
+    end
+
+    def logger
+      @logger ||= ::Utilities::Logger.new(role, 'deleted', current_user)
     end
   end
 end

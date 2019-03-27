@@ -15,49 +15,16 @@ class Role < ApplicationRecord
   accepts_nested_attributes_for :event
 
   attr_accessor :profile_name, :role_type_name, :venue_name
-
-  def town
-    event&.town
-  end
-
-  def venue
-    event&.venue
-  end
-
-  def parent
-    return event if event_id.present?
-    tour
-  end
-
-  def event_role?
-    event_id.present?
-  end
-
-  def tour_role?
-    tour_id.present?
-  end
-
-  def venue_title
-    venue.title
-  end
-
-  def town_title
-    town&.title
-  end
-
-  def owner?(user)
-    creator_id == user&.id
-  end
 end
 
 # == Schema Information
 #
 # Table name: roles
 #
-#  id           :integer          not null, primary key
-#  profile_id   :integer
-#  event_id     :integer
-#  role_type_id :integer
+#  id           :bigint(8)        not null, primary key
+#  profile_id   :bigint(8)
+#  event_id     :bigint(8)
+#  role_type_id :bigint(8)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  verified     :boolean

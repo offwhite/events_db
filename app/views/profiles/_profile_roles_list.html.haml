@@ -10,3 +10,6 @@
           = role.event.date_str
       .td.text-right
         = role.role_type.title
+      - if current_user&.admin? || role.owner?(current_user)
+        .td.text-right
+          = link_to 'Delete', role_path(role), class: 'danger confirm', title: 'Delete this role', method: 'DELETE'

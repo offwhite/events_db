@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190315153609) do
+ActiveRecord::Schema.define(version: 20190326164415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,13 +71,17 @@ ActiveRecord::Schema.define(version: 20190315153609) do
     t.datetime "updated_at", null: false
     t.boolean "verified"
     t.boolean "validated"
-    t.integer "ordinal", default: 0
+    t.integer "ordinal", default: 1
     t.date "date_of_birth"
     t.text "phone"
     t.text "url"
     t.integer "merged_id"
     t.date "deleted_at"
     t.text "username"
+    t.text "hometown"
+    t.date "pro_expires"
+    t.text "equipment_tags"
+    t.index ["equipment_tags"], name: "index_profiles_on_equipment_tags"
     t.index ["user_id"], name: "index_profiles_on_user_id"
     t.index ["username"], name: "index_profiles_on_username", unique: true
   end
@@ -162,6 +166,7 @@ ActiveRecord::Schema.define(version: 20190315153609) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "banned_at"
+    t.date "unsubscribed_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -11,8 +11,6 @@
         .panel-head
           Part 1
         .panel-body
-          .message
-            = "You're adding cast or crew to #{profile.title}."
           .row
             = f.input :venue_name, as: :string, label: 'Where did you work/are going to work? eg: The Rickshaw theatre', required: true, placeholder: 'Search for a venue', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'venue_lookup' }
             .venue_lookup_list.lookup_list

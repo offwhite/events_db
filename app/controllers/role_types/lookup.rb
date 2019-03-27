@@ -1,5 +1,5 @@
 module RoleTypes
-  class Lookup < ::AdminControllerAction
+  class Lookup < ::ControllerAction
     def call
       expose(role_types, '@role_types')
     end

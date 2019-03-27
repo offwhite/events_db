@@ -4,6 +4,8 @@ body{
   margin: 0;
   background: $body-bg;
   background: linear-gradient(180deg, $body-bg-top 0%, $body-bg 50%, $body-bg 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: $project-font;
   float: left;
   width: 100%;

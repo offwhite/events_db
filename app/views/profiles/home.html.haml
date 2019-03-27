@@ -36,10 +36,10 @@
     .panel-body
       .row
         %h3 Future work
-        = render 'roles_list', roles: profile.future_roles
+        = render 'profile_roles_list', roles: profile.future_roles
       .row
         %h3 Past work
-        = render 'roles_list', roles: profile.past_roles
+        = render 'profile_roles_list', roles: profile.past_roles
 
 
   = render 'logs/log_list', logs: profile.logs

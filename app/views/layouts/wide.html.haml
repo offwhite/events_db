@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    / Meta, title, CSS, favicons, etc.
+    %meta{:charset => "utf-8"}
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= "CrewDb #{yield(:page_title)}"
+
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = render partial: 'shared/google_analytics'
+  %body{class: Rails.env.development? ? 'development' : 'production'}
+    .wide
+      = render partial: 'layouts/title_bar'
+      = render partial: 'layouts/admin_toolbar'
+
+      - if notice.present?
+        %p.notice{title: 'Dismiss'}
+          = notice
+      - if alert.present?
+        %p.alert{title: 'Dismiss'}
+          = alert
+      .content
+
+        = yield

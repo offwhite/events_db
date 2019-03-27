@@ -31,18 +31,22 @@ end
 #
 # Table name: profiles
 #
-#  id            :integer          not null, primary key
-#  name          :text
-#  biography     :text
-#  user_id       :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  verified      :boolean
-#  validated     :boolean
-#  ordinal       :integer          default(0)
-#  date_of_birth :date
-#  phone         :text
-#  url           :text
-#  merged_id     :integer
-#  deleted_at    :date
+#  id             :bigint(8)        not null, primary key
+#  name           :text
+#  biography      :text
+#  user_id        :bigint(8)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  verified       :boolean
+#  validated      :boolean
+#  ordinal        :integer          default(1)
+#  date_of_birth  :date
+#  phone          :text
+#  url            :text
+#  merged_id      :integer
+#  deleted_at     :date
+#  username       :text
+#  hometown       :text
+#  pro_expires    :date
+#  equipment_tags :text
 #

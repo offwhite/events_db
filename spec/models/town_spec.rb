@@ -11,10 +11,10 @@ end
 #
 # Table name: towns
 #
-#  id          :integer          not null, primary key
+#  id          :bigint(8)        not null, primary key
 #  name        :text
 #  description :text
-#  country_id  :integer
+#  country_id  :bigint(8)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  latitude    :float

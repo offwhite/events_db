@@ -1,6 +1,7 @@
 var ready = function(){
   prepConfirmations();
   prepMobileMenus();
+  prepCollapsibles();
 };
 
 var prepConfirmations = function(){
@@ -17,6 +18,12 @@ var prepMobileMenus = function(){
   $('.admin-burger').click(function(){
     $(this).toggleClass('open')
     $('.admin-links').slideToggle();
+  });
+}
+
+var prepCollapsibles = function() {
+  $('.collapsible .panel-head').click(function(){
+    $(this).parent().find('.panel-body').slideToggle();
   });
 }
 

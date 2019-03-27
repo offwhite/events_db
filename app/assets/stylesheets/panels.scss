@@ -100,3 +100,12 @@
     font-size: 30px;
   }
 }
+
+.panel.collapsed{
+  .panel-head{
+    cursor: pointer;
+  }
+  .panel-body{
+    display: none;
+  }
+}

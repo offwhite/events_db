@@ -23,7 +23,7 @@ describe Profiles::Creator do
 
     it 'profile should have the right ordinal' do
       profile = creator.call
-      expect(profile.ordinal).to eq(0)
+      expect(profile.ordinal).to eq(1)
     end
 
     it 'profile should have the right username' do
@@ -48,12 +48,12 @@ describe Profiles::Creator do
 
     it 'profile should have the right ordinal' do
       profile = creator.call
-      expect(profile.ordinal).to eq(1)
+      expect(profile.ordinal).to eq(2)
     end
 
     it 'profile should have the right username' do
       profile = creator.call
-      expect(profile.username).to eq('alan-alder-1')
+      expect(profile.username).to eq('alan-alder-2')
     end
   end
 
@@ -113,9 +113,6 @@ describe Profiles::Creator do
 
   context 'with swearing in the name' do
     let(:name) { 'Colin the cunt' }
-    it 'should execute without error' do
-      expect(creator.call).to be_falsey
-    end
 
     it 'should not create a new profile' do
       expect { creator.call }.to change { Profile.count }.by(0)

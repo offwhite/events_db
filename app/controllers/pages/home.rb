@@ -7,7 +7,7 @@ module Pages
     private
 
     def recent_events
-      @recently_added_events ||= Event.recent
+      @recent_events ||= Event.recent
     end
   end
 end

@@ -27,10 +27,10 @@ end
 #
 # Table name: roles
 #
-#  id           :integer          not null, primary key
-#  profile_id   :integer
-#  event_id     :integer
-#  role_type_id :integer
+#  id           :bigint(8)        not null, primary key
+#  profile_id   :bigint(8)
+#  event_id     :bigint(8)
+#  role_type_id :bigint(8)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  verified     :boolean

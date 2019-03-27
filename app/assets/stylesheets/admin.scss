@@ -87,6 +87,22 @@
   transform: rotate(180deg);
 }
 
+.terminal{
+  float: left;
+  width: 100%;
+  background-color: black;
+  color: #6dda6d;
+  font-family: monospace;
+
+  a{
+    color: #6dda6d;
+  }
+
+  .td{
+    padding: 2px 4px;
+  }
+}
+
 @media (max-width: 700px) {
 
   .admin-burger{

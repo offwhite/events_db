@@ -44,7 +44,15 @@
 
     - else
       - if current_user.has_profile?
-        show add job button
+        .pane
+          %h2.text-center
+            Get credit for your work
+          .mini-row
+            Let people know what you've done. Keep track of your jobs.
+            Make a list of why you're awesome.
+          .mini-row
+            = link_to profiles_add_role_path(id: current_user.profile.id), { class: 'claim-btn' } do
+              %h3 Add work
       - else
         .pane
           %h2.text-center
@@ -58,7 +66,7 @@
 
     .pane
       %h2.text-center
-        Events
+        What's been happening?
       .panel
         .panel-head
           Recent events

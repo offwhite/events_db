@@ -26,13 +26,13 @@ end
 #
 # Table name: events
 #
-#  id            :integer          not null, primary key
+#  id            :bigint(8)        not null, primary key
 #  name          :text
 #  date          :date
-#  event_type_id :integer
-#  venue_id      :integer
-#  tour_id       :integer
-#  user_id       :integer
+#  event_type_id :bigint(8)
+#  venue_id      :bigint(8)
+#  tour_id       :bigint(8)
+#  user_id       :bigint(8)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  description   :text

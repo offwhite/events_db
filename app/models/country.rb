@@ -10,7 +10,7 @@ end
 #
 # Table name: countries
 #
-#  id         :integer          not null, primary key
+#  id         :bigint(8)        not null, primary key
 #  name       :text
 #  iso        :text
 #  language   :text

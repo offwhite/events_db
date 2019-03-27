@@ -19,11 +19,11 @@ end
 #
 # Table name: venues
 #
-#  id          :integer          not null, primary key
+#  id          :bigint(8)        not null, primary key
 #  name        :text
 #  description :text
 #  address     :text
-#  town_id     :integer
+#  town_id     :bigint(8)
 #  capacity    :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

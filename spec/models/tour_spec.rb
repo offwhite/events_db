@@ -12,10 +12,10 @@ end
 #
 # Table name: tours
 #
-#  id           :integer          not null, primary key
+#  id           :bigint(8)        not null, primary key
 #  name         :text
-#  tour_type_id :integer
-#  user_id      :integer
+#  tour_type_id :bigint(8)
+#  user_id      :bigint(8)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  verified     :boolean
