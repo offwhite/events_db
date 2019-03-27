@@ -134,6 +134,7 @@ body{
       @include left-100;
       margin-bottom: $gutter;
       background: $spring-bg;
+      z-index: 1;
 
       .footer{
         position: absolute;
@@ -234,6 +235,28 @@ body{
     text-align: center;
     padding: $gutter;
     transition: $transition-slow;
+    position: relative;
+
+    &:before, &:after{
+      content: '';
+      display: block;
+      width: 40%;
+      height: 20px;
+      background: black;
+      position: absolute;
+      z-index: -1;
+      left: 3px;
+      bottom: 7px;
+      transform: rotate(-1deg);
+      box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
+    }
+
+    &:after{
+      right: 3px;
+      left: auto;
+      transform: rotate(1deg);
+      box-shadow: -10px 10px 10px rgba(0,0,0,0.2);
+    }
 
     h3{
       margin: 0;

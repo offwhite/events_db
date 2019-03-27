@@ -50,11 +50,21 @@
       padding: $double-gutter $half-gutter;
       padding-bottom: 90px;
 
+      .claim-btn{
+        &:before, &:after{
+          display: none;
+        }
+      }
+
       .panel{
         border: none;
 
         .panel-body{
           padding: $half-gutter;
+        }
+
+        &:before, &:after{
+          display: none;
         }
       }
 

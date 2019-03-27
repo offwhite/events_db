@@ -42,6 +42,13 @@
             Current sign in ip
           .td.text-right
             = link_to user.current_sign_in_ip, "https://tools.keycdn.com/geo?host=#{user.current_sign_in_ip}", target: '_blank'
+        .tr
+          .td.strong
+            Profile
+          .td.text-right
+            - user.profiles.each do |profile|
+              .div
+                = link_to profile.title, edit_profile_path(profile)
 
 
   = simple_form_for(user, url: user_path, method: :put) do |f|
