@@ -21,9 +21,12 @@
         .row
           = f.input :url, as: :string, label: 'website'
         .row
+          = f.input :pro_expires, label: 'pro account expires', include_blank: true
+        .row
           = f.input :verified
         .row
           = f.input :validated
+
         .row
           = f.input :date_of_birth, as: :string, label: 'Date of birth (yyyy-mm-dd)'
         .row
@@ -45,3 +48,4 @@
             - if current_user.admin?
               .td.text-right
                 = link_to 'Delete', role_path(role), class: 'danger confirm', title: 'Delete this role', method: 'DELETE'
+  = render 'logs/log_list', logs: profile.logs

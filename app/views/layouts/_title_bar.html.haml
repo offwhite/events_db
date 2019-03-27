@@ -9,7 +9,7 @@
   .search-form
     = simple_form_for(:search, url: search_global_path, method: :post) do |f|
       = f.input :query, as: :string, label: false, input_html: {value: @query_str}, placeholder: 'Search events, crew or venues'
-      = f.submit 'Go', label: false, class: 'button green-btn'
+      = f.submit 'Go', label: false, class: 'green-btn'
   .sub-menu
     %ul
       - if current_user.nil?

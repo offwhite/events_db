@@ -1,9 +1,10 @@
 
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans);
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display);
-$project-font: 'Fira Sans';
-$project-font2: 'Helvetica';
-$title-font: 'Playfair Display';
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+$project-font: 'Open Sans';
+$title-font: 'Fira Sans';
+$page-title-font: 'Playfair Display';
 
 $body-bg-top: #a2a3a7;
 $body-bg: #cdcdcd;

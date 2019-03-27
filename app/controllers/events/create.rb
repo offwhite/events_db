@@ -1,8 +1,8 @@
 module Events
   class Create < ::EditControllerAction
     def call
-      return redirect if event.present?
-      render_form
+      return render_form if event.errors.any?
+      redirect
     end
 
     private

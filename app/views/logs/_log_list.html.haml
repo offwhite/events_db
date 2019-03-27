@@ -1,7 +1,7 @@
 - if current_user&.admin?
   .panel.log.collapsible.collapsed
     .panel-head
-      = "Log (#{logs.count})"
+      = "Change log (#{logs.count})"
     .panel-body
       .table.list
         - logs.limit(50).each do |log|

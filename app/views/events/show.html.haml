@@ -15,7 +15,8 @@
       = event.name
       = event.date_str
 
-      = link_to 'Edit', edit_event_path(event), class: 'edit-link'
+      - if current_user.admin? || event.owner?(current_user)
+        = link_to 'Edit', edit_event_path(event), class: 'edit-link'
     .panel-body
       .table.list
         .tr
@@ -33,11 +34,11 @@
             Town
           .td
             = event.town_title
-      .row
-        %h3 Crew
-        = render 'roles/role_list', roles: event.all_roles
+
+      - if event.roles.any?
+        .row
+          %h3 Crew
+          = render 'roles/role_list', roles: event.roles
 
       .row
         = link_to 'Add crew', new_role_path(event_id: event.id), class: 'button'
-
-  = render 'logs/log_list', logs: event.logs

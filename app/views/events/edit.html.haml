@@ -23,3 +23,4 @@
           = f.submit 'Update Event'
         .row
           = link_to 'Cancel', event_path(event)
+  = render 'logs/log_list', logs: event.logs

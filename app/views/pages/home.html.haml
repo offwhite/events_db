@@ -21,20 +21,20 @@
     .pane
       %h2.text-center
         Search
-      .mini-row
+      .mini-row.text-center
         You can search for venues, events, artists and crew. Search for an event,
         see who worked on it and then see what other events they have been
         involved in.
       .search-form.mini-row
         = simple_form_for(:search, url: search_global_path, method: :post) do |f|
-          = f.input :query, as: :string, label: false, input_html: {value: @query_str, class: 'allow-enter disable-auto-select'}, placeholder: 'Search events, crew or venues'
+          = f.input :query, as: :string, label: false, input_html: {value: @query_str, class: 'allow-enter disable-auto-select'}, placeholder: 'Start searching'
           = f.submit 'Go', label: false, class: 'button green-btn'
 
     - if current_user.nil?
       .pane
         %h2.text-center
           Join us
-        .mini-row
+        .mini-row.text-center
           You can add and update the site by signing up. We won't give your email
           address to anyone else. Promise.
           CrewdB will always be free to use.
@@ -47,7 +47,7 @@
         .pane
           %h2.text-center
             Get credit for your work
-          .mini-row
+          .mini-row.text-center
             Let people know what you've done. Keep track of your jobs.
             Make a list of why you're awesome.
           .mini-row
@@ -57,7 +57,7 @@
         .pane
           %h2.text-center
             Work in the industry?
-          .mini-row
+          .mini-row.text-center
             Maybe you're already in our system, maybe you should be.
             Get a profile to be listed, to track your jobs and to be awesome.
           .mini-row

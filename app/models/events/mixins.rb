@@ -45,10 +45,6 @@ module Events
       tour_id.present?
     end
 
-    def all_roles
-      roles + tour_roles
-    end
-
     def tour_roles
       return [] if tour.nil?
       tour.roles

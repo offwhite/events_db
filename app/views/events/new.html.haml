@@ -10,13 +10,15 @@
         Add event
       .panel-body
         .message
-
           - if event.on_tour?
             You're adding an event to the
             %em
               = event.tour.title
           - else
             You're adding a new event. It's easy, just fill in this form.
+        - if event.errors.any?
+          .alert
+            = event.errors.full_messages.to_sentence
         .row
           = f.input :name, as: :string, label: false, placeholder: 'Event title'
         .row

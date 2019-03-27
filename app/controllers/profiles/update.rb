@@ -31,7 +31,7 @@ module Profiles
     def safe_params
       @safe_params ||= params.require('profile').permit(
         :name, :biography, :user_id, :phone, :url, :verified, :vallidated,
-        :date_of_birth
+        :date_of_birth, :pro_expires
       )
     end
 
