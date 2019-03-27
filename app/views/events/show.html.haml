@@ -2,6 +2,14 @@
   - content_for :page_title do
     = event.full_title
 
+  %h1
+    = event.name
+
+  - if event.description.present?
+    .row
+      .message
+        = event.activate_links(simple_format(event.description))
+
   .panel
     .panel-head
       = event.name

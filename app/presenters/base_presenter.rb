@@ -43,6 +43,10 @@ class BasePresenter < SimpleDelegator
     end
   end
 
+  def activate_links(string)
+    string.gsub(URI.regexp, '<a href="\0" target="_blank">\0</a>').html_safe
+  end
+
   private
 
   def clean(string)
