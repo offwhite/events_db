@@ -7,7 +7,7 @@
         -# don't show venue info if we're on a venue page
         - unless defined? venue
           .td
-            = link_to event.venue_title, venue_path(event.venue)
+            = link_to event.venue_title, venues_show_path(event.venue, event.venue.slug)
           .td.mobile-30
             = event.venue.town_title
         .td.mobile-30

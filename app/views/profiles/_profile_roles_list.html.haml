@@ -5,7 +5,7 @@
         .td
           = link_to role.event.name, event_path(role.event)
         .td
-          = link_to role.venue.name, venue_path(role.venue)
+          = link_to role.venue.name, venues_show_path(role.venue, role.venue.slug)
         .td
           = role.event.date_str
       .td.text-right

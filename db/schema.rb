@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190326164415) do
+ActiveRecord::Schema.define(version: 20190328161649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,9 +78,9 @@ ActiveRecord::Schema.define(version: 20190326164415) do
     t.integer "merged_id"
     t.date "deleted_at"
     t.text "username"
-    t.text "hometown"
     t.date "pro_expires"
     t.text "equipment_tags"
+    t.bigint "hometown_id"
     t.index ["equipment_tags"], name: "index_profiles_on_equipment_tags"
     t.index ["user_id"], name: "index_profiles_on_user_id"
     t.index ["username"], name: "index_profiles_on_username", unique: true
@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(version: 20190326164415) do
     t.float "latitude"
     t.float "longitude"
     t.date "deleted_at"
+    t.text "state"
     t.index ["country_id"], name: "index_towns_on_country_id"
   end
 
@@ -185,6 +186,7 @@ ActiveRecord::Schema.define(version: 20190326164415) do
     t.text "phone"
     t.boolean "verified"
     t.date "deleted_at"
+    t.text "slug"
     t.index ["town_id"], name: "index_venues_on_town_id"
   end
 

@@ -8,7 +8,7 @@ module Venues
     private
 
     def redirect
-      redirect_to(controller.venue_path(venue))
+      redirect_to(controller.venues_show_path(venue, venue.slug))
     end
 
     def render_form

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :roles,       only: %i[new create edit update destroy]
   resources :profiles,    only: %i[new create show edit update destroy]
   resources :tours,       only: %i[new create show edit update destroy]
-  resources :venues,      only: %i[new create show edit update]
+  resources :venues,      only: %i[new create edit update]
   resources :event_types, only: %i[new create edit update destroy]
   resources :role_types,  only: %i[new create edit update destroy]
   resources :role_departments, only: %i[new create destroy]
@@ -44,5 +44,6 @@ Rails.application.routes.draw do
   get '/privacy', to: 'pages#privacy', as: :pages_privacy
 
   get '/:username', to: 'profiles#home', as: :profile_home
+  get '/venues/:id/:slug', to: 'venues#show', as: :venues_show
 end
 # rubocop:enable Metrics/BlockLength

@@ -7,6 +7,7 @@ module Venues
     end
 
     def call
+      return if town.nil?
       return existing_venue if existing_venue.present?
       logger.call if venue.save
       venue
@@ -22,7 +23,8 @@ module Venues
 
     def full_params
       @full_params ||= params.merge(
-        verified: verified?
+        verified: verified?,
+        slug: venue_slug
       )
     end
 
@@ -35,8 +37,16 @@ module Venues
         Venue.find_by(name: params[:name], town_id: params[:town_id])
     end
 
+    def venue_slug
+      @venue_slug ||= town.name.parameterize + '-' + params[:name].parameterize
+    end
+
     def logger
       @logger ||= ::Utilities::Logger.new(venue, 'venue created', user)
+    end
+
+    def town
+      @town ||= Town.find params[:town_id]
     end
   end
 end

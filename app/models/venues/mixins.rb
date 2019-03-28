@@ -16,7 +16,7 @@ module Venues
     end
 
     def full_title
-      [title, town&.title].join(', ')
+      [title, town&.title, town&.country_iso].join(', ')
     end
 
     def town_title

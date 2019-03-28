@@ -28,5 +28,5 @@
         .row
           = f.submit 'Update venue'
         .row
-          = link_to 'Cancel', venue_path(venue)
+          = link_to 'Cancel', venues_show_path(venue, venue.slug)
   = render 'logs/log_list', logs: venue.logs

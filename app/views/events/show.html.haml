@@ -23,7 +23,7 @@
           .td
             Venue
           .td
-            = link_to event.venue_title, venue_path(event.venue)
+            = link_to event.venue_title, venues_show_path(event.venue, event.venue.slug)
         .tr
           .td
             Date

@@ -10,5 +10,13 @@ module Towns
       self.deleted_at = nil
       save!
     end
+
+    def country_title
+      country&.title
+    end
+
+    def country_iso
+      country&.iso
+    end
   end
 end

@@ -3,6 +3,6 @@
     - present venue do |venue|
       .tr
         .td
-          = link_to venue.full_title, venue_path(venue)
+          = link_to venue.full_title, venues_show_path(venue, venue.slug)
         .td.text-right
           = "#{venue.events.count} #{'event'.pluralize(venue.events.count)}"

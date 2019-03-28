@@ -10,11 +10,12 @@
     .panel-body
       .address-panel
         .row
-          = venue.address
+          = link_to venue.address, venue.address_url, target: '_blank'
         .row
           = venue.town_title
-        .row
-          = "#{venue.capacity} Capacity"
+        - if venue.capacity.present?
+          .row
+            = "#{venue.capacity} Capacity"
         - if venue.url.present?
           .row
             = link_to venue.safe_url, venue.safe_url, target: '_blank'
