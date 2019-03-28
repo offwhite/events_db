@@ -14,12 +14,20 @@
       .panel-body
         .message
           = "You're adding cast or crew to #{@title}."
-        .row
-          = f.input :profile_name, as: :string, label: 'Who was this?', required: true, placeholder: 'Who was this? eg: Alan Smithee', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'profile_lookup' }
-          .profile_lookup_list
-        .row
-          = f.input :role_type_name, as: :string, label: 'What did they do?', required: true, placeholder: 'What did they do? eg: Sound engineer', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'role_type_lookup' }
-          .role_type_lookup_list
+        .pane
+          .row
+            = f.input :profile_name, as: :string, label: 'Who was this?', required: true, placeholder: 'Who was this? eg: Alan Smithee', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'profile_lookup' }
+            .profile_lookup_list
+          - if current_user.has_profile?
+            .row
+              .or
+                %span Or
+            .row
+              = link_to 'It was you', '#', { class: 'button my-profile', 'data-name' => current_user.profile.title, 'data-id' => current_user.profile.id }
+        .pane
+          .row
+            = f.input :role_type_name, as: :string, label: 'What did they do?', required: true, placeholder: 'What did they do? eg: Sound engineer', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'role_type_lookup' }
+            .role_type_lookup_list
         .row.submit-row
           = f.submit 'Add Crew'
         .row
