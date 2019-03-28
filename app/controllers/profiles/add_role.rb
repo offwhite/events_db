@@ -31,7 +31,7 @@ module Profiles
     end
 
     def valid_request?
-      current_user.admin? || current_user.id = profile.user_id
+      current_user&.admin? || current_user&.id = profile.user_id
     end
   end
 end

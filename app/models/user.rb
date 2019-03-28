@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include Users::Mixins
-  default_scope { where(banned_at: [nil]) }
+  # default_scope { where(banned_at: [nil]) }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -46,6 +46,10 @@ class User < ApplicationRecord
 
   def has_profile?
     profiles.any?
+  end
+
+  def banned?
+    banned_at.present?
   end
 end
 
