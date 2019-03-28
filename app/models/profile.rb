@@ -6,6 +6,7 @@ class Profile < ApplicationRecord
   include PgSearch
 
   belongs_to :user, optional: true
+  belongs_to :hometown, optional: true, class_name: 'Town'
   has_many :roles
   has_many :evens, through: :roles
   has_many :logs, as: :record
@@ -27,6 +28,7 @@ class Profile < ApplicationRecord
                     }
                   }
 
+  attr_accessor :lookup_query
   validates :name, length: { minimum: 5 }
 
   validate do

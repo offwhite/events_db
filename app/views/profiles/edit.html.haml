@@ -3,14 +3,13 @@
     .panel-head
       = profile.title
     .panel-body
-      %h3 Overview
-      = profile.overview
+      %h2
+        = profile.title
+      .row
+        = profile.overview
 
       = simple_form_for(@profile, url: profile_path, method: :put) do |f|
-        .row
-          = f.input :name, as: :string, label: 'Name', placeholder: 'Title'
-        .row
-          = profile.ordinal_str
+        = f.input :hometown_id, as: :hidden, input_html: { class: 'town_lookup_id' }
         .row
           = f.input :biography, label: 'Biography', placeholder: 'Description'
         - if current_user.admin?
@@ -19,18 +18,27 @@
         .row
           = f.input :phone, as: :string, label: 'Phone number'
         .row
+          = f.input :lookup_query, as: :string, label: 'Home town', placeholder: 'Search for a place', |
+          input_html: { value: profile.hometown&.title, autocomplete: 'off', autocapitalize: 'off',    |
+            autocorrect: 'off', class: 'town_lookup' }
+          .town_lookup_list
+        .row
           = f.input :url, as: :string, label: 'website'
         .row
-          = f.input :pro_expires, label: 'pro account expires', include_blank: true
-        .row
-          = f.input :verified
-        .row
-          = f.input :validated
+          = f.input :date_of_birth, label: 'Date of birth', end_year: Date.today.year - 90, start_year: Date.today.year - 18, include_blank: true
+
+        - if current_user.admin?
+          .row
+            = f.input :name, as: :string, label: 'Name', placeholder: 'Title'
+          .row
+            = f.input :pro_expires, label: 'pro account expires', include_blank: true
+          .row
+            = f.input :verified
+          .row
+            = f.input :validated
 
         .row
-          = f.input :date_of_birth, as: :string, label: 'Date of birth (yyyy-mm-dd)'
-        .row
-          = f.submit 'Update profile'
+          = f.submit 'Save'
 
       %h3 Events
       .table.list

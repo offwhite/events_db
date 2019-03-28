@@ -10,10 +10,10 @@
         Add event
       .panel-body
         .message
-          - if event.on_tour?
-            You're adding an event to the
+          - if event.venue.present?
+            You're adding an event to
             %em
-              = event.tour.title
+              = event.venue.title
           - else
             You're adding a new event. It's easy, just fill in this form.
         - if event.errors.any?
@@ -25,9 +25,11 @@
           = f.input :description, label: false, placeholder: 'Event description'
         .row
           = f.association :event_type, label_method: :title, label: 'What type of event is it?', prompt: 'Select a type of event'
-        .row
-          = f.input :lookup_query, as: :string, label: 'Where was/is this event? eg: The Rickshaw theatre', required: true, placeholder: 'Search for a venue', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'venue_lookup' }
-          .venue_lookup_list
+        - if event.venue.nil?
+          .row
+            = f.input :lookup_query, as: :string, label: "What's the venue?", |
+            required: true, placeholder: 'Search for a venue', input_html: {value: event.venue.title, autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'venue_lookup' }
+            .venue_lookup_list
         .row
           = f.input :date, label: 'When is it?'
         .row

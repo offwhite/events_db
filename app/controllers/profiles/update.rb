@@ -1,5 +1,5 @@
 module Profiles
-  class Update < ::EditControllerAction
+  class Update < ::ControllerAction
     def call
       return perms_error unless can_edit?
       return render_form unless profile.update! safe_params
@@ -31,7 +31,7 @@ module Profiles
     def safe_params
       @safe_params ||= params.require('profile').permit(
         :name, :biography, :user_id, :phone, :url, :verified, :vallidated,
-        :date_of_birth, :pro_expires
+        :date_of_birth, :pro_expires, :hometown_id
       )
     end
 
