@@ -7,6 +7,7 @@ function initialize() {
 
   var light = '#b7fb36'
   var grey = '#212a37'
+  var secondary = '#ae74e8'
 
   var mapOptions = {
       zoom: 15,
@@ -26,7 +27,7 @@ function initialize() {
             {
               featureType: 'poi',
               elementType: 'labels.text.fill',
-              stylers: [{color: '#b7fb36'}]
+              stylers: [{color: secondary}]
             },
             {
               featureType: 'poi.park',
@@ -36,7 +37,7 @@ function initialize() {
             {
               featureType: 'poi.park',
               elementType: 'labels.text.fill',
-              stylers: [{color: '#6b9a76'}]
+              stylers: [{color: secondary}]
             },
             {
               featureType: 'road',
