@@ -36,6 +36,8 @@ gem 'pg_search'
 # user management
 gem 'devise'
 
+gem 'rest-client'
+
 gem 'sidekiq'
 
 gem 'sidekiq-cron'

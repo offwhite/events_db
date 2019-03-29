@@ -30,5 +30,9 @@ module Venues
     def past_events
       events.where('date < ?', Time.zone.today)
     end
+
+    def has_coords?
+      latitude.present? && longitude.present?
+    end
   end
 end

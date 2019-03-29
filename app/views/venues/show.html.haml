@@ -1,12 +1,20 @@
 - present @venue do |venue|
+  - content_for :external_scripts do
+    %script{src: raw("//maps.googleapis.com/maps/api/js?callback=initialize&key=#{ENV.fetch('GOOGLE_API_KEY')}")}
   - content_for :page_title do
     = venue.title
 
+  %script{:type=>"text/javascript"}
+    = "latitude = #{venue.latitude}"
+    = "longitude = #{venue.longitude}"
+    = raw "venue_title = \"#{venue.title}\""
   .panel
     .panel-head
       = venue.title
       - if current_user&.admin?
         = link_to 'Edit', edit_venue_path(venue), class: 'edit-link'
+    - if venue.has_coords?
+      #venue_map.wide-map
     .panel-body
       .address-panel
         .row

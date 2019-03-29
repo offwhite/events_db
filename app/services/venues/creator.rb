@@ -10,6 +10,7 @@ module Venues
       return if town.nil?
       return existing_venue if existing_venue.present?
       logger.call if venue.save
+      geocoder.call
       venue
     end
 
@@ -39,6 +40,10 @@ module Venues
 
     def venue_slug
       @venue_slug ||= town.name.parameterize + '-' + params[:name].parameterize
+    end
+
+    def geocoder
+      @geocoder ||= ::Venues::Geocoder.new(venue, user)
     end
 
     def logger

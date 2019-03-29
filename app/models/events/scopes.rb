@@ -4,7 +4,7 @@ module Events
       unscoped.where.not(deleted_at: [nil])
     end
 
-    def recent(limit = 5)
+    def recent(limit = 10)
       where('date < ?', Time.zone.tomorrow)
         .reorder('date desc')
         .limit(limit)
