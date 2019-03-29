@@ -1,6 +1,6 @@
 function initialize() {
 
-  if(document.getElementById("venue_map") == null){
+  if(document.getElementById("venue_map") == null || typeof(google) == 'undefined'){
     return
   }
   var map;
@@ -25,4 +25,14 @@ function initialize() {
   });
 };
 
-//$(document).on('turbolinks:load', ready);
+(function(d, script) {
+    key = 'AIzaSyDP0yT1jc0W95Vj5z5Hcg3RMe_uodjI5Tk';
+    script = d.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.onload = initialize;
+    script.src = '//maps.googleapis.com/maps/api/js?callback=initialize&key='+key;
+    d.getElementsByTagName('head')[0].appendChild(script);
+}(document));
+
+$(document).on('turbolinks:load', initialize);

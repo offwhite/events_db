@@ -1,6 +1,6 @@
 - present @venue do |venue|
   - content_for :external_scripts do
-    %script{src: raw("//maps.googleapis.com/maps/api/js?callback=initialize&key=#{ENV.fetch('GOOGLE_API_KEY')}")}
+    -#= javascript_include_tag "//maps.googleapis.com/maps/api/js?callback=initialize&key=#{ENV.fetch('GOOGLE_API_KEY')}"
   - content_for :page_title do
     = venue.title
 
