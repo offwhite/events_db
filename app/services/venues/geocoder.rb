@@ -45,7 +45,7 @@ module Venues
     end
 
     def url
-      "#{base_url}#{address}&key=#{api_key}"
+      "#{base_url}#{address}&key=#{api_key}".gsub(/[\u0080-\u00ff]/, '')
     end
 
     def address
