@@ -45,11 +45,12 @@ module Venues
     end
 
     def url
-      "#{base_url}#{address}&key=#{api_key}".gsub(/[\u0080-\u00ff]/, '')
+      "#{base_url}#{address}&key=#{api_key}"
     end
 
     def address
-      @address ||= "#{venue.name},#{venue.address},#{venue.town_title}"
+      @address ||=
+        "#{venue.name},#{venue.address},#{venue.town_title}".parameterize
     end
 
     def base_url
