@@ -5,7 +5,10 @@
         .td
           = log.created_at.strftime('%H:%M:%S %d-%m-%y')
         .td
-          = link_to log.user.email, logs_path(user_id: log.user_id)
+          - if log.user.present?
+            = link_to log.user.email, logs_path(user_id: log.user_id)
+          - else
+            'System'
         .td.text-right{title: 'record type'}
           = log.model_link
         .td{title: 'action'}
