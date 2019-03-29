@@ -37,7 +37,7 @@ module Venues
     end
 
     def success
-      @success ||= response&.code == 200 && json.present?
+      @success ||= response&.code == 200 && json.present? && result.present?
     end
 
     def response
