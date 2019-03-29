@@ -2,6 +2,11 @@
   - content_for :page_title do
     = event.full_title
 
+  %script{:type=>"text/javascript"}
+    = "latitude = #{event.latitude}"
+    = "longitude = #{event.longitude}"
+    = raw "venue_title = \"#{event.title}\""
+
   %h1
     = event.name
 
@@ -17,6 +22,8 @@
 
       - if current_user.admin? || event.owner?(current_user)
         = link_to 'Edit', edit_event_path(event), class: 'edit-link'
+    - if event.has_coords?
+      #venue_map.wide-map
     .panel-body
       .table.list
         .tr

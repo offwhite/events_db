@@ -13,7 +13,8 @@ class Event < ApplicationRecord
 
   validates :name, presence: true
 
-  delegate :town, to: :venue
+  delegate :town, :latitude, :longitude, :has_coords?, to: :venue
+
 
   attr_accessor :lookup_query
 
