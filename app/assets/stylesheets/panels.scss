@@ -83,8 +83,8 @@
     width: 40px;
     height: 20px;
     background: white;
-    color: $purple;
-    border: solid 1px $purple;
+    color: $second-color;
+    border: solid 1px $second-color;
     border-radius: $border-radius;
     margin: 0 5px;
     transition: all 0.35s ease-in-out;
@@ -99,8 +99,8 @@
     height: 20px;
     line-height: 20px;
     background: white;
-    color: $purple;
-    border: solid 1px $purple;
+    color: $second-color;
+    border: solid 1px $second-color;
     display: inline-block;
     padding: 0 8px;
     border-radius: $border-radius;
@@ -111,14 +111,14 @@
   }
 
   .current{
-    background-color: $purple;
+    background-color: $second-color;
     color: white;
-    border-color: $purple;
+    border-color: $second-color;
     font-weight: bold;
   }
 
   .gap{
-    color: $purple;
+    color: $second-color;
     font-size: 30px;
   }
 }

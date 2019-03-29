@@ -46,7 +46,7 @@ end
 #  merged_id      :integer
 #  deleted_at     :date
 #  username       :text
-#  hometown       :text
 #  pro_expires    :date
 #  equipment_tags :text
+#  hometown_id    :bigint(8)
 #

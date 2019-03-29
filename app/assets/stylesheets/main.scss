@@ -27,7 +27,7 @@ body{
   }
 
   a{
-    color: $purple;
+    color: $second-color;
     text-decoration: none;
 
     &:hover{
@@ -138,12 +138,17 @@ body{
 
       .footer{
         position: absolute;
+        z-index: 100;
         bottom: 0;
         left: 0;
         right: 0;
         background: $title-bar-bg;
         height: 35px;
         box-sizing: border-box;
+
+        a{
+          color: #ffffff;
+        }
 
         ul{
           list-style: none;
@@ -226,8 +231,8 @@ body{
   .claim-btn{
     @include left-100;
     border-radius: $border-radius;
-    border: solid 1px $purple;
-    background: $purple;
+    border: solid 1px $second-color;
+    background: $second-color;
     box-shadow: $light-shadow;
     margin-bottom: $double-gutter;
 
@@ -238,6 +243,7 @@ body{
     position: relative;
 
     &:before, &:after{
+      transition: $transition-slow;
       content: '';
       display: block;
       width: 40%;
@@ -264,7 +270,15 @@ body{
 
     &:hover{
       text-decoration: none;
-      background: $purple-dark;
+      //background: $second-color-dark;
+      &:before, &:after{
+        transform: rotate(-2deg);
+        box-shadow: 15px 10px 10px rgba(0,0,0,0.3);
+      }
+      &:after{
+        transform: rotate(2deg);
+        box-shadow: -15px 10px 10px rgba(0,0,0,0.3);
+      }
     }
   }
 

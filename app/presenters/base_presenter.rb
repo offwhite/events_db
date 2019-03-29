@@ -15,9 +15,7 @@ class BasePresenter < SimpleDelegator
   end
 
   def created_date
-    return model.created_at.strftime('%H:%M Today') if
-      model.created_at.today?
-    model.created_at.strftime('%H:%M %d-%m-%y')
+    format_date(model.created_at)
   end
 
   def formatted_date(attr)
@@ -30,9 +28,15 @@ class BasePresenter < SimpleDelegator
     model.send(attr).strftime('%d %B %Y')
   end
 
+  def format_date(date, format = '%H:%M %d-%m-%y')
+    return date.strftime('%H:%M Today') if
+      date.today?
+    date.strftime(format)
+  end
+
   def formatted_time_sml(attr)
     return '' if model.send(attr).nil?
-    model.send(attr).strftime('%H:%M %d-%m-%y')
+    format_date(model.send(attr))
   end
 
   def yes_or_no(flag)

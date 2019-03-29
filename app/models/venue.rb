@@ -33,4 +33,5 @@ end
 #  phone       :text
 #  verified    :boolean
 #  deleted_at  :date
+#  slug        :text
 #

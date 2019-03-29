@@ -18,7 +18,7 @@
           .td
             Actions Logged
           .td
-            Last sign in
+            Last seen
           .td
       - @users.each do |user|
         - present user do |user|
@@ -34,7 +34,7 @@
             .td
               = user.logs.count
             .td
-              = user.formatted_time_sml(:last_sign_in_at)
+              = user.formatted_time_sml(:last_seen)
             .td
               - unless user.banned?
                 = link_to 'Ban', user_path(user), method: 'DELETE', class: 'confirm danger', title: 'Ban this user'
