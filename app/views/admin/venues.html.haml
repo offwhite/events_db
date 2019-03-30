@@ -4,7 +4,8 @@
 .panel
   .panel-head
     = "Venues (#{@venues.total_count})"
-    = link_to 'New', new_venue_path, class: 'pull-right'
+    = link_to 'New', new_venue_path, class: 'edit-link'
+    = link_to 'Map', admin_venues_map_path, class: 'edit-link'
   .panel-body
     .table.list
       - @venues.each do |venue|
