@@ -73,4 +73,5 @@ end
 #  updated_at             :datetime         not null
 #  banned_at              :date
 #  unsubscribed_at        :date
+#  last_seen              :datetime
 #

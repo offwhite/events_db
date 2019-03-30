@@ -20,5 +20,5 @@ end
 #  latitude    :float
 #  longitude   :float
 #  deleted_at  :date
-#  state       :text
+#  state_id    :bigint(8)
 #

@@ -45,7 +45,7 @@ module Venues
     end
 
     def url
-      "#{base_url}#{address}&key=#{api_key}"
+      @url ||= "#{base_url}#{address}&key=#{api_key}"
     end
 
     def address

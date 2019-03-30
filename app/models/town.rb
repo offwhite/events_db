@@ -7,6 +7,7 @@ class Town < ApplicationRecord
 
   has_many :venues
   belongs_to :country
+  belongs_to :state
   has_many :logs, as: :record
 
   def title
@@ -27,5 +28,5 @@ end
 #  latitude    :float
 #  longitude   :float
 #  deleted_at  :date
-#  state       :text
+#  state_id    :bigint(8)
 #

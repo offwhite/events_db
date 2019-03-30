@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190329094625) do
+ActiveRecord::Schema.define(version: 20190330103715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,15 @@ ActiveRecord::Schema.define(version: 20190329094625) do
     t.index ["role_type_id"], name: "index_roles_on_role_type_id"
   end
 
+  create_table "states", force: :cascade do |t|
+    t.text "name"
+    t.text "iso"
+    t.bigint "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_states_on_country_id"
+  end
+
   create_table "tour_types", force: :cascade do |t|
     t.text "name"
     t.datetime "created_at", null: false
@@ -148,8 +157,9 @@ ActiveRecord::Schema.define(version: 20190329094625) do
     t.float "latitude"
     t.float "longitude"
     t.date "deleted_at"
-    t.text "state"
+    t.bigint "state_id"
     t.index ["country_id"], name: "index_towns_on_country_id"
+    t.index ["state_id"], name: "index_towns_on_state_id"
   end
 
   create_table "users", force: :cascade do |t|
