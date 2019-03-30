@@ -9,12 +9,13 @@ function initialize() {
   var grey = '#212a37'
   var secondary = '#ae74e8'
 
+  var bounds = new google.maps.LatLngBounds();
+
   var mapOptions = {
       zoom: 15,
       scrollwheel: false,
-      center: new google.maps.LatLng(latitude, longitude),
+      center: new google.maps.LatLng(map_locations[0][0], map_locations[0][1]),
       mapTypeId: 'roadmap',
-      disableDefaultUI: true,
       styles: [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -102,21 +103,34 @@ function initialize() {
               elementType: 'labels.icon',
               stylers: [{visibility: 'off'}]
             }
-          ]
+          ],
+      disableDefaultUI: true,
+      zoomControl: false
   };
 
   // Display a map on the page
   map = new google.maps.Map(document.getElementById("venue_map"), mapOptions);
 
-  var position = new google.maps.LatLng(latitude, longitude);
   var image = '/map-marker.png';
-  marker = new google.maps.Marker({
-      position: position,
-      draggable: false,
-      title: venue_title,
-      map: map,
-      icon: image
-  });
+
+  for (i = 0; i < map_locations.length; i++) {
+    var position = new google.maps.LatLng(map_locations[i][0], map_locations[i][1]);
+    marker = new google.maps.Marker({
+        position: position,
+        draggable: false,
+        title: map_locations[i][2],
+        map: map,
+        icon: image
+    });
+
+    // extend bounds to fit markers
+    bounds.extend(marker.position);
+  }
+
+  //now fit the map to the newly inclusive bounds
+  if(map_locations.length > 1){
+    map.fitBounds(bounds);
+  }
 };
 
 (function(d, script) {

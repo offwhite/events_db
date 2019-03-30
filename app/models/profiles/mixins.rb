@@ -35,6 +35,10 @@ module Profiles
       " (#{ordinal.ordinalize})"
     end
 
+    def roles_coords
+      roles.collect(&:coords)
+    end
+
     def role_type_names
       role_types.collect(&:name)
     end
@@ -69,6 +73,12 @@ module Profiles
       roles.joins(:event)
            .where('events.date < ?', Time.zone.today)
            .reorder('events.date desc')
+    end
+
+    def role_coords
+      roles.collect do |role|
+        role.coords.push role.venue_title
+      end.uniq
     end
   end
 end

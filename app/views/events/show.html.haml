@@ -3,9 +3,9 @@
     = event.full_title
 
   %script{:type=>"text/javascript"}
-    = "latitude = #{event.latitude}"
-    = "longitude = #{event.longitude}"
-    = raw "venue_title = \"#{event.title}\""
+    var map_locations = [
+    = raw "[#{event.latitude},#{event.longitude},\"#{event.title}\"]"
+    ]
 
   %h1
     = event.name

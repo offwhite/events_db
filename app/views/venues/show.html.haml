@@ -5,9 +5,9 @@
     = venue.title
 
   %script{:type=>"text/javascript"}
-    = "latitude = #{venue.latitude}"
-    = "longitude = #{venue.longitude}"
-    = raw "venue_title = \"#{venue.title}\""
+    var map_locations = [
+    = raw "[#{venue.latitude},#{venue.longitude},\"#{venue.title}\"]"
+    ]
   .panel
     .panel-head
       = venue.title

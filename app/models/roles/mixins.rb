@@ -18,6 +18,10 @@ module Roles
       event&.venue
     end
 
+    def coords
+      [venue&.latitude, venue.longitude]
+    end
+
     def parent
       return event if event_id.present?
       tour

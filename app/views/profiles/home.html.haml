@@ -2,6 +2,11 @@
   - content_for :page_title do
     = profile.title
 
+  %script{:type=>"text/javascript"}
+    var map_locations = [
+    - profile.role_coords.each do |role_coords|
+      = raw "[#{role_coords[0]},#{role_coords[1]},\"#{role_coords[2]}\"],"
+    ]
   %h1.content-title
     = profile.title
   .panel
@@ -11,6 +16,8 @@
         = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'edit-link'
       - if current_user&.admin? || profile.owner?(current_user)
         = link_to 'Edit', edit_profile_path(profile), class: 'edit-link'
+    - if profile.roles.any?
+      #venue_map.wide-map
     .panel-body
       .row
         = profile.overview
