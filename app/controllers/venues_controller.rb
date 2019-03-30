@@ -35,4 +35,10 @@ class VenuesController < ApplicationController
       self, params
     ).call
   end
+
+  def destroy
+    ::Venues::Destroy.new(
+      self, params
+    ).call
+  end
 end

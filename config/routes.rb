@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :roles,       only: %i[new create edit update destroy]
   resources :profiles,    only: %i[new create show edit update destroy]
   resources :tours,       only: %i[new create show edit update destroy]
-  resources :venues,      only: %i[new create edit update]
+  resources :venues,      only: %i[new create edit update destroy]
   resources :event_types, only: %i[new create edit update destroy]
   resources :role_types,  only: %i[new create edit update destroy]
   resources :role_departments, only: %i[new create destroy]

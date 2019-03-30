@@ -13,9 +13,11 @@
     = f.input :town_id, as: :hidden, input_html: { class: 'town_lookup_id' }
     = f.input :latitude, as: :hidden, input_html: { class: 'latitude' }
     = f.input :longitude, as: :hidden, input_html: { class: 'longitude' }
+
     .panel
       .panel-head
         Edit venue
+        = link_to 'Delete', venue_path(venue), method: 'DELETE', title: 'Delete', class: 'danger confirm edit-link'
       .panel-body
         .message
           You're editing a venue. It's easy, just fill in this form.
