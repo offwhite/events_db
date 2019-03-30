@@ -8,7 +8,7 @@ function initialize() {
   var grey = '#212a37';
   var secondary = '#ae74e8';
   var bounds = new google.maps.LatLngBounds();
-  var draggable = typeof(editable_map) != 'undefined'
+  var draggable = $('#venue_map').hasClass('editable');
 
   var mapOptions = {
       zoom: 15,

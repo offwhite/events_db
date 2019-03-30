@@ -7,7 +7,6 @@
     var map_locations = [
     = raw "[#{venue.latitude},#{venue.longitude},\"#{venue.title}\"]"
     ]
-    var editable_map = true
 
   = simple_form_for(@venue, url: venue_path, method: :put) do |f|
     = f.input :town_id, as: :hidden, input_html: { class: 'town_lookup_id' }
@@ -23,7 +22,7 @@
           You're editing a venue. It's easy, just fill in this form.
         .row
           = f.input :name, as: :string, label: 'Name', placeholder: 'Title'
-        #venue_map.wide-map
+        #venue_map.wide-map.editable
         .row
           = f.input :description, label: 'Description', placeholder: 'Description'
         .row
