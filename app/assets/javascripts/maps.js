@@ -109,15 +109,18 @@ function initialize() {
   };
 
   // Display a map on the page
-  map = new google.maps.Map(document.getElementById("venue_map"), mapOptions);
+  var map = new google.maps.Map(document.getElementById("venue_map"), mapOptions);
 
   var image = '/map-marker.png';
+
+  var infoWindow = new google.maps.InfoWindow(), marker, i;
 
   for (i = 0; i < map_locations.length; i++) {
     var position = new google.maps.LatLng(map_locations[i][0], map_locations[i][1]);
     marker = new google.maps.Marker({
         position: position,
         draggable: false,
+        animation: google.maps.Animation.DROP,
         title: map_locations[i][2],
         map: map,
         icon: image
@@ -125,6 +128,15 @@ function initialize() {
 
     // extend bounds to fit markers
     bounds.extend(marker.position);
+
+    if(map_locations[i].length > 3){
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infoWindow.setContent("<h3><a href='"+map_locations[i][3]+"'>"+map_locations[i][2]+"</a></h3>");
+          infoWindow.open(map, marker);
+        }
+      })(marker, i));
+    }
   }
 
   //now fit the map to the newly inclusive bounds

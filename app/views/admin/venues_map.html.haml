@@ -4,7 +4,7 @@
 %script{:type=>"text/javascript"}
   var map_locations = [
   - @venues.each do |venue|
-    = raw "[#{venue.latitude},#{venue.longitude},\"#{venue.name}\"],"
+    = raw "[#{venue.latitude},#{venue.longitude},\"#{venue.name}\",\"#{venues_show_path(venue, venue.slug)}\"],"
   ]
 
 .panel

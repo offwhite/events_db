@@ -9,7 +9,7 @@ module Venues
 
     def redirect
       redirect_to(
-        controller.venue_path(venue),
+        controller.venues_show_path(venue, venue.slug),
         notice: 'The venue has been updated'
       )
     end
