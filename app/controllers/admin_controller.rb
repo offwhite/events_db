@@ -23,6 +23,12 @@ class AdminController < ApplicationController
     ).call
   end
 
+  def venues_map
+    ::Admin::VenuesMap.new(
+      self, params
+    ).call
+  end
+
   def profiles
     ::Admin::Profiles.new(
       self, params

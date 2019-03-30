@@ -1,0 +1,13 @@
+- content_for :page_title do
+  Admin venues map
+
+%script{:type=>"text/javascript"}
+  var map_locations = [
+  - @venues.each do |venue|
+    = raw "[#{venue.latitude},#{venue.longitude},\"#{venue.name}\"],"
+  ]
+
+.panel
+  .panel-head
+    = "Venues (#{@venues.count})"
+  #venue_map.large-map

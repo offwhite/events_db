@@ -13,7 +13,7 @@ function initialize() {
 
   var mapOptions = {
       zoom: 15,
-      scrollwheel: false,
+      scrollwheel: true,
       center: new google.maps.LatLng(map_locations[0][0], map_locations[0][1]),
       mapTypeId: 'roadmap',
       styles: [

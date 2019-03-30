@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get '/admin',             to: 'admin#index',       as: :admin_index
   get '/admin/events',      to: 'admin#events',      as: :admin_events
   get '/admin/venues',      to: 'admin#venues',      as: :admin_venues
+  get '/admin/venues-map',  to: 'admin#venues_map',  as: :admin_venues_map
   get '/admin/profiles',    to: 'admin#profiles',    as: :admin_profiles
   get '/admin/tours',       to: 'admin#tours',       as: :admin_tours
   get '/admin/event_types', to: 'admin#event_types', as: :admin_event_types
