@@ -20,7 +20,7 @@
         .row
           = link_to venue.address, venue.address_url, target: '_blank'
         .row
-          = venue.town_title
+          = venue.town_full_title
         - if venue.capacity.present?
           .row
             = "#{venue.capacity} Capacity"

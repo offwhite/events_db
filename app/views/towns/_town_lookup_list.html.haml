@@ -5,5 +5,4 @@
       %span.lookup-name
         = town.title
       .pull-right
-        = '...'
-        = town.country.title
+        = [town.state&.iso, town.country.title].compact.join(', ')

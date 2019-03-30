@@ -1,51 +1,52 @@
 - present @event do |event|
-  - content_for :page_title do
-    = event.full_title
+  - present event.venue do |venue|
+    - content_for :page_title do
+      = event.full_title
 
-  %script{:type=>"text/javascript"}
-    var map_locations = [
-    = raw "[#{event.latitude},#{event.longitude},\"#{event.title}\"]"
-    ]
+    %script{:type=>"text/javascript"}
+      var map_locations = [
+      = raw "[#{event.latitude},#{event.longitude},\"#{event.title}\"]"
+      ]
 
-  %h1
-    = event.name
-
-  - if event.description.present?
-    .row
-      .message
-        = event.activate_links(simple_format(event.description))
-
-  .panel
-    .panel-head
+    %h1
       = event.name
-      = event.date_str
 
-      - if current_user&.admin? || event.owner?(current_user)
-        = link_to 'Edit', edit_event_path(event), class: 'edit-link'
-    - if event.has_coords?
-      #venue_map.wide-map
-    .panel-body
-      .table.list
-        .tr
-          .td
-            Venue
-          .td
-            = link_to event.venue_title, venues_show_path(event.venue, event.venue.slug)
-        .tr
-          .td
-            Date
-          .td
-            = event.date_str
-        .tr
-          .td
-            Town
-          .td
-            = event.town_title
-
-      - if event.roles.any?
-        .row
-          %h3 Crew
-          = render 'roles/role_list', roles: event.roles
-
+    - if event.description.present?
       .row
-        = link_to 'Add crew', new_role_path(event_id: event.id), class: 'button'
+        .message
+          = event.activate_links(simple_format(event.description))
+
+    .panel
+      .panel-head
+        = event.name
+        = event.date_str
+
+        - if current_user&.admin? || event.owner?(current_user)
+          = link_to 'Edit', edit_event_path(event), class: 'edit-link'
+      - if event.has_coords?
+        #venue_map.wide-map
+      .panel-body
+        .table.list
+          .tr
+            .td
+              Venue
+            .td
+              .div
+                = link_to venue.title, venues_show_path(venue, venue.slug)
+              .div
+                = link_to venue.address, venue.address_url, target: '_blank'
+              .div
+                = venue.town_full_title
+          .tr
+            .td
+              Date
+            .td
+              = event.date_str
+
+        - if event.roles.any?
+          .row
+            %h3 Crew
+            = render 'roles/role_list', roles: event.roles
+
+        .row
+          = link_to 'Add crew', new_role_path(event_id: event.id), class: 'button'

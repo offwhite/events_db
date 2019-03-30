@@ -20,7 +20,11 @@ module Venues
     end
 
     def town_title
-      town&.title
+      [town&.title, town.country&.iso].compact.join(', ')
+    end
+
+    def town_full_title
+      [town&.title, town.state&.name, town.country&.iso].compact.join(', ')
     end
 
     def future_events
