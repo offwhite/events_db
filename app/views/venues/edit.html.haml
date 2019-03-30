@@ -2,8 +2,17 @@
   - content_for :page_title do
     = "#{venue.full_title} - Edit"
 
+
+  %script{:type=>"text/javascript"}
+    var map_locations = [
+    = raw "[#{venue.latitude},#{venue.longitude},\"#{venue.title}\"]"
+    ]
+    var editable_map = true
+
   = simple_form_for(@venue, url: venue_path, method: :put) do |f|
     = f.input :town_id, as: :hidden, input_html: { class: 'town_lookup_id' }
+    = f.input :latitude, as: :hidden, input_html: { class: 'latitude' }
+    = f.input :longitude, as: :hidden, input_html: { class: 'longitude' }
     .panel
       .panel-head
         Edit venue
@@ -12,12 +21,13 @@
           You're editing a venue. It's easy, just fill in this form.
         .row
           = f.input :name, as: :string, label: 'Name', placeholder: 'Title'
+        #venue_map.wide-map
         .row
           = f.input :description, label: 'Description', placeholder: 'Description'
         .row
           = f.input :address, label: 'Address', placeholder: 'Address'
         .row
-          = f.input :lookup_query, as: :string, label: 'Town or City', required: true, placeholder: 'Search for a place', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'town_lookup' }
+          = f.input :lookup_query, as: :string, label: 'Town or City', required: true, placeholder: 'Search for a place', input_html: { value: venue.town_title, autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'town_lookup' }
           .town_lookup_list
         .row
           = f.input :capacity, label: 'Capacity', placeholder: 'Capacity'

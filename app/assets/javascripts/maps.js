@@ -4,12 +4,11 @@ function initialize() {
     return
   }
   var map;
-
-  var light = '#b7fb36'
-  var grey = '#212a37'
-  var secondary = '#ae74e8'
-
+  var light = '#b7fb36';
+  var grey = '#212a37';
+  var secondary = '#ae74e8';
   var bounds = new google.maps.LatLngBounds();
+  var draggable = typeof(editable_map) != 'undefined'
 
   var mapOptions = {
       zoom: 15,
@@ -119,8 +118,7 @@ function initialize() {
     var position = new google.maps.LatLng(map_locations[i][0], map_locations[i][1]);
     marker = new google.maps.Marker({
         position: position,
-        draggable: false,
-        animation: google.maps.Animation.DROP,
+        draggable: draggable,
         title: map_locations[i][2],
         map: map,
         icon: image
@@ -128,6 +126,10 @@ function initialize() {
 
     // extend bounds to fit markers
     bounds.extend(marker.position);
+
+    if(draggable){
+      marker.addListener('dragend', pinMoved);
+    }
 
     if(map_locations[i].length > 3){
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -144,6 +146,11 @@ function initialize() {
     map.fitBounds(bounds);
   }
 };
+
+function pinMoved(e){
+  $('.latitude').val(e.latLng.lat())
+  $('.longitude').val(e.latLng.lng())
+}
 
 (function(d, script) {
     key = 'AIzaSyDP0yT1jc0W95Vj5z5Hcg3RMe_uodjI5Tk';

@@ -21,7 +21,8 @@ module Venues
 
     def safe_params
       @safe_params ||= params.require('venue').permit(
-        :name, :description, :address, :town_id, :capacity, :url, :phone
+        :name, :description, :address, :town_id, :capacity, :url, :phone,
+        :latitude, :longitude
       )
     end
 
