@@ -66,8 +66,18 @@ function initialize() {
             },
             {
               featureType: 'road.highway',
+              elementType: 'labels.icon',
+              stylers: [{ "visibility": "off" }]
+            },
+            {
+              featureType: 'road.highway',
               elementType: 'labels.text.fill',
               stylers: [{color: light}]
+            },
+            {
+              featureType: 'road.arterial',
+              elementType: 'labels.icon',
+              stylers: [{ "visibility": "off" }]
             },
             {
               featureType: 'transit',
