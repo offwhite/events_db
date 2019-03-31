@@ -4,7 +4,7 @@ function initialize() {
     return
   }
   var map;
-  var light = '#b7fb36';
+  var light = '#9ed831'; //#b7fb36';
   var grey = '#212a37';
   var secondary = '#ae74e8';
   var bounds = new google.maps.LatLngBounds();
@@ -110,10 +110,11 @@ function initialize() {
   // Display a map on the page
   var map = new google.maps.Map(document.getElementById("venue_map"), mapOptions);
 
-  var image = '/map-marker.png';
+  var image = '/map-images/marker-sml.png';
 
   var infoWindow = new google.maps.InfoWindow(), marker, i;
 
+  var markers = []
   for (i = 0; i < map_locations.length; i++) {
     var position = new google.maps.LatLng(map_locations[i][0], map_locations[i][1]);
     marker = new google.maps.Marker({
@@ -123,6 +124,8 @@ function initialize() {
         map: map,
         icon: image
     });
+
+    markers.push(marker);
 
     // extend bounds to fit markers
     bounds.extend(marker.position);
@@ -141,9 +144,15 @@ function initialize() {
     }
   }
 
-  //now fit the map to the newly inclusive bounds
+  // handle multi pin maps
   if(map_locations.length > 1){
+
+    // now fit the map to the newly inclusive bounds
     map.fitBounds(bounds);
+
+    var markerCluster = new MarkerClusterer(map, markers,
+      { imagePath: '/map-images/m'}
+    );
   }
 };
 
