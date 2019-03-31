@@ -161,8 +161,10 @@ function initialize() {
     map.fitBounds(bounds);
 
     var markerCluster = new MarkerClusterer(map, markers,
-      { imagePath: '/map-images/m'}
+      { imagePath: '/map-images/m' }
     );
+
+    markerCluster.setMinClusterSize(3)
   }
 };
 
