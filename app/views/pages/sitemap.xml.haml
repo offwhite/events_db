@@ -1,0 +1,29 @@
+!!! XML
+%urlset{xmlns:'http://www.sitemaps.org/schemas/sitemap/0.9'}
+  %url
+    %loc
+      = @host
+  %url
+    %loc
+      = "#{@host}#{pages_terms_path}"
+  %url
+    %loc
+      = "#{@host}#{pages_privacy_path}"
+  %url
+    %loc
+      = "#{@host}#{events_path}"
+
+  - @profiles.each do |profile|
+    %url
+      %loc
+        = "#{@host}#{profile_home_path(profile.username)}"
+
+  - @events.each do |event|
+    %url
+      %loc
+        = "#{@host}#{event_path(event)}"
+
+  - @venues.each do |venue|
+    %url
+      %loc
+        = "#{@host}#{venues_show_path(venue, venue.slug)}"

@@ -43,6 +43,7 @@ Rails.application.routes.draw do
 
   get '/terms',   to: 'pages#terms',   as: :pages_terms
   get '/privacy', to: 'pages#privacy', as: :pages_privacy
+  get '/sitemap.xml', to: 'pages#sitemap', as: :pages_sitemap
 
   get '/:username', to: 'profiles#home', as: :profile_home
   get '/venues/:id/:slug', to: 'venues#show', as: :venues_show

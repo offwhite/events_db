@@ -5,4 +5,10 @@ class PagesController < ApplicationController
       self, params
     ).call
   end
+
+  def sitemap
+    ::Pages::Sitemap.new(
+      self, params
+    ).call
+  end
 end
