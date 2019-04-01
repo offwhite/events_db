@@ -24,7 +24,7 @@
         .row
           = f.input :description, label: false, placeholder: 'Event description'
         .row
-          = f.association :event_type, label_method: :title, label: 'What type of event is it?', prompt: 'Select a type of event'
+          = f.input :event_type_id, collection: @departments, as: :grouped_select, group_method: :event_types, label_method: :title, label: 'What type of event is it?', prompt: 'Select a type of event'
         - if event.venue.nil?
           .row
             = f.input :lookup_query, as: :string, label: "What's the venue?", |

@@ -1,4 +1,4 @@
-module RoleDepartments
+module EventDepartments
   class Creator
     def initialize(params, user)
       @params = params
@@ -11,7 +11,7 @@ module RoleDepartments
     end
 
     def department
-      @department ||= RoleDepartment.find_or_create_by(params)
+      @department ||= EventDepartment.find_or_create_by(params)
     end
 
     private

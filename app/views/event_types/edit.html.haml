@@ -11,6 +11,10 @@
         .row
           = f.input :name, as: :string, label: 'Name', placeholder: 'Give it a name'
         .row
+          = f.input :description, label: 'Keywords'
+        .row
+          = f.association :event_department, label: 'Department'
+        .row
           = f.submit 'Save'
 
   .panel
@@ -24,3 +28,4 @@
           .pull-right
             = type.events.count
             events
+  = render 'logs/log_list', logs: event_type.logs

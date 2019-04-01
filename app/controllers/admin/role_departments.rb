@@ -1,5 +1,5 @@
 module Admin
-  class Departments < ::AdminControllerAction
+  class RoleDepartments < ::AdminControllerAction
     def call
       expose(departments, '@departments')
     end

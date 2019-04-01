@@ -1,4 +1,4 @@
-module RoleDepartments
+module EventDepartments
   class Destroy < ::AdminControllerAction
     def call
       message = department.delete ? 'department deleted' : 'Cannot delete that'
@@ -9,13 +9,13 @@ module RoleDepartments
 
     def redirect(message)
       redirect_to(
-        controller.admin_role_departments_path,
+        controller.admin_event_departments_path,
         notice: message
       )
     end
 
     def department
-      @department ||= RoleDepartment.find params[:id]
+      @department ||= EventDepartment.find params[:id]
     end
   end
 end

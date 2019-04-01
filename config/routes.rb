@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   resources :venues,      only: %i[new create edit update destroy]
   resources :event_types, only: %i[new create edit update destroy]
   resources :role_types,  only: %i[new create edit update destroy]
-  resources :role_departments, only: %i[new create destroy]
-  resources :users,            only: %i[edit update destroy]
-  resources :logs,             only: %i[index]
+  resources :role_departments,  only: %i[new create destroy]
+  resources :event_departments, only: %i[new create destroy]
+  resources :users,             only: %i[edit update destroy]
+  resources :logs,              only: %i[index]
 
   post '/search',           to: 'searches#global',   as: :search_global
   post '/role-type-lookup', to: 'role_types#lookup', as: :role_types_lookup
@@ -39,7 +40,10 @@ Rails.application.routes.draw do
   get '/admin/users',       to: 'admin#users',       as: :admin_users
   get '/admin/roles',       to: 'admin#roles',       as: :admin_roles
   get '/admin/role_types',  to: 'admin#role_types',  as: :admin_role_types
-  get '/admin/departments', to: 'admin#departments', as: :admin_departments
+  get '/admin/role_departments',  to: 'admin#role_departments',
+                                  as: :admin_role_departments
+  get '/admin/event_departments', to: 'admin#event_departments',
+                                  as: :admin_event_departments
 
   get '/terms',   to: 'pages#terms',   as: :pages_terms
   get '/privacy', to: 'pages#privacy', as: :pages_privacy

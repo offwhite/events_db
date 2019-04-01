@@ -1,0 +1,24 @@
+- content_for :page_title do
+  Admin Event departments
+
+.panel
+  .panel-head
+    Event departments
+    = link_to 'New', new_event_department_path, class: 'pull-right'
+  .panel-body
+    .table.list
+      - @departments.each do |department|
+        - present department do |department|
+          .tr
+            .td
+              = department.id
+            .td
+              = department.name
+            .td{class: department.event_types.count.zero? ? 'grey' : ''}
+              = department.event_types.count
+              event types
+            .td.text-right{title: 'Created'}
+              = department.created_date
+            .td.text-right
+              = link_to 'Delete', event_department_path(department), title: 'delete', method: 'DELETE', class: 'danger confirm'
+    = paginate @departments

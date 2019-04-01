@@ -1,8 +1,8 @@
 module EventTypes
   class Create < ::AdminControllerAction
     def call
-      return redirect if event_type.present?
-      error
+      event_type
+      redirect
     end
 
     private
@@ -16,7 +16,7 @@ module EventTypes
 
     def safe_params
       @safe_params ||= params.require('event_type').permit(
-        :name
+        :name, :description, :event_department_id
       )
     end
 

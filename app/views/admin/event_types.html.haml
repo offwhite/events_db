@@ -1,26 +1,24 @@
 - content_for :page_title do
-  Admin event types
+  Admin role types
 
-.panel
-  .panel-head
-    Event types
-    = link_to 'New', new_event_type_path, class: 'pull-right'
-  .panel-body
-    .table.list
-      - @event_types.each do |event_type|
-        - present event_type do |event_type|
-          .tr
-            .td
-              = event_type.id
-            .td
-              = link_to 'Edit', edit_event_type_path(event_type)
-            .td
-              = event_type.name
-            .td
-              = event_type.created_date
-            .td
-              = event_type.events.count
-              events
-            .td
-              = link_to 'Delete', event_type_path(event_type), title: 'delete', method: 'DELETE', class: 'danger confirm'
-    = paginate @event_types
+
+- @departments.each do |department|
+  .panel
+    .panel-head
+      = department.name
+      = link_to 'New', new_event_type_path(event_department_id: department.id), class: 'pull-right'
+    .panel-body
+      .table.list
+        - department.event_types.each do |event_type|
+          - present event_type do |event_type|
+            .tr
+              .td
+                = link_to 'Edit', edit_event_type_path(event_type)
+              .td
+                = event_type.name
+              .td{class: event_type.events.count.zero? ? 'grey' : ''}
+                = "#{event_type.events.count} #{'event'.pluralize(event_type.events.count)}"
+              .td.text-right
+                = event_type.created_date
+              .td.text-right
+                = link_to 'Delete', event_type_path(event_type), title: 'delete', method: 'DELETE', class: 'danger confirm'

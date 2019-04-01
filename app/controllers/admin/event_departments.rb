@@ -1,5 +1,5 @@
 module Admin
-  class EventTypes < ::AdminControllerAction
+  class EventDepartments < ::AdminControllerAction
     def call
       expose(departments, '@departments')
     end
@@ -7,7 +7,7 @@ module Admin
     private
 
     def departments
-      @departments ||= EventDepartment.order(:name)
+      @departments ||= EventDepartment.order(:name).page(params[:page])
     end
   end
 end

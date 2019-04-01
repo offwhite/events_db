@@ -3,6 +3,7 @@
     New event type
 
   = simple_form_for(@event_type, url: event_types_path, method: :post) do |f|
+    = f.input :event_department_id, as: :hidden
     .panel
       .panel-head
         Add event type
@@ -17,9 +18,9 @@
 
   .panel
     .panel-head
-      = "Existing Event Types (#{@existing_event_types.count})"
+      = "Existing Event Types (#{@department.event_types.count})"
     .panel-body
-      - @existing_event_types.each do |event_type|
+      - @department.event_types.each do |event_type|
         .row
           = event_type.title
           .pull-right

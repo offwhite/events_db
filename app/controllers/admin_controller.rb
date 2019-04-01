@@ -53,8 +53,14 @@ class AdminController < ApplicationController
     ).call
   end
 
-  def departments
-    ::Admin::Departments.new(
+  def role_departments
+    ::Admin::RoleDepartments.new(
+      self, params
+    ).call
+  end
+
+  def event_departments
+    ::Admin::EventDepartments.new(
       self, params
     ).call
   end

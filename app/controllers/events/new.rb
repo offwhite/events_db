@@ -4,6 +4,7 @@ module Events
       expose(event, '@event')
       expose(tour, '@tour')
       expose(venue, '@venue')
+      expose(departments, '@departments')
     end
 
     private
@@ -25,6 +26,10 @@ module Events
     def venue
       return if params[:venue_id].nil?
       @venue ||= Venue.find(params[:venue_id])
+    end
+
+    def departments
+      @departments ||= EventDepartment.all.order(:name)
     end
   end
 end

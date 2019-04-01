@@ -1,14 +1,14 @@
-- present @role_department do |role_department|
+- present @event_department do |event_department|
   - content_for :page_title do
-    New role department
+    New event department
 
-  = simple_form_for(role_department, url: role_departments_path, method: :post) do |f|
+  = simple_form_for(event_department, url: event_departments_path, method: :post) do |f|
     .panel
       .panel-head
-        New role department
+        New event department
       .panel-body
         .message
-          You're adding a new role department. Role types sit in a role department.
+          You're adding a new event department. event types sit in a event department.
           Like, lighting engineer is in lighting, or drumming is in lame.
         .row
           = f.input :name, as: :string, label: 'Name', placeholder: 'Give it a name'
@@ -19,11 +19,11 @@
 
   .panel
     .panel-head
-      = "Existing Departments (#{@existing_role_departments.count})"
+      = "Existing Departments (#{@existing_event_departments.count})"
     .panel-body
-      - @existing_role_departments.each do |department|
+      - @existing_event_departments.each do |department|
         .row
           = department.name
           .pull-right
-            = department.role_types.count
-            role types
+            = department.event_types.count
+            event types

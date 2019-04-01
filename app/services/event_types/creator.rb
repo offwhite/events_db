@@ -6,7 +6,7 @@ module EventTypes
     end
 
     def call
-      logger.call if event_type.present?
+      logger.call unless event_type.errors.any?
       event_type
     end
 
