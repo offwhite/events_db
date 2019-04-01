@@ -2,7 +2,7 @@ class RoleDepartment < ApplicationRecord
   extend RoleDepartments::Scopes
   include RoleDepartments::Mixins
   default_scope { where(deleted_at: [nil]) }
-  has_many :role_types
+  has_many :role_types, -> { order(:name) }
   has_many :logs, as: :record
 end
 

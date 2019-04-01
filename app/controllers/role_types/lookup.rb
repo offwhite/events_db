@@ -8,7 +8,7 @@ module RoleTypes
 
     def role_types
       @role_types ||=
-        RoleType.matches(params[:search])
+        RoleType.fuzzy_search(params[:search])
                 .limit(20)
     end
   end
