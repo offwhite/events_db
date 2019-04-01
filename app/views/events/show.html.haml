@@ -11,11 +11,6 @@
     %h1
       = event.name
 
-    - if event.description.present?
-      .row
-        .message
-          = event.activate_links(simple_format(event.description))
-
     .panel
       .panel-head
         = event.name
@@ -43,10 +38,17 @@
             .td
               = event.date_str
 
-        - if event.roles.any?
-          .row
-            %h3 Crew
-            = render 'roles/role_list', roles: event.roles
+    - if event.description.present?
+      .panel
+        .panel-body
+          = event.activate_links(simple_format(event.description))
 
-        .row
-          = link_to 'Add crew', new_role_path(event_id: event.id), class: 'button'
+    - if event.roles.any?
+      .panel
+        .panel-head
+          Crew
+        .panel-body
+          = render 'roles/role_list', roles: event.roles
+
+    .row
+      = link_to 'Add crew', new_role_path(event_id: event.id), class: 'button'

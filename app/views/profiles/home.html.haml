@@ -37,15 +37,17 @@
       %h3 Something missing?
       Get credit for your work
 
-  .panel
-    .panel-head
-      Work
-    .panel-body
-      .row
-        %h3 Future work
+  - if profile.future_roles.any?
+    .panel
+      .panel-head
+        Future work
+      .panel-body
         = render 'profile_roles_list', roles: profile.future_roles
-      .row
-        %h3 Past work
+  - if profile.past_roles.any?
+    .panel
+      .panel-head
+        Past work
+      .panel-body
         = render 'profile_roles_list', roles: profile.past_roles
 
 

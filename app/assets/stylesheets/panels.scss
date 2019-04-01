@@ -6,47 +6,24 @@
 
 .panel{
   @include left-100;
-  border-radius: $border-radius;
-  border: solid 1px $border-color;
+  border-radius: $border-radius-tight;
   background: $panel-bg;
   box-shadow: $light-shadow;
   margin-bottom: $double-gutter;
   position: relative;
-
-  &:before, &:after{
-    content: '';
-    display: block;
-    width: 40%;
-    height: 20px;
-    background: black;
-    position: absolute;
-    z-index: -1;
-    left: 3px;
-    bottom: 7px;
-    transform: rotate(-1deg);
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
-  }
-
-  &:after{
-    right: 3px;
-    left: auto;
-    transform: rotate(1deg);
-    box-shadow: -10px 10px 10px rgba(0,0,0,0.1);
-  }
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 
   .panel-head{
     border-bottom: solid 1px $border-color;
     box-sizing: border-box;
-    padding: $gutter;
+    padding: 30px 10px 20px 15px;
     font-weight: bold;
-
-    h1, h2, h3, h4{
-      margin: 0;
-    }
+    font-size: 1.17em;
 
     .edit-link{
       float: right;
       margin-left: $double-gutter;
+      font-size: 14px;
     }
   }
 

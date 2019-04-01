@@ -13,7 +13,7 @@ input[type='text'], input[type='email'], , input[type='number'], input[type='pas
   padding: 5px 10px;
   font-size: 16px;
   border-radius: $border-radius-tight;
-  border: solid 1px $border-color;
+  border: solid 1px $input-border;
   box-sizing: border-box;
   background: #fbfbfb;
   box-shadow: inset 0 0 5px rgba(0,0,0,0.1);

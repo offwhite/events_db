@@ -99,8 +99,8 @@ body{
   .message{
     @include left-100;
     padding: $gutter;
-    background: $table-odd-row;
-    border-radius: $border-radius;
+    background: white;
+    border-radius: $border-radius-tight;
     margin: $gutter 0;
     box-shadow: $light-shadow;
   }
@@ -112,7 +112,7 @@ body{
 
   .row{
     @include left-100;
-    padding-bottom: $gutter;
+    padding-bottom: $double-gutter;
 
     &:first-of-type {
       padding-top: $gutter;
@@ -205,11 +205,12 @@ body{
     }
 
     .tr{
-      &:nth-child(odd) {
-        background: $table-odd-row;
-      }
       .td{
         padding: 10px;
+        border-bottom: solid 1px $border-color;
+      }
+      &:last-of-type .td{
+        border: none;
       }
     }
   }
