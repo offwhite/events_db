@@ -62,10 +62,15 @@
   }
   input[type='text']{
     width: 100%;
+    border-right: none;
+    border-radius: $border-radius-tight 0 0 $border-radius-tight;
   }
   input[type='submit']{
     width: 100px;
     margin: 0;
+    border: solid 1px $input-border;
+    border-left: none;
+    border-radius: 0 $border-radius-tight $border-radius-tight 0;
   }
 }
 

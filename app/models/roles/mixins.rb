@@ -44,7 +44,7 @@ module Roles
     end
 
     def owner?(user)
-      profile.user_id == user&.id
+      profile.user_id.present? && (profile.user_id == user&.id)
     end
   end
 end

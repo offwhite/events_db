@@ -51,7 +51,7 @@ module Events
     end
 
     def owner?(user)
-      user&.id == user_id
+      user_id.present? && (user&.id == user_id)
     end
   end
 end

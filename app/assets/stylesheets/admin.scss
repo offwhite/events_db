@@ -54,6 +54,7 @@
 
 .admin-burger{
   transition: $transition-slow;
+  box-shadow: $light-shadow;
   display: block;
   content: '';
   width: 35px;

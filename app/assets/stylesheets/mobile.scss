@@ -46,9 +46,10 @@
     }
 
 
-    .content{
+    .content, .page-content{
       padding: $double-gutter $half-gutter;
       padding-bottom: 90px;
+      overflow: hidden;
 
       .claim-btn{
         &:before, &:after{
@@ -70,6 +71,9 @@
 
       .footer{
         height: 80px;
+        ul{
+          padding: 0;
+        }
       }
     }
 
@@ -86,6 +90,7 @@
           float: left;
           width: 100%;
           padding: 3px;
+          border: none;
         }
         .td.mobile-50{
           width: 50%;
@@ -97,10 +102,6 @@
       }
     }
 
-    .mobile-hidden{
-      display: none;
-    }
-
     .mobile-title{
       font-size: 1.1em;
     }
@@ -108,5 +109,9 @@
     .mobile-text-right{
       text-align: right;
     }
+  }
+
+  .desktop-only{
+    display: none !important;
   }
 }

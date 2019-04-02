@@ -230,8 +230,7 @@ body{
 
   .claim-btn{
     @include left-100;
-    border-radius: $border-radius;
-    border: solid 1px $second-color;
+    border-radius: $border-radius-tight;
     background: $second-color;
     box-shadow: $light-shadow;
     margin-bottom: $double-gutter;
