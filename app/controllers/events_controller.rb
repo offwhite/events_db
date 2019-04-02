@@ -47,4 +47,16 @@ class EventsController < ApplicationController
       self, params
     ).call
   end
+
+  def clone
+    ::Events::Clone.new(
+      self, params
+    ).call
+  end
+
+  def duplicate
+    ::Events::Duplicate.new(
+      self, params
+    ).call
+  end
 end

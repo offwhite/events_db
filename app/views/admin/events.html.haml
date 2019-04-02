@@ -13,7 +13,7 @@
             .td
               = link_to 'Edit', edit_event_path(event)
             .td
-              = link_to event.name, event_path(event)
+              = link_to event.name.truncate(30), event_path(event)
 
             .td
               = event.venue.name

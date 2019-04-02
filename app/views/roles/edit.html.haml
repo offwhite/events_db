@@ -7,7 +7,7 @@
           THIS ROLE HAS BEEN DELETED
       - elsif current_user&.admin? || role.owner?(current_user)
         .td.text-right
-          = link_to 'Delete', role_path(role), class: 'danger confirm', title: 'Delete this role', method: 'DELETE'
+          = link_to 'Delete', role_path(role), class: 'danger confirm edit-link', title: 'Delete this role', method: 'DELETE'
     .panel-body
 
       = simple_form_for(@role, url: role_path, method: :put) do |f|

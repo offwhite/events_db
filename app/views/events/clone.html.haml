@@ -1,0 +1,26 @@
+- present @event do |event|
+  - content_for :page_title do
+    = "#{event.full_title} - Edit"
+
+  = simple_form_for(@event, url: duplicate_event_path(@old_event), method: :post) do |f|
+    = f.input :venue_id, as: :hidden, input_html: { class: 'venue_lookup_id' }
+    .panel
+      .panel-head
+        Cloning
+        = event.name
+      .panel-body
+        .message
+          So this event happened more than once huh? Change the details below
+          to the new time and place.
+        .row
+          = event.description
+        .row
+          = f.input :lookup_query, as: :string, label: "What's the venue?", |
+          required: true, placeholder: 'Search for a venue', input_html: {  value: event&.venue&.title, autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'venue_lookup disable-auto-select' }
+          .venue_lookup_list
+        .row
+          = f.input :date, label: 'When is it?'
+        .row
+          = f.submit 'Clone Event'
+        .row
+          = link_to 'Cancel', event_path(@old_event)

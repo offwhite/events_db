@@ -20,7 +20,7 @@
           .alert
             = event.errors.full_messages.to_sentence
         .row
-          = f.input :name, as: :string, label: false, placeholder: 'Event title'
+          = f.input :name, as: :string, label: 'Event title', placeholder: 'Event title'
         .row
           = f.input :description, label: false, placeholder: 'Event description'
         .row

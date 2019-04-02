@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   post '/event-lookup',     to: 'events#lookup',     as: :events_lookup
   post '/town-lookup',      to: 'towns#lookup',      as: :towns_lookup
 
+  get '/events/:id/clone',  to: 'events#clone',      as: :clone_event
+  post '/events/:id/clone', to: 'events#duplicate',  as: :duplicate_event
+
   get   '/profiles/:id/add-job', to: 'profiles#add_role', as: :profiles_add_role
   post  '/profiles/:id/add-job', to: 'profiles#create_role',
                                  as: :profiles_create_role
