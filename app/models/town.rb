@@ -10,9 +10,6 @@ class Town < ApplicationRecord
   belongs_to :state
   has_many :logs, as: :record
 
-  def title
-    name.titleize
-  end
 end
 
 # == Schema Information

@@ -51,6 +51,10 @@ body{
     margin: $gutter 0;
   }
 
+  img{
+    max-width: 100%;
+  }
+
   .mini-row{
     float: left;
     width: 80%;

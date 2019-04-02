@@ -28,7 +28,7 @@
         - if event.venue.nil?
           .row
             = f.input :lookup_query, as: :string, label: "What's the venue?", |
-            required: true, placeholder: 'Search for a venue', input_html: {value: event.venue.title, autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'venue_lookup' }
+            required: true, placeholder: 'Search for a venue', input_html: {value: event&.venue&.title, autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'venue_lookup' }
             .venue_lookup_list
         .row
           = f.input :date, label: 'When is it?'

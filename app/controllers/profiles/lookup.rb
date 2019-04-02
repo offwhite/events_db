@@ -25,7 +25,7 @@ module Profiles
     end
 
     def only_unclaimed?
-      @only_unclaimed ||= params[:only_unclaimed] === 'true'
+      @only_unclaimed ||= params[:only_unclaimed] == 'true'
     end
   end
 end
