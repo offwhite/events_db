@@ -46,5 +46,13 @@ module Roles
     def owner?(user)
       profile.user_id.present? && (profile.user_id == user&.id)
     end
+
+    def event_owner?(user)
+      event.user_id.present? && (event.user_id == user&.id)
+    end
+
+    def can_edit?(user)
+      owner?(user) || event_owner?(user)
+    end
   end
 end

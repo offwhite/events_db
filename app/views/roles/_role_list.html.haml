@@ -7,6 +7,6 @@
         = role.role_type.title
       .td.text-right.desktop-only
         = role.role_type.role_department.name
-      - if current_user&.admin? || role.owner?(current_user)
+      - if current_user&.admin? || role.can_edit?(current_user)
         .td.text-right
           = link_to 'Delete', role_path(role), class: 'danger confirm', title: 'Delete this role', method: 'DELETE'

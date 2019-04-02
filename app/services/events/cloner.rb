@@ -23,7 +23,7 @@ module Events
     attr_reader :old_event, :params, :user
 
     def clone
-      return unless event.update params
+      return unless event.update params.merge(user_id: user&.id)
       roles.each do |role|
         role.update event_id: event.id
       end

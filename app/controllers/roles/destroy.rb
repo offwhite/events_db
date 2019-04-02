@@ -11,7 +11,7 @@ module Roles
 
     def redirect
       redirect_to(
-        controller.profile_home_path(username: role.profile.username),
+        controller.event_path(role.event),
         notice: 'The role has been deleted'
       )
     end
@@ -27,7 +27,7 @@ module Roles
     end
 
     def can_edit?
-      @can_edit ||= current_user.admin? || role.owner?(current_user)
+      @can_edit ||= current_user.admin? || role.can_edit?(current_user)
     end
 
     def logger
