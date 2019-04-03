@@ -64,6 +64,7 @@ group :development, :test do
 
   gem 'dotenv-rails', '~> 2.2.1'
 
+  # fucking hate factory girl, but it's the shitty standard.
   gem 'factory_girl_rails', '~> 4.8.0'
 
   gem 'faker', '~> 1.8.7'

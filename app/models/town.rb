@@ -9,7 +9,6 @@ class Town < ApplicationRecord
   belongs_to :country
   belongs_to :state
   has_many :logs, as: :record
-
 end
 
 # == Schema Information

@@ -1,10 +1,4 @@
 class EventDepartmentsController < ApplicationController
-  def edit
-    ::EventDepartments::Edit.new(
-      self, params
-    ).call
-  end
-
   def new
     ::EventDepartments::New.new(
       self, params

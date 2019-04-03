@@ -7,7 +7,7 @@ RSpec.describe RolesController, type: :controller do
     describe 'GET #new' do
       it 'returns http redirect' do
         get :new
-        expect(response).to have_http_status(302)
+        expect(response).to have_http_status(:redirect)
       end
     end
   end
@@ -24,14 +24,14 @@ RSpec.describe RolesController, type: :controller do
       describe 'GET #edit' do
         it 'returns http redirect' do
           get :edit, params: { id: role.id }
-          expect(response).to have_http_status(302)
+          expect(response).to have_http_status(:redirect)
         end
       end
 
       describe 'POST #update' do
         it 'returns http redirect' do
           post :update, params: { id: role.id, role: { name: 'testing' } }
-          expect(response).to have_http_status(302)
+          expect(response).to have_http_status(:redirect)
         end
       end
     end
@@ -49,7 +49,7 @@ RSpec.describe RolesController, type: :controller do
 
     context 'with regular perms but created the role' do
       let(:user) { create :user, permission_level: 1 }
-      let(:profile) { create :profile, user: user}
+      let(:profile) { create :profile, user: user }
       let!(:role) { create :role, profile: profile }
 
       describe 'GET #edit' do

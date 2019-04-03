@@ -14,7 +14,7 @@ RSpec.describe EventsController, type: :controller do
     describe 'GET #edit' do
       it 'returns http redirect' do
         get :edit, params: { id: event.id }
-        expect(response).to have_http_status(302)
+        expect(response).to have_http_status(:redirect)
       end
     end
   end
@@ -31,7 +31,7 @@ RSpec.describe EventsController, type: :controller do
       describe 'GET #edit' do
         it 'returns http redirect' do
           get :edit, params: { id: event.id }
-          expect(response).to have_http_status(302)
+          expect(response).to have_http_status(:redirect)
         end
       end
 
@@ -69,7 +69,7 @@ RSpec.describe EventsController, type: :controller do
         it 'returns http redirect, creates a log and update event' do
           log_count = Log.count
           post :update, params: { id: event.id, event: { name: 'testing' } }
-          expect(response).to have_http_status(302)
+          expect(response).to have_http_status(:redirect)
           expect(event.reload.name).to eq('testing')
           expect(Log.count).to eq(log_count + 1)
         end

@@ -2,12 +2,14 @@ class EventType < ApplicationRecord
   include EventTypes::Mixins
   default_scope { where(deleted_at: [nil]) }
 
-  belongs_to :event_department
+  belongs_to :event_department, optional: true
 
   has_many :events
   has_many :logs, as: :record
 
   validates :name, presence: true
+
+  alias department event_department
 
   def title
     name.titleize

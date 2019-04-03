@@ -26,6 +26,5 @@ module Towns
     def full_title
       [title, state&.name, country&.iso].compact.join(', ')
     end
-
   end
 end

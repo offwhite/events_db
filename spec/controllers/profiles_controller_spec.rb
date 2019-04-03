@@ -14,14 +14,14 @@ RSpec.describe ProfilesController, type: :controller do
     describe 'GET #show' do
       it 'returns http redirect to home' do
         get :show, params: { id: profile.id }
-        expect(response).to have_http_status(302)
+        expect(response).to have_http_status(:redirect)
       end
     end
 
     describe 'GET #edit' do
       it 'returns http redirect' do
         get :edit, params: { id: profile.id }
-        expect(response).to have_http_status(302)
+        expect(response).to have_http_status(:redirect)
       end
     end
 
@@ -52,7 +52,7 @@ RSpec.describe ProfilesController, type: :controller do
       describe 'GET #edit' do
         it 'returns http redirect to home' do
           get :edit, params: { id: profile.id }
-          expect(response).to have_http_status(302)
+          expect(response).to have_http_status(:redirect)
         end
       end
     end

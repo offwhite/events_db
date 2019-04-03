@@ -15,8 +15,9 @@ class Event < ApplicationRecord
 
   delegate :town, :latitude, :longitude, :has_coords?, to: :venue
 
-
   attr_accessor :lookup_query
+
+  alias type event_type
 
   pg_search_scope :fuzzy_matches,
                   against: %i[name description],
