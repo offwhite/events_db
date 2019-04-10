@@ -14,6 +14,7 @@ module Events
 
     def render_form
       expose(event, '@event')
+      expose(departments, '@departments')
       render 'new'
     end
 
@@ -25,6 +26,10 @@ module Events
 
     def event
       @event ||= ::Events::Creator.new(safe_params, current_user).call
+    end
+
+    def departments
+      @departments ||= EventDepartment.all.order(:name)
     end
   end
 end
