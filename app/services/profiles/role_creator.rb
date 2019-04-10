@@ -8,6 +8,7 @@ module Profiles
     end
 
     def call
+      return false if venue.nil?
       @call ||= role if valid_user? && event.save && role.save
     end
 
@@ -36,7 +37,25 @@ module Profiles
 
     def event_params
       @event_params ||= params[:event_attributes].merge(
-        user_id: user.id
+        user_id: user.id,
+        venue_id: venue.id
+      )
+    end
+
+    def venue
+      @venue ||=
+        Venue.find_by_id(params[:event_attributes][:venue_id]) ||
+        venue_creator.call
+    end
+
+    def venue_creator
+      @venue_creator ||= Venues::Creator.new(
+        {
+          name: params[:event_attributes][:venue_name],
+          address: params[:event_attributes][:venue_address],
+          town_id: params[:event_attributes][:town_id]
+        },
+        user
       )
     end
 

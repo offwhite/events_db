@@ -14,7 +14,7 @@ class Role < ApplicationRecord
 
   accepts_nested_attributes_for :event
 
-  attr_accessor :profile_name, :role_type_name, :venue_name
+  attr_accessor :profile_name, :role_type_name
 end
 
 # == Schema Information
