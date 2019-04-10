@@ -32,8 +32,7 @@
         Upcoming Events
       .panel-body
         = render 'events/event_list', events: venue.future_events, venue: venue
-    .row
-      = link_to 'Add event', new_event_path(venue_id: venue.id), class: 'button'
+
   - if venue.past_events.any?
     .panel
       .panel-head
