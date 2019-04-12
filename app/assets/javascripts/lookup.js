@@ -123,13 +123,15 @@ function set_selected_venue(){
   $('.venue_lookup').val(name)
 
   $('.venue_lookup_list').slideUp();
+  $(".venue_address input, .venue_address textarea").attr('required', false);
   $(".venue_address").slideUp();
   show_next_step();
   event_lookup();
 }
 
 function show_new_venue_form(){
-  $(".venue_address").slideDown();
+  $(".venue_address").attr('required', true).slideDown();
+  $(".venue_address input, .venue_address textarea").attr('required', true);
   $('.venue_lookup_list').slideUp();
 }
 
@@ -168,7 +170,8 @@ function set_selected_event(){
 // --- town ---
 
 function town_lookup(){
-  $('input.town_lookup_id').val('')
+  $('input.town_lookup_id').val('');
+  $('input[type=submit]').slideUp();
   var string = $(this).val();
   if(string.length < 3){return}
 
@@ -183,7 +186,8 @@ function town_lookup(){
 function set_selected_town(){
   var id = $(this).data('id')
   var name = $(this).find('.lookup-name').html()
-  $('input.town_lookup_id').val(id)
+  $('input.town_lookup_id').val(id);
+  $('input[type=submit]').slideDown();
   $('.town_lookup').val(name)
 
   $('.town_lookup_list').slideUp();

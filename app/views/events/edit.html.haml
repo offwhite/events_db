@@ -17,12 +17,15 @@
         .row
           = f.association :event_type, label_method: :title, label: 'What type of event is it?', prompt: 'Select a type of event'
         .row
-          = f.input :lookup_query, as: :string, label: "What's the venue?", |
+          = f.input :venue_name, as: :string, label: "What's the venue?", |
           required: true, placeholder: 'Search for a venue', input_html: {value: event&.venue&.title, autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'venue_lookup' }
           .venue_lookup_list
-          .venue_address.hidden
-            .message
-              Currently unsupported. Sorry.
+        .venue_address.hidden
+          .row
+            = f.input :venue_address, as: :text, label: 'Venue address', required: false, input_html: { class: 'venue_address' }
+          .row
+            = f.input :town_name, as: :string, label: 'Town or City', required: false, placeholder: 'Search for a place', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'town_lookup' }
+            .town_lookup_list
         .row
           = f.input :date, label: 'When is it?'
         .row

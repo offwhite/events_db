@@ -7,7 +7,6 @@ module Events
     end
 
     def call
-      return if venue.nil?
       return existing_event if existing_event.present?
       logger.call if event.present?
       event
@@ -25,7 +24,7 @@ module Events
       @full_params ||= params.merge(
         user_id: user.id,
         verified: verified?,
-        venue_id: venue.id
+        venue_id: venue&.id
       )
     end
 
@@ -43,7 +42,7 @@ module Events
         Event.find_by(
           name: params[:name],
           date: event_date,
-          venue_id: venue.id
+          venue_id: venue&.id
         )
     end
 

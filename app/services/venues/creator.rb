@@ -51,7 +51,7 @@ module Venues
     end
 
     def town
-      @town ||= Town.find params[:town_id]
+      @town ||= Town.find_by_id params[:town_id]
     end
   end
 end
