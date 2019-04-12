@@ -31,6 +31,8 @@ class BasePresenter < SimpleDelegator
   def format_date(date, format = '%H:%M %d-%m-%y')
     return date.strftime('%H:%M Today') if
       date.today?
+    return date.strftime('%H:%M Yesterday') if
+       date.to_date == Date.yesterday
     date.strftime(format)
   end
 
