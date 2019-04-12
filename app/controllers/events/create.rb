@@ -20,7 +20,8 @@ module Events
 
     def safe_params
       @safe_params ||= params.require('event').permit(
-        :name, :description, :event_type_id, :venue_id, :tour_id, :date
+        :name, :description, :event_type_id, :venue_id,
+        :venue_name, :venue_address, :town_id, :tour_id, :date
       )
     end
 

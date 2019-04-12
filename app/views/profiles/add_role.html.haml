@@ -19,7 +19,7 @@
             .row
               = ef.input :venue_address, as: :text, label: 'Venue address', required: false, input_html: { class: 'venue_address' }
             .row
-              = ef.input :town_name, as: :string, label: 'sTown or City', required: false, placeholder: 'Search for a place', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'town_lookup' }
+              = ef.input :town_name, as: :string, label: 'Town or City', required: false, placeholder: 'Search for a place', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'town_lookup' }
               .town_lookup_list
           .row.date_input
             = ef.input :date, as: :date, label: 'What date will this work happen or did it happen?', required: true,  input_html: { class: 'event_date' }

@@ -6,7 +6,6 @@ module Venues
     end
 
     def call
-      binding.pry
       return unless valid?
       return unless success
       update_venue
