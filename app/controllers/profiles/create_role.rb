@@ -25,8 +25,9 @@ module Profiles
       @safe_params ||= params.require('role').permit(
         :role_type_id,
         event_attributes: %i[
-          venue_id name event_type_id date(1i) date(2i) date(3i)
-          date(1i)
+          venue_id venue_name venue_address town_id
+          name event_type_id
+          date(1i) date(2i) date(3i)
         ]
       )
     end

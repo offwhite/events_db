@@ -5,6 +5,7 @@
   = simple_form_for(@event, url: events_path, method: :post) do |f|
     = f.input :tour_id, as: :hidden
     = f.input :venue_id, as: :hidden, input_html: { class: 'venue_lookup_id' }
+    = f.input :town_id, as: :hidden, input_html: { class: 'town_lookup_id' }
     .panel
       .panel-head
         Add event
@@ -27,9 +28,15 @@
           = f.input :event_type_id, collection: @departments, as: :grouped_select, group_method: :event_types, label_method: :title, label: 'What type of event is it?', prompt: 'Select a type of event'
         - if event.venue.nil?
           .row
-            = f.input :lookup_query, as: :string, label: "What's the venue?", |
+            = f.input :venue_name, as: :string, label: "What's the venue?", |
             required: true, placeholder: 'Search for a venue', input_html: {value: event&.venue&.title, autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'venue_lookup' }
             .venue_lookup_list
+          .venue_address.hidden
+            .row
+              = f.input :venue_address, as: :text, label: 'Venue address', required: false, input_html: { class: 'venue_address' }
+            .row
+              = f.input :town_name, as: :string, label: 'Town or City', required: false, placeholder: 'Search for a place', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'town_lookup' }
+              .town_lookup_list
         .row
           = f.input :date, label: 'When is it?', end_year: Date.today.year - 20, start_year: Date.today.year + 3, include_blank: false
         .row

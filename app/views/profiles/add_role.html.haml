@@ -6,14 +6,21 @@
     = f.simple_fields_for :event do |ef|
       = f.input :event_id, as: :hidden,input_html: { class: 'event_lookup_id' }
       = ef.input :venue_id, as: :hidden, input_html: { class: 'venue_lookup_id' }
+      = ef.input :town_id, as: :hidden, input_html: { class: 'town_lookup_id' }
       = f.input :role_type_id, as: :hidden, input_html: { class: 'role_type_lookup_id' }
       .panel.add-role-to-profile
         .panel-head
           Part 1
         .panel-body
           .row
-            = f.input :venue_name, as: :string, label: 'Where did you work/are going to work? eg: The Rickshaw theatre', required: true, placeholder: 'Search for a venue', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'venue_lookup' }
+            = ef.input :venue_name, as: :string, label: 'Where did you work/are going to work? eg: The Rickshaw theatre', required: true, placeholder: 'Search for a venue', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'venue_lookup' }
             .venue_lookup_list.lookup_list
+          .venue_address.hidden
+            .row
+              = ef.input :venue_address, as: :text, label: 'Venue address', required: false, input_html: { class: 'venue_address' }
+            .row
+              = ef.input :town_name, as: :string, label: 'Town or City', required: false, placeholder: 'Search for a place', input_html: { autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', class: 'town_lookup' }
+              .town_lookup_list
           .row.date_input
             = ef.input :date, as: :date, label: 'What date will this work happen or did it happen?', required: true,  input_html: { class: 'event_date' }
 

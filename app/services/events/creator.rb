@@ -7,6 +7,7 @@ module Events
     end
 
     def call
+      return if venue.nil?
       return existing_event if existing_event.present?
       logger.call if event.present?
       event
@@ -23,7 +24,8 @@ module Events
     def full_params
       @full_params ||= params.merge(
         user_id: user.id,
-        verified: verified?
+        verified: verified?,
+        venue_id: venue.id
       )
     end
 
@@ -41,8 +43,25 @@ module Events
         Event.find_by(
           name: params[:name],
           date: event_date,
-          venue_id: params[:venue_id]
+          venue_id: venue.id
         )
+    end
+
+    def venue
+      @venue ||=
+        Venue.find_by_id(params[:venue_id]) ||
+        venue_creator.call
+    end
+
+    def venue_creator
+      @venue_creator ||= Venues::Creator.new(
+        {
+          name:    params[:venue_name],
+          address: params[:venue_address],
+          town_id: params[:town_id]
+        },
+        user
+      )
     end
 
     def logger

@@ -14,7 +14,7 @@ var ready = function(){
   $('body').on('click', '.event_lookup', event_lookup);
   $('.date_input').on('change', event_lookup);
 
-  $('.event_name, .event_type_id').on('change', show_next_step);
+  $('.event_name, .event_type_id, .venue_address').on('change', show_next_step);
 
   $('.submit-row, .event_panel, .role_type_panel').hide();
   $('.content input[type=text]:not(.disable-auto-select), .content input[type=date], .content textarea').first().focus();
@@ -99,7 +99,7 @@ function set_selected_role_type(){
 function venue_lookup(){
   $('input.venue_lookup_id').val('')
   show_next_step();
-  var string = $(this).val();
+  var string = $(this).val().replace('the ', '');
   if(string.length < 3){return}
 
   $.ajax({
@@ -113,12 +113,24 @@ function venue_lookup(){
 function set_selected_venue(){
   var id = $(this).data('id')
   var name = $(this).find('.lookup-name').html()
+
+  if(id == 'new'){
+    show_new_venue_form();
+    return
+  }
+
   $('input.venue_lookup_id').val(id)
   $('.venue_lookup').val(name)
 
   $('.venue_lookup_list').slideUp();
+  $(".venue_address").slideUp();
   show_next_step();
   event_lookup();
+}
+
+function show_new_venue_form(){
+  $(".venue_address").slideDown();
+  $('.venue_lookup_list').slideUp();
 }
 
 // --- Event ---
@@ -175,14 +187,28 @@ function set_selected_town(){
   $('.town_lookup').val(name)
 
   $('.town_lookup_list').slideUp();
+  show_next_step();
 }
 
 // --- SAVE BTN ---
 
+function venue_set(){
+  if($('input.venue_lookup_id').val() !== ''){
+    return true;
+  }
+  if(
+    $('textarea.venue_address').val().length > 5 &&
+    $('input.town_lookup_id').val() !== ''
+  ){
+    return true
+  }
+  return false
+}
+
 function show_next_step(){
   if($('.add-role-to-profile').length > 0){
-    // is the venue set?
-    if($('input.venue_lookup_id').val() !== ''){
+
+    if(venue_set()){
       $('.event_panel').slideDown();
     }else{
       $('.event_panel').slideUp();

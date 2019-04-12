@@ -1,10 +1,13 @@
 %ul
-  %h4 Please select one
-  - venues.each do |venue|
-    - present venue do |venue|
-      %li{'data-id' => venue.id}
-        %span.lookup-name
-          = venue.name
-        .pull-right
-          = '...'
-          = venue.town.full_title
+  %li.new-venue{'data-id' => 'new'}
+    New venue
+  - if venues.any?
+    %h4 Please select one
+    - venues.each do |venue|
+      - present venue do |venue|
+        %li{'data-id' => venue.id}
+          %span.lookup-name
+            = venue.name
+          .pull-right
+            = '...'
+            = venue.town.full_title

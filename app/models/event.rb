@@ -15,7 +15,7 @@ class Event < ApplicationRecord
 
   delegate :town, :latitude, :longitude, :has_coords?, to: :venue
 
-  attr_accessor :lookup_query
+  attr_accessor :lookup_query, :venue_name, :venue_address, :town_name, :town_id
 
   alias type event_type
 
