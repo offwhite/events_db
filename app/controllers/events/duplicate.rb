@@ -17,8 +17,8 @@ module Events
 
     def error
       redirect_to(
-        controller.event_path(old_event),
-        notice: event.errors.full_messages.to_sentence
+        controller.event_path(id: params[:id]),
+        alert: cloner.event.errors.full_messages.to_sentence
       )
     end
 
