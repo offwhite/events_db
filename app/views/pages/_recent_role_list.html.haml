@@ -1,0 +1,9 @@
+.table.list
+  - roles.each do |role|
+    .tr
+      .td.mobile-title
+        = link_to role.profile.title, profile_home_path(username: role.profile.username)
+      .td
+        = role.role_type.title
+      .td.text-right.desktop-only
+        = link_to role.event.title, event_path(role.event)

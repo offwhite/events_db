@@ -8,8 +8,11 @@ module Profiles
     end
 
     def call
-      return false if venue.nil?
-      @call ||= role if valid_user? && event.save && role.save
+      if valid_user? && venue.present? && event.save && role.save
+        logger.call
+        return role
+      end
+      false
     end
 
     def errors
@@ -69,7 +72,11 @@ module Profiles
     end
 
     def valid_user?
-      user.admin? || user.id == profile.user_id
+      @valid_user ||= user.admin? || user.id == profile.user_id
+    end
+
+    def logger
+      @logger ||= ::Utilities::Logger.new(role, 'created', user)
     end
   end
 end

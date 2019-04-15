@@ -80,5 +80,9 @@ module Profiles
         role.coords.push role.venue_title
       end.uniq
     end
+
+    def most_recently_added_role
+      roles.reorder('created_at desc').limit(1).first
+    end
   end
 end

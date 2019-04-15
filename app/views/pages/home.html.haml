@@ -72,3 +72,12 @@
           Recent events
         .panel-body
           = render 'events/event_list', events: @recent_events
+
+    .pane
+      %h2.text-center
+        Who's been active?
+      .panel
+        .panel-head
+          Recently added work
+        .panel-body
+          = render 'recent_role_list', roles: @recent_roles

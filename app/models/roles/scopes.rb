@@ -9,5 +9,11 @@ module Roles
         .includes(role_type: :role_department)
         .order('role_departments.name, role_types.name')
     end
+
+    def recent(limit = 15)
+      where('created_at < ?', Time.zone.tomorrow)
+        .reorder('created_at desc')
+        .limit(limit)
+    end
   end
 end

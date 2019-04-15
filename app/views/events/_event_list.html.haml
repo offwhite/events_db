@@ -3,7 +3,7 @@
     - present event do |event|
       .tr
         .td.mobile-title
-          = link_to event.name, event_path(event)
+          = link_to event.title, event_path(event)
         -# don't show venue info if we're on a venue page
         - unless defined? venue
           .td
