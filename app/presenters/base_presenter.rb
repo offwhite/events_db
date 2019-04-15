@@ -56,10 +56,6 @@ class BasePresenter < SimpleDelegator
     ).html_safe
   end
 
-  def url_string(url)
-    url.delete('http://').delete('https://')
-  end
-
   private
 
   def clean(string)
