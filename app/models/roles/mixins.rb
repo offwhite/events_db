@@ -43,6 +43,14 @@ module Roles
       town&.title
     end
 
+    def town_and_country_title
+      "#{town_title}, #{country_title}"
+    end
+
+    def country_title
+      town&.country&.title
+    end
+
     def owner?(user)
       profile.user_id.present? && (profile.user_id == user&.id)
     end

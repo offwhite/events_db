@@ -13,9 +13,18 @@ module Profiles
 
     def regular_summary
       "#{model.name} is a #{role_summary} #{hometown_summary} who has worked \
-      on #{model.events.count} #{'event'.pluralize(model.events.count)} \
-      in #{model.town_titles} \
+      on at least #{model.events.count} \
+      #{'event'.pluralize(model.events.count)} \
+      in #{locale_summary} \
       "
+    end
+
+    def locale_summary
+      if model.country_titles.length == 1
+        "#{model.town_titles}, #{model.country_titles.first}"
+      else
+        model.town_and_country_titles
+      end
     end
 
     def hometown_summary

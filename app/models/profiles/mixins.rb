@@ -52,7 +52,15 @@ module Profiles
     end
 
     def town_titles_sml
-      roles.collect(&:town_title).uniq[0..3].to_sentence
+      roles.collect(&:full_town_title).uniq[0..3].to_sentence
+    end
+
+    def town_and_country_titles
+      roles.collect(&:town_and_country_title).uniq.to_sentence
+    end
+
+    def country_titles
+      @country_titles ||= roles.collect(&:country_title).uniq
     end
 
     def events
