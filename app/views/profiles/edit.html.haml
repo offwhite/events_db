@@ -28,6 +28,7 @@
           = f.input :date_of_birth, label: 'Date of birth', end_year: Date.today.year - 90, start_year: Date.today.year - 18, include_blank: true
 
         - if current_user.admin?
+          %h3 Admin
           .row
             = f.input :name, as: :string, label: 'Name', placeholder: 'Title'
           .row

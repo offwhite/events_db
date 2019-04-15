@@ -26,6 +26,9 @@
         .row
           %h4 Biography
           = profile.biography
+      - if profile.url.present?
+        .row
+          = link_to profile.url_string(profile.url), profile.url, target: '_blank'
 
   - if profile.unowned? && current_user&.profile.nil?
     = link_to profiles_claim_path(id: profile.id), { class: 'claim-btn' } do
