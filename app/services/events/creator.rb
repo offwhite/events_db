@@ -64,7 +64,7 @@ module Events
     end
 
     def logger
-      @logger ||= ::Utilities::Logger.new(event, 'event created', user)
+      @logger ||= ::Utilities::Logger.new(event, 'created', user)
     end
   end
 end

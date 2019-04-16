@@ -19,7 +19,7 @@ module RoleTypes
     attr_reader :params, :user
 
     def logger
-      @logger ||= ::Utilities::Logger.new(role_type, 'role type created', user)
+      @logger ||= ::Utilities::Logger.new(role_type, 'created', user)
     end
   end
 end

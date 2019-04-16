@@ -62,7 +62,7 @@ module Venues
     end
 
     def logger
-      @logger ||= ::Utilities::Logger.new(venue, 'venue geocoded', user)
+      @logger ||= ::Utilities::Logger.new(venue, 'geocoded', user)
     end
   end
 end

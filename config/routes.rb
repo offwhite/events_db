@@ -54,5 +54,6 @@ Rails.application.routes.draw do
 
   get '/:username', to: 'profiles#home', as: :profile_home
   get '/venues/:id/:slug', to: 'venues#show', as: :venues_show
+  get '/events/:id/:slug', to: 'events#show', as: :events_home
 end
 # rubocop:enable Metrics/BlockLength

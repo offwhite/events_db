@@ -16,14 +16,14 @@ module Events
 
     def redirect
       redirect_to(
-        controller.event_path(event),
+        controller.events_home_path(id: event, slug: event.slug),
         notice: 'The event has been updated'
       )
     end
 
     def error
       redirect_to(
-        controller.event_path(event),
+        controller.events_home_path(id: event, slug: event.slug),
         notice: 'Something went wrong.'
       )
     end

@@ -21,7 +21,7 @@
   - @events.each do |event|
     %url
       %loc
-        = "#{@host}#{event_path(event)}"
+        = "#{@host}#{events_home_path(id: event, slug: event.slug)}"
 
   - @venues.each do |venue|
     %url

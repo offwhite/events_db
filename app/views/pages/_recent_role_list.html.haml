@@ -6,4 +6,4 @@
       .td
         = role.role_type.title
       .td.text-right.desktop-only
-        = link_to role.event.title, event_path(role.event)
+        = link_to role.event.title, events_home_path(id: role.event, slug: role.event.slug)

@@ -11,7 +11,7 @@ module Roles
 
     def redirect
       redirect_to(
-        controller.event_path(role.event),
+        controller.events_home_path(id: role.event, slug: role.event.slug),
         notice: 'The role has been deleted'
       )
     end

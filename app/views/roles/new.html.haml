@@ -31,4 +31,4 @@
         .row.submit-row
           = f.submit 'Add Crew'
         .row
-          = link_to 'Cancel', role.event_role? ? event_path(role.event) : tour_path(role.tour)
+          = link_to 'Cancel', events_home_path(id: role.event, slug: role.event.slug)

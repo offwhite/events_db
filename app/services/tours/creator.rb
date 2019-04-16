@@ -36,7 +36,7 @@ module Tours
     end
 
     def logger
-      @logger ||= ::Utilities::Logger.new(tour, 'tour created', user)
+      @logger ||= ::Utilities::Logger.new(tour, 'created', user)
     end
   end
 end

@@ -47,7 +47,7 @@ module Venues
     end
 
     def logger
-      @logger ||= ::Utilities::Logger.new(venue, 'venue created', user)
+      @logger ||= ::Utilities::Logger.new(venue, 'created', user)
     end
 
     def town

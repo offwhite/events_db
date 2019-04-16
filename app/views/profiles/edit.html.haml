@@ -48,7 +48,7 @@
             .td
               - if role.event_role?
                 - present role.event do |event|
-                  = link_to event.full_title, event_path(event)
+                  = link_to event.full_title, events_home_path(id: event, slug: event.slug)
               - if role.tour_role?
                 - present role.tour do |tour|
                   = link_to tour.name, tour_path(tour)

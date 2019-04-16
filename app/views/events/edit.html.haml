@@ -31,5 +31,5 @@
         .row
           = f.submit 'Update Event'
         .row
-          = link_to 'Cancel', event_path(event)
+          = link_to 'Cancel', events_home_path(id: event, slug: event.slug)
   = render 'logs/log_list', logs: event.logs

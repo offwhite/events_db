@@ -48,7 +48,7 @@ module Profiles
     end
 
     def logger
-      @logger ||= ::Utilities::Logger.new(profile, 'profile created', user)
+      @logger ||= ::Utilities::Logger.new(profile, 'created', user)
     end
   end
 end

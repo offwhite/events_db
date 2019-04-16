@@ -10,7 +10,7 @@ module Events
 
     def success
       redirect_to(
-        controller.event_path(cloner.event),
+        controller.events_home_path(id: cloner.event, slug: cloner.event.slug),
         notice: 'Event cloned'
       )
     end

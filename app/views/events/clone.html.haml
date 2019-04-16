@@ -23,4 +23,4 @@
         .row
           = f.submit 'Clone Event'
         .row
-          = link_to 'Cancel', event_path(@old_event)
+          = link_to 'Cancel', events_home_path(id: @old_event, slug: @old_event.slug)

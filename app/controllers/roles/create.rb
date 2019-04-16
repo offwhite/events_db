@@ -8,8 +8,9 @@ module Roles
     private
 
     def redirect
-      return redirect_to(controller.event_path(role.event)) if role.event_role?
-      redirect_to(controller.tour_path(id: role.tour.id))
+      redirect_to(
+        controller.events_home_path(id: role.event, slug: role.event.slug)
+      )
     end
 
     def error

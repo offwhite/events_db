@@ -8,8 +8,8 @@ module Events
     private
 
     def redirect
-      return redirect_to(controller.tour_path(event.tour)) if event.on_tour?
-      redirect_to(controller.event_path(event))
+      # return redirect_to(controller.tour_path(event.tour)) if event.on_tour?
+      redirect_to(controller.events_home_path(id: event, slug: event.slug))
     end
 
     def render_form

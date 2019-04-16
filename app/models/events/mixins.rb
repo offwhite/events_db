@@ -53,5 +53,9 @@ module Events
     def owner?(user)
       user_id.present? && (user&.id == user_id)
     end
+
+    def slug
+      "#{name}-#{venue.name}-#{venue.town_title}".parameterize
+    end
   end
 end

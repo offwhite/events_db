@@ -3,7 +3,7 @@
     .tr
       - if role.event_role?
         .td
-          = link_to role.event.name, event_path(role.event)
+          = link_to role.event.name, events_home_path(id: role.event, slug: role.event.slug)
         .td
           = link_to role.venue.name, venues_show_path(role.venue, role.venue.slug)
         .td

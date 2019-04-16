@@ -19,7 +19,7 @@
               = role.event_role? ? 'E' : 'T'
             .td
               - if role.event_role?
-                = link_to role.event.name, event_path(role.event)
+                = link_to role.event.name, events_home_path(id: role.event, slug: role.event.slug)
               - else
                 = link_to role.tour.name, tour_path(role.tour)
             .td
