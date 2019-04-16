@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   get '/admin/event_departments', to: 'admin#event_departments',
                                   as: :admin_event_departments
 
+  get '/about',   to: 'pages#about',   as: :pages_about
   get '/terms',   to: 'pages#terms',   as: :pages_terms
   get '/privacy', to: 'pages#privacy', as: :pages_privacy
   get '/sitemap.xml', to: 'pages#sitemap', as: :pages_sitemap
