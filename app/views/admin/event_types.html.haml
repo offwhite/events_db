@@ -15,7 +15,7 @@
               .td
                 = link_to 'Edit', edit_event_type_path(event_type)
               .td
-                = event_type.name
+                = link_to event_type.title, admin_events_path(type_id: event_type)
               .td{class: event_type.events.count.zero? ? 'grey' : ''}
                 = "#{event_type.events.count} #{'event'.pluralize(event_type.events.count)}"
               .td.text-right

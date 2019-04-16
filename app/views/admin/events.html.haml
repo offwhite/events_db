@@ -3,7 +3,10 @@
 
 .panel
   .panel-head
-    Events
+    - if @type.present?
+      = "#{@type.title} Events"
+    - else
+      Events
     = link_to 'New', new_event_path, class: 'pull-right'
   .panel-body
     .table.list
