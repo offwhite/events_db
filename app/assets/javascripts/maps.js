@@ -12,7 +12,6 @@ function initialize() {
 
   var mapOptions = {
       zoom: 15,
-      scrollwheel: false,
       center: new google.maps.LatLng(map_locations[0][0], map_locations[0][1]),
       mapTypeId: 'roadmap',
       styles: [
@@ -114,7 +113,7 @@ function initialize() {
             }
           ],
       disableDefaultUI: true,
-      zoomControl: (map_locations.length > 1)
+      gestureHandling: 'cooperative'
   };
 
   // Display a map on the page
