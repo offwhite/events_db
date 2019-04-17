@@ -79,11 +79,15 @@
 
     .table{
       display: block;
+      .thead{
+        display: none;
+      }
       .tr{
         display: block;
         float: left;
         width: 100%;
         padding: $gutter 0;
+        border-bottom: solid 1px $border-color;
         .td{
           display: block;
           box-sizing: border-box;
@@ -104,6 +108,7 @@
 
     .mobile-title{
       font-size: 1.1em;
+      text-align: center;
     }
 
     .mobile-text-right{
@@ -113,5 +118,9 @@
 
   .desktop-only{
     display: none !important;
+  }
+
+  .mobile-only{
+    display: block;
   }
 }

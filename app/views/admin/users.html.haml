@@ -9,33 +9,26 @@
       .thead
         .tr
           .td
-          .td
             Email
-          .td
-            Created
-          .td
-            Status
-          .td
-            Actions Logged
-          .td
+          .td.text-center
             Last seen
+          .td
+            logs
+          .td
           .td
       - @users.each do |user|
         - present user do |user|
           .tr{valign: 'top'}
-            .td
-              = link_to 'Edit', edit_user_path(user)
-            .td{class: user.banned? ? 'danger' : ''}
+            .td.mobile-title{class: user.banned? ? 'danger' : ''}
               = user.email
-            .td
-              = user.created_date
-            .td
-              = user.banned_at.nil? ? 'Active' : "Banned: #{user.banned_at}"
-            .td
-              = user.logs.count
-            .td
+            .td.text-center
               = user.formatted_time_sml(:last_seen)
-            .td
+            .td.mobile-30
+              = user.logs.count
+              ev
+            .td.mobile-30.text-center
+              = link_to 'Edit', edit_user_path(user)
+            .td.mobile-30.text-right
               - unless user.banned?
                 = link_to 'Ban', user_path(user), method: 'DELETE', class: 'confirm danger', title: 'Ban this user'
     = paginate @users
