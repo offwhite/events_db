@@ -1,4 +1,4 @@
-# CrewDb
+# CrewdB
 
 CrewDB is a database intended to provide information on the backend staff working for live events (concerts, theatre, comedy, festivals and tours) - lighting and sound engineers, production managers, roadies, tour managers, promoters - anyone who make these moments happen.
 
