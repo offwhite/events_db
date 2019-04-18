@@ -5,5 +5,5 @@
         = link_to role.profile.title, profile_home_path(username: role.profile.username)
       .td
         = role.role_type.title
-      .td.text-right.desktop-only
+      .td.text-right
         = link_to role.event.title, events_home_path(id: role.event, slug: role.event.slug)

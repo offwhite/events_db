@@ -47,7 +47,7 @@
 
 
     .content, .page-content{
-      padding: $double-gutter $half-gutter;
+      padding: $double-gutter 0;
       padding-bottom: 90px;
       overflow: hidden;
 
@@ -61,7 +61,7 @@
         border: none;
 
         .panel-body{
-          padding: $half-gutter;
+          padding: $gutter;
         }
 
         &:before, &:after{
@@ -86,8 +86,10 @@
         display: block;
         float: left;
         width: 100%;
-        padding: $gutter 0;
-        border-bottom: solid 1px $border-color;
+        padding: $gutter;
+        box-sizing: border-box;
+        box-shadow: $panel-shadow;
+        margin-bottom: $double-gutter;
         .td{
           display: block;
           box-sizing: border-box;

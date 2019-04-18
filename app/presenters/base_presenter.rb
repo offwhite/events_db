@@ -28,12 +28,12 @@ class BasePresenter < SimpleDelegator
     model.send(attr).strftime('%d %B %Y')
   end
 
-  def format_date(date, format = '%H:%M %d-%m-%y')
+  def format_date(date)
     return date.strftime('%H:%M Today') if
       date.today?
     return date.strftime('%H:%M Yesterday') if
        date.to_date == Date.yesterday
-    date.strftime(format)
+    "#{date.strftime('%H:%M')} - #{h.time_ago_in_words(date)} ago"
   end
 
   def formatted_time_sml(attr)
