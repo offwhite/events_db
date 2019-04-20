@@ -28,7 +28,7 @@ module Venues
     end
 
     def future_events
-      events.where('date > ?', Time.zone.today).reorder(date: :asc)
+      events.where('date >= ?', Time.zone.today).reorder(date: :asc)
     end
 
     def past_events
