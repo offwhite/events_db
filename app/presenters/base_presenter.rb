@@ -37,7 +37,7 @@ class BasePresenter < SimpleDelegator
   end
 
   def formatted_time_sml(attr)
-    return '' if model.send(attr).nil?
+    return 'none' if model.send(attr).nil?
     format_date(model.send(attr))
   end
 

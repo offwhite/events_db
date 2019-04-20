@@ -10,6 +10,8 @@
         .tr
           .td
             Email
+          .td
+            Profile
           .td.text-center
             Last seen
           .td
@@ -21,7 +23,12 @@
           .tr{valign: 'top'}
             .td.mobile-title{class: user.banned? ? 'danger' : ''}
               = user.email
-            .td.text-center
+            .td.mobile-50
+              - if user.profile.nil?
+                none
+              - else
+                = link_to user.profile.title, profile_home_path(username: user.profile.username)
+            .td.mobile-50.mobile-text-right
               = user.formatted_time_sml(:last_seen)
             .td.mobile-30
               = user.logs.count
