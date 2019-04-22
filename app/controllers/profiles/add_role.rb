@@ -4,6 +4,7 @@ module Profiles
       return error unless valid_request?
       expose(profile, '@profile')
       expose(role, '@role')
+      expose(departments, '@departments')
     end
 
     private
@@ -28,6 +29,10 @@ module Profiles
 
     def event
       @event ||= Event.new(date: Time.zone.today)
+    end
+
+    def departments
+      @departments ||= EventDepartment.all.order(:name)
     end
 
     def valid_request?

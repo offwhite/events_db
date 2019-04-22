@@ -36,7 +36,7 @@
               .row
                 = ef.input :name, required: false, as: :string, label: 'Name of the event. Eg. Metallica',  input_html: { autocomplete: 'on', autocapitalize: 'on', autocorrect: 'on', class: 'event_name' }
               .row
-                = ef.input :event_type_id, required: false, collection: EventType.order(:name), prompt: 'Please select the type of event',  input_html: { class: 'event_type_id' }
+                = ef.input :event_type_id, collection: @departments, as: :grouped_select, group_method: :event_types, label_method: :title, label: 'What type of event is it?', prompt: 'Select a type of event'
 
       .panel.role_type_panel
         .panel-head

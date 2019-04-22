@@ -218,6 +218,28 @@ body{
         border-bottom: solid 1px $border-color;
         background: $spring-bg;
       }
+      .sorted-by{
+        &:after{
+          content: '';
+          display: inline-block;
+          margin-left: 5px;
+          width: 10px;
+          height: 10px;
+          border-radius: 0 0 50% 50%;
+          background-color: $second-color;
+        }
+      }
+      .sorted-by.desc{
+        &:after{
+          content: '';
+          display: inline-block;
+          margin-left: 5px;
+          width: 10px;
+          height: 10px;
+          border-radius: 50% 50% 0 0;
+          background-color: $second-color;
+        }
+      }
     }
 
     .tr{

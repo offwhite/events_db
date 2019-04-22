@@ -9,13 +9,13 @@
       .thead
         .tr
           .td
-            Email
+            = render 'sort_link', title: 'Email', key: 'email'
           .td
-            Profile
-          .td.text-center
-            Last seen
+            = render 'sort_link', title: 'Profile', key: 'profiles.name'
           .td
-            logs
+            = render 'sort_link', title: 'Last seen', key: 'last_seen'
+          .td
+            Logs
           .td
           .td
       - @users.each do |user|

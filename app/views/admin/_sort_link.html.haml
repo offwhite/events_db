@@ -1,0 +1,8 @@
+- if @sort_by == key
+  - dir = @sort_direction == 'desc' ? 'asc' : 'desc'
+  - klass = 'sorted-by'
+- else
+  - dir = 'asc'
+  - klass = ''
+
+= link_to title, "?sort-by=#{key}&sort-direction=#{dir}", class: "#{klass} #{dir}"

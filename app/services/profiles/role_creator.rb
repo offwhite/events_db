@@ -35,7 +35,7 @@ module Profiles
     end
 
     def event
-      @event ||= existing_event || new_event
+      @event ||= existing_event || event_creator.call
     end
 
     def event_params
@@ -62,8 +62,8 @@ module Profiles
       )
     end
 
-    def new_event
-      @new_event ||= Event.new(event_params)
+    def event_creator
+      @event_creator ||= Events::Creator.new(event_params, user)
     end
 
     def existing_event
