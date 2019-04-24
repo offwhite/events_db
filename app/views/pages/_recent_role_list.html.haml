@@ -3,7 +3,7 @@
     .tr
       .td.mobile-title
         = link_to role.profile.title, profile_home_path(username: role.profile.username)
-        = "(#{pluralize(role.profile.roles.count, 'job')})"
+        -# "(#{pluralize(role.profile.roles.count, 'job')})"
       .td.mobile-text-center
         = role.role_type.title
       .td.text-right.mobile-text-center
