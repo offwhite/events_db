@@ -14,7 +14,7 @@ module Pages
     def recent_roles_by_profile
       Role.group(:profile_id).count.collect do |id, _count|
         Profile.find(id).most_recently_added_role
-      end
+      end.sort_by(&:created_at).reverse
     end
 
     def recent_roles
